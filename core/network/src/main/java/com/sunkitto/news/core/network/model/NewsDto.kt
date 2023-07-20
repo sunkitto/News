@@ -13,7 +13,7 @@ data class NewsDto(
 
 @Serializable
 data class ArticleDto(
-    val source: Source,
+    val source: SourceDto,
     val author: String?,
     val title: String,
     val description: String,
@@ -25,7 +25,7 @@ data class ArticleDto(
 )
 
 @Serializable
-data class Source(
+data class SourceDto(
     val id: String?,
     val name: String,
 )
