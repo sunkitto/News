@@ -3,11 +3,11 @@ android-gradle-plugin = "8.0.2"
 androidx-appcompat = "1.6.1"
 androidx-constraintlayout = "2.1.4"
 androidx-core = "1.10.1"
-androidx-fragment-ktx = "1.4.0"
+androidx-fragment-ktx = "1.6.0"
 androidx-lifecycle-viewmodel = "2.6.1"
 androidx-test-espresso = "3.5.1"
 androidx-test-ext-junit = "1.1.5"
-dagger = "2.44.2"
+dagger = "2.47"
 glide = "4.15.1"
 junit4 = "4.13.2"
 junit5 = "5.9.3"
@@ -34,7 +34,7 @@ androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version
 dagger = { group = "com.google.dagger", name = "dagger-android", version.ref = "dagger" }
 dagger-processor = { group = "com.google.dagger", name = "dagger-android-processor", version.ref = "dagger" }
 dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "dagger" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 junit5-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit5" }
 junit5-params = { group = "org.junit.jupiter", name = "junit-jupiter-params", version.ref = "junit5" }
@@ -49,6 +49,7 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = 
 retrofit-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofit-kotlinx-serialization" }
 room = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }

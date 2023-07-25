@@ -1,0 +1,51 @@
+plugins {
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin
+    alias libs.plugins.junit5
+    alias libs.plugins.kapt
+}
+
+android {
+    namespace 'com.sunkitto.news.core.database'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+
+    // Room
+    implementation libs.room
+    implementation libs.room.ktx
+    kapt libs.room.compiler
+
+    // Coroutines
+    implementation libs.kotlinx.coroutines.android
+
+    // KotlinX
+    implementation libs.kotlinx.datetime
+
+    // Tests
+    testImplementation libs.junit5.api
+    testRuntimeOnly libs.junit5.engine
+    testImplementation libs.kotlinx.coroutines.test
+}
