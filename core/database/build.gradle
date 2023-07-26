@@ -45,8 +45,9 @@ dependencies {
     implementation libs.kotlinx.datetime
 
     // Tests
+    androidTestImplementation libs.androidx.test.runner
+    androidTestImplementation libs.kotlinx.coroutines.test
     androidTestImplementation libs.junit5.api
     androidTestImplementation libs.androidx.test.core
     testRuntimeOnly libs.junit5.engine
-    testImplementation libs.kotlinx.coroutines.test
 }
