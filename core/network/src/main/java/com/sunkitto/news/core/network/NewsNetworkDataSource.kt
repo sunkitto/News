@@ -5,6 +5,8 @@ import com.sunkitto.news.core.network.model.NewsDto
 import com.sunkitto.news.core.network.retrofit.NewsService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 
 private const val BASE_URL = "https://newsapi.org"
@@ -26,10 +28,25 @@ interface NewsNetworkDataSource {
 
 class NewsNetworkDataSourceImpl : NewsNetworkDataSource {
 
+    private val json = Json {
+        ignoreUnknownKeys = true
+    }
+
+    private val okHttpCallFactory = OkHttpClient.Builder()
+        .addInterceptor(
+            HttpLoggingInterceptor().apply {
+                if(BuildConfig.DEBUG) {
+                    setLevel(HttpLoggingInterceptor.Level.BODY)
+                }
+            }
+        )
+        .build()
+
     private val newsService = Retrofit.Builder()
         .baseUrl(BASE_URL)
+        .callFactory(okHttpCallFactory)
         .addConverterFactory(
-            Json.asConverterFactory(MEDIA_TYPE.toMediaType())
+            json.asConverterFactory(MEDIA_TYPE.toMediaType())
         )
         .build()
         .create(NewsService::class.java)
