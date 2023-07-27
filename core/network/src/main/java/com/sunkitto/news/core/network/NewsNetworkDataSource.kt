@@ -14,15 +14,17 @@ private const val MEDIA_TYPE = "application/json"
 
 interface NewsNetworkDataSource {
 
-    suspend fun getBreakingHeadlines(
+    suspend fun getTopHeadlines(
         country: String,
         category: String,
         page: Int,
+        pageSize: Int,
     ): NewsDto
 
     suspend fun getAllNews(
         query: String,
         page: Int,
+        pageSize: Int,
     ): NewsDto
 }
 
@@ -51,16 +53,18 @@ class NewsNetworkDataSourceImpl : NewsNetworkDataSource {
         .build()
         .create(NewsService::class.java)
 
-    override suspend fun getBreakingHeadlines(
+    override suspend fun getTopHeadlines(
         country: String,
         category: String,
-        page: Int
+        page: Int,
+        pageSize: Int,
     ) =
-        newsService.getBreakingHeadlines(country, category, page)
+        newsService.getTopHeadlines(country, category, page, pageSize)
 
     override suspend fun getAllNews(
         query: String,
-        page: Int
+        page: Int,
+        pageSize: Int,
     ) =
-        newsService.getAllNews(query, page)
+        newsService.getAllNews(query, page, pageSize)
 }
