@@ -7,13 +7,15 @@ import retrofit2.http.Query
 interface NewsService {
 
     @GET("/v2/top-headlines")
-    suspend fun getBreakingHeadlines(
+    suspend fun getTopHeadlines(
         @Query("country")
         country: String,
         @Query("category")
         category: String,
         @Query("page")
-        page: Int
+        page: Int,
+        @Query("pageSize")
+        pageSize: Int,
     ): NewsDto
 
     @GET("/v2/everything")
@@ -21,6 +23,8 @@ interface NewsService {
         @Query("q")
         query: String,
         @Query("page")
-        page: Int
+        page: Int,
+        @Query("pageSize")
+        pageSize: Int,
     ): NewsDto
 }
