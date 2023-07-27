@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 data class NewsDto(
     val status: String,
     val totalResults: Int,
-    val news: List<ArticleDto>,
+    val articles: List<ArticleDto>,
 )
 
 @Serializable
