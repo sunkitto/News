@@ -9,12 +9,12 @@ import kotlinx.datetime.Instant
 @Entity(tableName = "news")
 data class NewsEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int = 0,
     @Embedded("source_")
     val source: SourceEntity,
     val author: String?,
     val title: String,
-    val description: String,
+    val description: String?,
     val url: String,
     @ColumnInfo("url_to_image")
     val urlToImage: String?,
