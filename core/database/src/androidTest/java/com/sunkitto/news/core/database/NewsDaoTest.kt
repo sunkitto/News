@@ -36,14 +36,37 @@ class NewsDaoTest {
             testNews(epochMilliseconds = 3),
             testNews(epochMilliseconds = 2),
         )
-        newsDao.upsertNews(
-            fakeNewsEntities
-        )
+        newsDao.upsertNews(fakeNewsEntities)
         val orderedNews = newsDao.getNews().first()
         assertEquals(
             listOf(3L, 2L, 1L),
             orderedNews.map { news -> news.publishedAt.toEpochMilliseconds() }
         )
+    }
+
+    @Test
+    fun searchNews() = runTest {
+        val fakeNewsEntities = listOf(
+            testNews(
+                title = "Elon Musk changes Twitter logo from blue bird to 'X'",
+                description = null,
+            ),
+            testNews(
+                title = "Meta is set to launch Threads, an app similar to Twitter.",
+                description = "Elon Musk’s changes to Twitter have led to a demand " +
+                        "for an alternative - and Meta may be about to provide it.",
+            ),
+            testNews(
+                title = "Judge blocks Arkansas law allowing librarians " +
+                        "to be charged over ‘harmful’ books",
+                description = "Decision comes as lawmakers in conservative states are pushing...",
+            ),
+        )
+        val query = "%elon mUsK%"
+        newsDao.upsertNews(fakeNewsEntities)
+        val searchedNewsIds = newsDao.searchNews(query).first()
+        val searchedIds = searchedNewsIds.map { it.id }
+        assertEquals(listOf(1, 2), searchedIds)
     }
 
     @AfterEach
@@ -53,17 +76,18 @@ class NewsDaoTest {
 }
 
 private fun testNews(
-    epochMilliseconds: Long = 0
+    epochMilliseconds: Long = 0,
+    title: String = "",
+    description: String? = null,
 ): NewsEntity =
     NewsEntity(
-        id = 0,
         source = SourceEntity(
             id = "",
             name = "",
         ),
         author = "",
-        title = "",
-        description = "",
+        title = title,
+        description = description,
         url = "",
         urlToImage = "",
         publishedAt = Instant.fromEpochMilliseconds(epochMilliseconds),
