@@ -12,12 +12,12 @@ import com.sunkitto.news.core.database.model.RecentSearchEntity
 @Database(
     entities = [
         NewsEntity::class,
-        RecentSearchEntity::class
+        RecentSearchEntity::class,
     ],
-    version = 1
+    version = 1,
 )
 @TypeConverters(
-    InstantConverter::class
+    InstantConverter::class,
 )
 abstract class NewsDatabase : RoomDatabase() {
 

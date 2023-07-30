@@ -23,7 +23,7 @@ class RecentSearchDaoTest {
         val context = ApplicationProvider.getApplicationContext<Context>()
         database = Room.inMemoryDatabaseBuilder(
             context,
-            NewsDatabase::class.java
+            NewsDatabase::class.java,
         ).build()
         recentSearchDao = database.recentSearchDao()
     }
@@ -33,30 +33,30 @@ class RecentSearchDaoTest {
         val fakeRecentSearchEntities = listOf(
             RecentSearchEntity(
                 query = "Test query 2",
-                date = Instant.fromEpochMilliseconds(3)
+                date = Instant.fromEpochMilliseconds(3),
             ),
             RecentSearchEntity(
                 query = "Test query 3",
-                date = Instant.fromEpochMilliseconds(2)
+                date = Instant.fromEpochMilliseconds(2),
             ),
             RecentSearchEntity(
                 query = "Test query 4",
-                date = Instant.fromEpochMilliseconds(5)
+                date = Instant.fromEpochMilliseconds(5),
             ),
             RecentSearchEntity(
                 query = "Test query 5",
-                date = Instant.fromEpochMilliseconds(4)
+                date = Instant.fromEpochMilliseconds(4),
             ),
         )
-        for(recentSearch in fakeRecentSearchEntities) {
+        for (recentSearch in fakeRecentSearchEntities) {
             recentSearchDao.upsertRecentSearches(
-                recentSearch
+                recentSearch,
             )
         }
         val orderedRecentSearches = recentSearchDao.getRecentSearches(limit = 3).first()
         assertEquals(
             listOf(5L, 4L, 3L),
-            orderedRecentSearches.map { recentSearch -> recentSearch.date.toEpochMilliseconds() }
+            orderedRecentSearches.map { recentSearch -> recentSearch.date.toEpochMilliseconds() },
         )
     }
 

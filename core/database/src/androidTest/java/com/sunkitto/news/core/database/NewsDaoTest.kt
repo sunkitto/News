@@ -24,7 +24,7 @@ class NewsDaoTest {
         val context = ApplicationProvider.getApplicationContext<Context>()
         database = Room.inMemoryDatabaseBuilder(
             context,
-            NewsDatabase::class.java
+            NewsDatabase::class.java,
         ).build()
         newsDao = database.newsDao()
     }
@@ -40,7 +40,7 @@ class NewsDaoTest {
         val orderedNews = newsDao.getNews().first()
         assertEquals(
             listOf(3L, 2L, 1L),
-            orderedNews.map { news -> news.publishedAt.toEpochMilliseconds() }
+            orderedNews.map { news -> news.publishedAt.toEpochMilliseconds() },
         )
     }
 
@@ -54,11 +54,11 @@ class NewsDaoTest {
             testNews(
                 title = "Meta is set to launch Threads, an app similar to Twitter.",
                 description = "Elon Musk’s changes to Twitter have led to a demand " +
-                        "for an alternative - and Meta may be about to provide it.",
+                    "for an alternative - and Meta may be about to provide it.",
             ),
             testNews(
                 title = "Judge blocks Arkansas law allowing librarians " +
-                        "to be charged over ‘harmful’ books",
+                    "to be charged over ‘harmful’ books",
                 description = "Decision comes as lawmakers in conservative states are pushing...",
             ),
         )
