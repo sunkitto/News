@@ -16,7 +16,7 @@ data class ArticleDto(
     val source: SourceDto,
     val author: String?,
     val title: String,
-    val description: String,
+    val description: String?,
     val url: String,
     val urlToImage: String?,
     @Serializable(with = InstantSerializer::class)
