@@ -1,20 +1,20 @@
 plugins {
-    alias libs.plugins.android.library
-    alias libs.plugins.kotlin
-    alias libs.plugins.junit5
-    alias libs.plugins.kapt
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.junit5)
+    alias(libs.plugins.kapt)
 }
 
 android {
     namespace 'com.sunkitto.news.core.database'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 24
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-        targetSdk 33
+        targetSdk 34
     }
 
     buildTypes {
@@ -35,20 +35,20 @@ android {
 dependencies {
 
     // Room
-    implementation libs.room
-    implementation libs.room.ktx
-    kapt libs.room.compiler
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
 
     // Coroutines
-    implementation libs.kotlinx.coroutines.android
+    implementation(libs.kotlinx.coroutines.android)
 
     // KotlinX
-    implementation libs.kotlinx.datetime
+    implementation(libs.kotlinx.datetime)
 
     // Tests
-    androidTestImplementation libs.androidx.test.runner
-    androidTestImplementation libs.kotlinx.coroutines.test
-    androidTestImplementation libs.junit5.api
-    androidTestImplementation libs.androidx.test.core
-    testRuntimeOnly libs.junit5.engine
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.junit5.api)
+    androidTestImplementation(libs.androidx.test.core)
+    testRuntimeOnly(libs.junit5.engine)
 }

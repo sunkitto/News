@@ -1,17 +1,17 @@
 plugins {
-    alias libs.plugins.android.library
-    alias libs.plugins.kotlin
-    alias libs.plugins.kapt
-    alias libs.plugins.kotlin.serialization
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
     namespace 'com.sunkitto.news.core.network'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 24
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -38,18 +38,18 @@ android {
 dependencies {
 
     // Retrofit
-    implementation libs.retrofit
-    implementation libs.retrofit.kotlinx.serialization
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit.kotlinx.serialization)
 
     // OkHttp3
-    implementation libs.okhttp3.logging
+    implementation(libs.okhttp3.logging)
 
     // KotlinX
-    implementation libs.kotlinx.datetime
-    implementation libs.kotlinx.serialization.json
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlinx.serialization.json)
 
     // Dagger 2
-    implementation libs.dagger
-    kapt libs.dagger.processor
-    kapt libs.dagger.compiler
+    implementation(libs.dagger.android)
+    kapt(libs.dagger.processor)
+    kapt(libs.dagger.compiler)
 }
