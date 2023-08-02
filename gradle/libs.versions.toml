@@ -13,7 +13,7 @@ androidx_test_runner = "1.5.2"
 dagger = "2.47"
 glide = "4.15.1"
 junit5 = "5.10.0"
-junit5-plugin = "1.9.3.0"
+junit5_plugin = "1.9.3.0"
 kotlin = "1.8.20"
 kotlinx_coroutines = "1.7.3"
 kotlinx_datetime = "0.4.0"
@@ -24,7 +24,6 @@ okhttp3_logging = "4.11.0"
 retrofit = "2.9.0"
 retrofit_kotlinx_serialization = "1.0.0"
 room = "2.5.2"
-junit = "4.13.2"
 
 [libraries]
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx_appcompat" }
@@ -55,7 +54,6 @@ retrofit-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "r
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android_gradle_plugin" }
