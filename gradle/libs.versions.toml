@@ -24,6 +24,7 @@ okhttp3_logging = "4.11.0"
 retrofit = "2.9.0"
 retrofit_kotlinx_serialization = "1.0.0"
 room = "2.5.2"
+junit = "4.13.2"
 
 [libraries]
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx_appcompat" }
@@ -54,6 +55,7 @@ retrofit-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "r
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android_gradle_plugin" }
