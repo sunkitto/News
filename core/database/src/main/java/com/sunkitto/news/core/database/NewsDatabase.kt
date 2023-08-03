@@ -4,14 +4,14 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.sunkitto.news.core.database.converters.InstantConverter
-import com.sunkitto.news.core.database.dao.NewsDao
+import com.sunkitto.news.core.database.dao.ArticlesDao
 import com.sunkitto.news.core.database.dao.RecentSearchDao
-import com.sunkitto.news.core.database.model.NewsEntity
+import com.sunkitto.news.core.database.model.ArticleEntity
 import com.sunkitto.news.core.database.model.RecentSearchEntity
 
 @Database(
     entities = [
-        NewsEntity::class,
+        ArticleEntity::class,
         RecentSearchEntity::class,
     ],
     version = 1,
@@ -21,7 +21,7 @@ import com.sunkitto.news.core.database.model.RecentSearchEntity
 )
 abstract class NewsDatabase : RoomDatabase() {
 
-    abstract fun newsDao(): NewsDao
+    abstract fun articlesDao(): ArticlesDao
 
     abstract fun recentSearchDao(): RecentSearchDao
 }

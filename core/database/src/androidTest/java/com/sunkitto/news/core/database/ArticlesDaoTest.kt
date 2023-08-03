@@ -3,8 +3,8 @@ package com.sunkitto.news.core.database
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.sunkitto.news.core.database.dao.NewsDao
-import com.sunkitto.news.core.database.model.NewsEntity
+import com.sunkitto.news.core.database.dao.ArticlesDao
+import com.sunkitto.news.core.database.model.ArticleEntity
 import com.sunkitto.news.core.database.model.SourceEntity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
@@ -14,10 +14,10 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class NewsDaoTest {
+class ArticlesDaoTest {
 
     private lateinit var database: NewsDatabase
-    private lateinit var newsDao: NewsDao
+    private lateinit var articlesDao: ArticlesDao
 
     @BeforeEach
     fun createDatabase() {
@@ -26,47 +26,47 @@ class NewsDaoTest {
             context,
             NewsDatabase::class.java,
         ).build()
-        newsDao = database.newsDao()
+        articlesDao = database.articlesDao()
     }
 
     @Test
-    fun writeAndReadNewsByDescendingPublishDate() = runTest {
-        val fakeNewsEntities = listOf(
-            testNews(epochMilliseconds = 1),
-            testNews(epochMilliseconds = 3),
-            testNews(epochMilliseconds = 2),
+    fun writeAndReadArticlesByDescendingPublishDate() = runTest {
+        val fakeArticleEntities = listOf(
+            testArticle(epochMilliseconds = 1),
+            testArticle(epochMilliseconds = 3),
+            testArticle(epochMilliseconds = 2),
         )
-        newsDao.upsertNews(fakeNewsEntities)
-        val orderedNews = newsDao.getNews().first()
+        articlesDao.upsertArticles(fakeArticleEntities)
+        val orderedArticles = articlesDao.getArticles().first()
         assertEquals(
             listOf(3L, 2L, 1L),
-            orderedNews.map { news -> news.publishedAt.toEpochMilliseconds() },
+            orderedArticles.map { article -> article.publishedAt.toEpochMilliseconds() },
         )
     }
 
     @Test
-    fun searchNews() = runTest {
-        val fakeNewsEntities = listOf(
-            testNews(
+    fun searchArticles() = runTest {
+        val fakeArticleEntities = listOf(
+            testArticle(
                 title = "Elon Musk changes Twitter logo from blue bird to 'X'",
                 description = null,
             ),
-            testNews(
+            testArticle(
                 title = "Meta is set to launch Threads, an app similar to Twitter.",
                 description = "Elon Musk’s changes to Twitter have led to a demand " +
                     "for an alternative - and Meta may be about to provide it.",
             ),
-            testNews(
+            testArticle(
                 title = "Judge blocks Arkansas law allowing librarians " +
                     "to be charged over ‘harmful’ books",
                 description = "Decision comes as lawmakers in conservative states are pushing...",
             ),
         )
         val query = "%elon mUsK%"
-        newsDao.upsertNews(fakeNewsEntities)
-        val searchedNewsIds = newsDao.searchNews(query).first()
-        val searchedIds = searchedNewsIds.map { it.id }
-        assertEquals(listOf(1, 2), searchedIds)
+        articlesDao.upsertArticles(fakeArticleEntities)
+        val searchedArticles = articlesDao.searchArticles(query).first()
+        val searchedArticlesIds = searchedArticles.map { it.id }
+        assertEquals(listOf(1, 2), searchedArticlesIds)
     }
 
     @AfterEach
@@ -75,12 +75,12 @@ class NewsDaoTest {
     }
 }
 
-private fun testNews(
+private fun testArticle(
     epochMilliseconds: Long = 0,
     title: String = "",
     description: String? = null,
-): NewsEntity =
-    NewsEntity(
+): ArticleEntity =
+    ArticleEntity(
         source = SourceEntity(
             id = "",
             name = "",
