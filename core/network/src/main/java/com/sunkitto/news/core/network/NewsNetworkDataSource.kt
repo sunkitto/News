@@ -37,10 +37,10 @@ class NewsNetworkDataSourceImpl : NewsNetworkDataSource {
     private val okHttpCallFactory = OkHttpClient.Builder()
         .addInterceptor(
             HttpLoggingInterceptor().apply {
-                if(BuildConfig.DEBUG) {
+                if (BuildConfig.DEBUG) {
                     setLevel(HttpLoggingInterceptor.Level.BODY)
                 }
-            }
+            },
         )
         .build()
 
@@ -48,7 +48,7 @@ class NewsNetworkDataSourceImpl : NewsNetworkDataSource {
         .baseUrl(BASE_URL)
         .callFactory(okHttpCallFactory)
         .addConverterFactory(
-            json.asConverterFactory(MEDIA_TYPE.toMediaType())
+            json.asConverterFactory(MEDIA_TYPE.toMediaType()),
         )
         .build()
         .create(NewsService::class.java)
