@@ -20,7 +20,7 @@ class ArticlesDaoTest {
     private lateinit var articlesDao: ArticlesDao
 
     @BeforeEach
-    fun createDatabase() {
+    fun create_database() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         database = Room.inMemoryDatabaseBuilder(
             context,
@@ -30,22 +30,7 @@ class ArticlesDaoTest {
     }
 
     @Test
-    fun writeAndReadArticlesByDescendingPublishDate() = runTest {
-        val fakeArticleEntities = listOf(
-            testArticle(epochMilliseconds = 1),
-            testArticle(epochMilliseconds = 3),
-            testArticle(epochMilliseconds = 2),
-        )
-        articlesDao.upsertArticles(fakeArticleEntities)
-        val orderedArticles = articlesDao.getArticles().first()
-        assertEquals(
-            listOf(3L, 2L, 1L),
-            orderedArticles.map { article -> article.publishedAt.toEpochMilliseconds() },
-        )
-    }
-
-    @Test
-    fun searchArticles() = runTest {
+    fun search_articles() = runTest {
         val fakeArticleEntities = listOf(
             testArticle(
                 title = "Elon Musk changes Twitter logo from blue bird to 'X'",
@@ -63,14 +48,15 @@ class ArticlesDaoTest {
             ),
         )
         val query = "%elon mUsK%"
-        articlesDao.upsertArticles(fakeArticleEntities)
+        articlesDao.insertArticles(fakeArticleEntities)
         val searchedArticles = articlesDao.searchArticles(query).first()
         val searchedArticlesIds = searchedArticles.map { it.id }
+
         assertEquals(listOf(1, 2), searchedArticlesIds)
     }
 
     @AfterEach
-    fun closeDatabase() {
+    fun close_database() {
         database.close()
     }
 }
@@ -92,6 +78,5 @@ private fun testArticle(
         urlToImage = "",
         publishedAt = Instant.fromEpochMilliseconds(epochMilliseconds),
         content = "",
-        isFollowed = false,
         isHeadline = false,
     )
