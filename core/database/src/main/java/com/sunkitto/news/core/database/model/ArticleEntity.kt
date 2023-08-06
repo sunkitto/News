@@ -21,8 +21,6 @@ data class ArticleEntity(
     @ColumnInfo("published_at")
     val publishedAt: Instant,
     val content: String,
-    @ColumnInfo("is_followed")
-    val isFollowed: Boolean,
     @ColumnInfo("is_headline")
     val isHeadline: Boolean,
 )
