@@ -7,5 +7,5 @@ enum class TopHeadlinesCountry(val isoCode: String) {
     LATVIA("lv"),
     POLAND("pl"),
     UKRAINE("ua"),
-    USA("us")
+    USA("us"),
 }

@@ -36,6 +36,7 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:database"))
     implementation(project(":core:datastore"))
+    implementation(project(":core:domain"))
     implementation(project(":core:model"))
 
     // Paging
@@ -53,7 +54,7 @@ dependencies {
     kapt(libs.dagger.compiler)
     kapt(libs.dagger.processor)
 
-    // Tests
+    // Android Tests
     androidTestImplementation(libs.mockk.android)
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.runner)

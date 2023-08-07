@@ -49,7 +49,7 @@ class NewsRemoteMediatorTest {
 
         val subject = NewsRemoteMediator(
             articlesDao = newsDatabase.articlesDao(),
-            networkDataSource = newsNetworkDataSource,
+            newsNetworkDataSource = newsNetworkDataSource,
             newsType = NewsType.AllNews(query = "")
         )
 
@@ -72,7 +72,7 @@ class NewsRemoteMediatorTest {
 
         val subject = NewsRemoteMediator(
             articlesDao = newsDatabase.articlesDao(),
-            networkDataSource = newsNetworkDataSource,
+            newsNetworkDataSource = newsNetworkDataSource,
             newsType = NewsType.AllNews(query = "")
         )
 
@@ -103,7 +103,7 @@ class NewsRemoteMediatorTest {
 
         val subject = NewsRemoteMediator(
             articlesDao = newsDatabase.articlesDao(),
-            networkDataSource = newsNetworkDataSource,
+            newsNetworkDataSource = newsNetworkDataSource,
             newsType = NewsType.AllNews(query = "")
         )
 
@@ -134,7 +134,7 @@ class NewsRemoteMediatorTest {
 
         val subject = NewsRemoteMediator(
             articlesDao = newsDatabase.articlesDao(),
-            networkDataSource = newsNetworkDataSource,
+            newsNetworkDataSource = newsNetworkDataSource,
             newsType = NewsType.AllNews(query = "")
         )
 

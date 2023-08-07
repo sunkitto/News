@@ -9,15 +9,12 @@ import com.sunkitto.news.core.database.model.ArticleEntity
 import com.sunkitto.news.core.model.NewsType
 import com.sunkitto.news.core.network.NewsNetworkDataSource
 import com.sunkitto.news.core.network.retrofit.NewsService
-import dagger.assisted.Assisted
-import dagger.assisted.AssistedFactory
-import dagger.assisted.AssistedInject
 
 @OptIn(ExperimentalPagingApi::class)
-class NewsRemoteMediator @AssistedInject constructor(
+class NewsRemoteMediator(
     private val articlesDao: ArticlesDao,
-    private val networkDataSource: NewsNetworkDataSource,
-    @Assisted("news_type") val newsType: NewsType,
+    private val newsNetworkDataSource: NewsNetworkDataSource,
+    private val newsType: NewsType,
 ): RemoteMediator<Int, ArticleEntity>() {
 
     private lateinit var articles: List<ArticleEntity>
@@ -43,7 +40,7 @@ class NewsRemoteMediator @AssistedInject constructor(
 
             when(newsType) {
                 is NewsType.AllNews -> {
-                    articles = networkDataSource
+                    articles = newsNetworkDataSource
                         .getAllNews(
                             query = newsType.query,
                             page = page,
@@ -52,7 +49,7 @@ class NewsRemoteMediator @AssistedInject constructor(
                         .articles.map { it.asArticleEntity() }
                 }
                 is NewsType.TopHeadlines -> {
-                    articles = networkDataSource
+                    articles = newsNetworkDataSource
                         .getTopHeadlines(
                             country = newsType.country.isoCode,
                             category = newsType.category.value,
@@ -75,12 +72,6 @@ class NewsRemoteMediator @AssistedInject constructor(
         } catch (e: Exception) {
             MediatorResult.Error(throwable = e)
         }
-    }
-
-    @AssistedFactory
-    interface Factory {
-
-        fun create(@Assisted("news_type") newsType: NewsType): NewsRemoteMediator
     }
 
     companion object {
