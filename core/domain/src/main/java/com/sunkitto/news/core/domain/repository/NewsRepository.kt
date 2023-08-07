@@ -8,10 +8,10 @@ import kotlinx.coroutines.flow.Flow
 
 interface NewsRepository {
 
-    suspend fun getTopHeadlines(
+    fun getTopHeadlines(
         country: TopHeadlinesCountry,
         category: TopHeadlinesCategory,
     ): Flow<PagingData<ArticleEntity>>
 
-    suspend fun getAllNews(query: String): Flow<PagingData<ArticleEntity>>
+    fun getAllNews(query: String): Flow<PagingData<ArticleEntity>>
 }
