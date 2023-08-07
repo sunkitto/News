@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.junit5)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -37,7 +38,26 @@ dependencies {
     implementation(project(":core:datastore"))
     implementation(project(":core:model"))
 
-    testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.junit5.api)
+    // Paging
+    implementation(libs.androidx.paging)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+
+    // KotlinX
+    implementation(libs.kotlinx.datetime)
+
+    // Dagger 2
+    implementation(libs.dagger.android)
+    kapt(libs.dagger.compiler)
+    kapt(libs.dagger.processor)
+
+    // Tests
+    androidTestImplementation(libs.mockk.android)
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.junit5.api)
     testRuntimeOnly(libs.junit5.engine)
 }
