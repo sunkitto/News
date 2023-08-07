@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -34,6 +35,14 @@ dependencies {
     implementation(project(":core:model"))
     implementation(project(":core:database"))
 
-    implementation(libs.kotlinx.coroutines.android)
+    // Paging
     implementation(libs.androidx.paging)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Dagger 2
+    implementation(libs.dagger.android)
+    kapt(libs.dagger.compiler)
+    kapt(libs.dagger.processor)
 }

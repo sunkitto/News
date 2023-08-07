@@ -37,7 +37,7 @@ class NewsRepositoryImpl @Inject constructor(
             pagingSourceFactory = { articlesDao.getArticles() }
         ).flow
 
-    override suspend fun getTopHeadlines(
+    override fun getTopHeadlines(
         country: TopHeadlinesCountry,
         category: TopHeadlinesCategory,
     ): Flow<PagingData<ArticleEntity>> =
@@ -48,6 +48,6 @@ class NewsRepositoryImpl @Inject constructor(
             )
         )
 
-    override suspend fun getAllNews(query: String): Flow<PagingData<ArticleEntity>> =
+    override fun getAllNews(query: String): Flow<PagingData<ArticleEntity>> =
         pager(NewsType.AllNews(query = query))
 }
