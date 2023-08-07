@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -15,6 +16,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        buildConfigField "String", "API_KEY", properties.getProperty("API_KEY")
     }
 
     buildTypes {
@@ -30,12 +34,22 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+    buildFeatures {
+        buildConfig true
+    }
 }
 
 dependencies {
+
+    implementation(project(":core:network"))
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
+
+    // Dagger 2
+    implementation(libs.dagger.android)
+    kapt(libs.dagger.processor)
+    kapt(libs.dagger.compiler)
 }
