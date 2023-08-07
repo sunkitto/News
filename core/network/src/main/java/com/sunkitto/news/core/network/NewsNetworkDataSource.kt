@@ -8,9 +8,11 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import javax.inject.Inject
 
 private const val BASE_URL = "https://newsapi.org"
 private const val MEDIA_TYPE = "application/json"
+private const val API_KEY_HEADER = "X-Api-Key"
 
 interface NewsNetworkDataSource {
 
@@ -28,7 +30,9 @@ interface NewsNetworkDataSource {
     ): NewsDto
 }
 
-class NewsNetworkDataSourceImpl : NewsNetworkDataSource {
+class NewsNetworkDataSourceImpl @Inject constructor(
+    private val apiKey: String
+) : NewsNetworkDataSource {
 
     private val json = Json {
         ignoreUnknownKeys = true
@@ -42,6 +46,12 @@ class NewsNetworkDataSourceImpl : NewsNetworkDataSource {
                 }
             },
         )
+        .addInterceptor { chain ->
+            val authorizedRequest = chain.request().newBuilder()
+                .addHeader(API_KEY_HEADER, apiKey)
+                .build()
+            chain.proceed(authorizedRequest)
+        }
         .build()
 
     private val newsService = Retrofit.Builder()
