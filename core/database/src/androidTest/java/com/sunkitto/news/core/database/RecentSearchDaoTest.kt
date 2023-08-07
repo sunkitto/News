@@ -10,6 +10,7 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.datetime.Instant
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -19,7 +20,7 @@ class RecentSearchDaoTest {
     private lateinit var recentSearchDao: RecentSearchDao
 
     @BeforeEach
-    fun createDatabase() {
+    fun create_database() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         database = Room.inMemoryDatabaseBuilder(
             context,
@@ -29,7 +30,7 @@ class RecentSearchDaoTest {
     }
 
     @Test
-    fun writeAndReadRecentSearchesByDescendingDateWithLimit() = runTest {
+    fun write_and_read_recent_searches_by_descending_date_with_limit() = runTest {
         val fakeRecentSearchEntities = listOf(
             RecentSearchEntity(
                 query = "Test query 2",
@@ -49,7 +50,7 @@ class RecentSearchDaoTest {
             ),
         )
         for (recentSearch in fakeRecentSearchEntities) {
-            recentSearchDao.upsertRecentSearches(
+            recentSearchDao.upsertRecentSearch(
                 recentSearch,
             )
         }
@@ -60,8 +61,42 @@ class RecentSearchDaoTest {
         )
     }
 
+    @Test
+    fun delete_single_recent_search() = runTest {
+        val fakeRecentSearchEntity = RecentSearchEntity(
+            query = "Test query",
+            date = Instant.fromEpochMilliseconds(1),
+        )
+        recentSearchDao.upsertRecentSearch(fakeRecentSearchEntity)
+        recentSearchDao.deleteRecentSearch(fakeRecentSearchEntity)
+        val recentSearches = recentSearchDao.getRecentSearches(1)
+        assertTrue(recentSearches.first().isEmpty())
+    }
+
+    @Test
+    fun delete_all_recent_searches() = runTest {
+        val fakeRecentSearchEntities = listOf(
+            RecentSearchEntity(
+                query = "Test query",
+                date = Instant.fromEpochMilliseconds(1),
+            ),
+            RecentSearchEntity(
+                query = "Test query 2",
+                date = Instant.fromEpochMilliseconds(1),
+            )
+        )
+        for (recentSearch in fakeRecentSearchEntities) {
+            recentSearchDao.upsertRecentSearch(
+                recentSearch,
+            )
+        }
+        recentSearchDao.deleteRecentSearches()
+        val recentSearches = recentSearchDao.getRecentSearches(1)
+        assertTrue(recentSearches.first().isEmpty())
+    }
+
     @AfterEach
-    fun closeDatabase() {
+    fun close_database() {
         database.close()
     }
 }

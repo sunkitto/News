@@ -1,6 +1,7 @@
 package com.sunkitto.news.core.database.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
 import com.sunkitto.news.core.database.model.RecentSearchEntity
@@ -13,7 +14,10 @@ interface RecentSearchDao {
     fun getRecentSearches(limit: Int): Flow<List<RecentSearchEntity>>
 
     @Upsert
-    suspend fun upsertRecentSearches(recentSearch: RecentSearchEntity)
+    suspend fun upsertRecentSearch(recentSearch: RecentSearchEntity)
+
+    @Delete
+    suspend fun deleteRecentSearch(recentSearch: RecentSearchEntity)
 
     @Query("DELETE FROM recent_searches")
     suspend fun deleteRecentSearches()
