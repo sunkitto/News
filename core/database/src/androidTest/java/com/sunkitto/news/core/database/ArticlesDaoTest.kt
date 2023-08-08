@@ -78,5 +78,4 @@ private fun testArticle(
         urlToImage = "",
         publishedAt = Instant.fromEpochMilliseconds(epochMilliseconds),
         content = "",
-        isHeadline = false,
     )
