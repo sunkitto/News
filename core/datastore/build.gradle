@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.junit5)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -34,10 +35,20 @@ android {
 dependencies {
 
     implementation(project(":core:model"))
+
+    // DataStore
     implementation(libs.androidx.datastore)
+
+    // KotlinX
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.coroutines.android)
 
+    // Dagger 2
+    implementation(libs.dagger.android)
+    kapt(libs.dagger.processor)
+    kapt(libs.dagger.compiler)
+
+    // Android Tests
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.kotlinx.coroutines.test)

@@ -1,6 +1,7 @@
-package com.sunkitto.news.core.datastore
+package com.sunkitto.news.core.datastore.serializers
 
 import androidx.datastore.core.Serializer
+import com.sunkitto.news.core.datastore.model.SettingsPreferences
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import java.io.InputStream

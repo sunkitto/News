@@ -1,4 +1,4 @@
-package com.sunkitto.news.core.datastore
+package com.sunkitto.news.core.datastore.model
 
 import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.core.model.settings.Theme

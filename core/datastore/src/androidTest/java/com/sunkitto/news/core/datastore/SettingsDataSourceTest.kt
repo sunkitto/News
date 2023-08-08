@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.dataStoreFile
 import androidx.test.core.app.ApplicationProvider
+import com.sunkitto.news.core.datastore.model.SettingsPreferences
+import com.sunkitto.news.core.datastore.serializers.SettingsPreferencesSerializer
 import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.core.model.settings.Theme
 import com.sunkitto.news.core.model.settings.TopHeadlinesCountry

@@ -1,11 +1,13 @@
 package com.sunkitto.news.core.datastore
 
 import androidx.datastore.core.DataStore
+import com.sunkitto.news.core.datastore.model.SettingsPreferences
 import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.core.model.settings.Theme
 import com.sunkitto.news.core.model.settings.TopHeadlinesCountry
+import javax.inject.Inject
 
-class SettingsDataSource(
+class SettingsDataSource @Inject constructor(
     private val settingsDataStore: DataStore<SettingsPreferences>,
 ) {
 
