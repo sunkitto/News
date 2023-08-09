@@ -1,9 +1,9 @@
-package com.sunkitto.news.feature.top_headlines.adapter
+package com.sunkitto.news.design_system
 
 import androidx.recyclerview.widget.DiffUtil
 import com.sunkitto.news.core.model.ArticleUi
 
-class TopHeadlinesDiffCallback : DiffUtil.ItemCallback<ArticleUi>() {
+class ArticleUiDiffCallback : DiffUtil.ItemCallback<ArticleUi>() {
 
     override fun areItemsTheSame(
         oldItem: ArticleUi,

@@ -6,10 +6,11 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.sunkitto.news.core.model.ArticleUi
+import com.sunkitto.news.design_system.ArticleUiDiffCallback
 import com.sunkitto.news.feature.top_headlines.databinding.ItemTopHeadlineBinding
 
 class TopHeadlinesAdapter : PagingDataAdapter<ArticleUi, TopHeadlinesAdapter.ViewHolder>(
-    TopHeadlinesDiffCallback()
+    ArticleUiDiffCallback()
 ) {
 
     override fun onCreateViewHolder(

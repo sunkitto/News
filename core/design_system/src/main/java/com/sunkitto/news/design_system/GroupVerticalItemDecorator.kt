@@ -1,4 +1,4 @@
-package com.sunkitto.news.feature.top_headlines.adapter
+package com.sunkitto.news.design_system
 
 import android.graphics.Rect
 import android.view.View

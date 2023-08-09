@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.chip.Chip
-import com.sunkitto.news.feature.top_headlines.adapter.GroupVerticalItemDecorator
+import com.sunkitto.news.design_system.GroupVerticalItemDecorator
 import com.sunkitto.news.feature.top_headlines.adapter.TopHeadlinesAdapter
 import com.sunkitto.news.feature.top_headlines.adapter.TopHeadlinesLoadStateAdapter
 import com.sunkitto.news.feature.top_headlines.databinding.FragmentTopHeadlinesBinding
