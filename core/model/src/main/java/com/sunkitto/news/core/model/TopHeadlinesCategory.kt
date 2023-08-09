@@ -1,6 +1,6 @@
 package com.sunkitto.news.core.model
 
-enum class TopHeadlinesCategory(val value: String) {
+enum class TopHeadlinesCategory(var value: String) {
     BUSINESS("business"),
     ENTERTAINMENT("entertainment"),
     GENERAL("general"),
