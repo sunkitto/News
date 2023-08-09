@@ -10,7 +10,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        minSdk 24
+        minSdk 26
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -54,11 +54,15 @@ dependencies {
     kapt(libs.dagger.compiler)
     kapt(libs.dagger.processor)
 
+    // Unit Tests
+    testImplementation(libs.junit5.api)
+
     // Android Tests
     androidTestImplementation(libs.mockk.android)
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.junit5.api)
+
     testRuntimeOnly(libs.junit5.engine)
 }
