@@ -1,7 +1,7 @@
 package com.sunkitto.news.core.network.model
 
-import com.sunkitto.news.core.network.model.serializer.InstantSerializer
 import kotlinx.datetime.Instant
+import kotlinx.datetime.serializers.InstantIso8601Serializer
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -19,7 +19,7 @@ data class ArticleDto(
     val description: String?,
     val url: String,
     val urlToImage: String?,
-    @Serializable(with = InstantSerializer::class)
+    @Serializable(with = InstantIso8601Serializer::class)
     val publishedAt: Instant,
     val content: String,
 )
