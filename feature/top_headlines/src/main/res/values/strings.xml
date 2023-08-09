@@ -1,0 +1,12 @@
+<resources>
+    <string name="top_headlines">Top headlines</string>
+    <string name="article_image">Article image</string>
+
+    <!-- Top Headlines Categories -->
+    <string name="business">Business</string>
+    <string name="technology">Technology</string>
+    <string name="general">General</string>
+    <string name="science">Science</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="sports">Sports</string>
+</resources>
