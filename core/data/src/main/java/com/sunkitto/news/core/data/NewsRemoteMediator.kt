@@ -11,7 +11,7 @@ import com.sunkitto.news.core.network.NewsNetworkDataSource
 import com.sunkitto.news.core.network.retrofit.NewsService
 
 @OptIn(ExperimentalPagingApi::class)
-class NewsRemoteMediator(
+internal class NewsRemoteMediator(
     private val articlesDao: ArticlesDao,
     private val newsNetworkDataSource: NewsNetworkDataSource,
     private val newsType: NewsType,
@@ -46,7 +46,9 @@ class NewsRemoteMediator(
                             page = page,
                             pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE,
                         )
-                        .articles.map { it.asArticleEntity() }
+                        .articles.map { articleDto ->
+                            articleDto.asArticleEntity()
+                        }
                 }
                 is NewsType.TopHeadlines -> {
                     articles = newsNetworkDataSource
@@ -54,9 +56,11 @@ class NewsRemoteMediator(
                             country = newsType.country.isoCode,
                             category = newsType.category.value,
                             page = page,
-                            pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE,
+                            pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE,
                         )
-                        .articles.map { it.asArticleEntity().copy(isHeadline = true) }
+                        .articles.map { articleDto ->
+                            articleDto.asArticleEntity()
+                        }
                 }
             }
 

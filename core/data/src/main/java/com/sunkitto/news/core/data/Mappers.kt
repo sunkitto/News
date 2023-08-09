@@ -1,12 +1,18 @@
 package com.sunkitto.news.core.data
 
+import androidx.annotation.DrawableRes
 import com.sunkitto.news.core.database.model.ArticleEntity
 import com.sunkitto.news.core.database.model.RecentSearchEntity
 import com.sunkitto.news.core.database.model.SourceEntity
-import com.sunkitto.news.core.datastore.SettingsPreferences
+import com.sunkitto.news.core.datastore.model.SettingsPreferences
+import com.sunkitto.news.core.model.Article
+import com.sunkitto.news.core.model.ArticleUi
 import com.sunkitto.news.core.model.RecentSearch
+import com.sunkitto.news.core.model.Source
+import com.sunkitto.news.core.model.Visible
 import com.sunkitto.news.core.model.settings.Settings
 import com.sunkitto.news.core.network.model.ArticleDto
+import com.sunkitto.news.util.toLocalizedDateTimeString
 
 fun ArticleDto.asArticleEntity() =
     ArticleEntity(
@@ -22,7 +28,6 @@ fun ArticleDto.asArticleEntity() =
         urlToImage = this.urlToImage,
         publishedAt = this.publishedAt,
         content = this.content,
-        isHeadline = false,
     )
 
 fun RecentSearchEntity.asRecentSearch() =
@@ -43,3 +48,35 @@ fun SettingsPreferences.asSettings() =
         theme = this.theme,
         topHeadlinesCountry = topHeadlinesCountry,
     )
+
+fun ArticleEntity.asArticle() =
+    Article(
+        id = this.id,
+        source = Source(
+            id = this.source.id,
+            name = this.source.name,
+        ),
+        author = this.author,
+        title = this.title,
+        description = this.description,
+        url = this.url,
+        urlToImage = this.urlToImage,
+        publishedAt = this.publishedAt,
+        content = this.content
+    )
+
+fun Article.asArticleUi(
+    @DrawableRes placeholderResourceId: Int,
+): ArticleUi {
+    return ArticleUi(
+        id = this.id,
+        sourceName = this.source.name,
+        author = Visible(this.author),
+        title = this.title,
+        description = Visible(this.description),
+        url = this.url,
+        urlToImage = this.urlToImage,
+        publishedAt = this.publishedAt.toLocalizedDateTimeString(),
+        placeholder = placeholderResourceId,
+    )
+}
