@@ -7,10 +7,9 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.sunkitto.news.core.data.NewsRemoteMediator.Companion.START_PAGE
+import com.sunkitto.news.core.data.remote_mediator.AllNewsRemoteMediator
 import com.sunkitto.news.core.database.NewsDatabase
-import com.sunkitto.news.core.database.model.ArticleEntity
-import com.sunkitto.news.core.model.NewsType
+import com.sunkitto.news.core.database.model.all_news.ArticleEntity
 import com.sunkitto.news.core.network.NewsNetworkDataSourceImpl
 import com.sunkitto.news.core.network.model.ArticleDto
 import com.sunkitto.news.core.network.model.NewsDto
@@ -21,13 +20,12 @@ import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import kotlinx.datetime.Instant
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.io.IOException
 
 @OptIn(ExperimentalPagingApi::class)
-class NewsRemoteMediatorTest {
+class AllNewsRemoteMediatorTest {
 
     private val newsDatabase = Room.inMemoryDatabaseBuilder(
         context = ApplicationProvider.getApplicationContext(),
@@ -42,15 +40,16 @@ class NewsRemoteMediatorTest {
         coEvery {
             newsNetworkDataSource.getAllNews(
                 query = "",
-                page = START_PAGE,
+                page = 1,
                 pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE
             )
         }.returns(testNewsDto)
 
-        val subject = NewsRemoteMediator(
+        val subject = AllNewsRemoteMediator(
             articlesDao = newsDatabase.articlesDao(),
+            allNewsRemoteKeyDao = newsDatabase.allNewsRemoteKeysDao(),
             newsNetworkDataSource = newsNetworkDataSource,
-            newsType = NewsType.AllNews(query = "")
+            query = "",
         )
 
         val pagingState = PagingState<Int, ArticleEntity>(
@@ -61,19 +60,20 @@ class NewsRemoteMediatorTest {
         )
 
         var result = subject.load(LoadType.REFRESH, pagingState)
-        assertTrue(result is RemoteMediator.MediatorResult.Success)
+        Assertions.assertTrue(result is RemoteMediator.MediatorResult.Success)
 
         result = result as RemoteMediator.MediatorResult.Success
-        assertFalse(result.endOfPaginationReached)
+        Assertions.assertFalse(result.endOfPaginationReached)
     }
 
     @Test
     fun load_prepend_returns_success_and_end_of_pagination() = runTest {
 
-        val subject = NewsRemoteMediator(
+        val subject = AllNewsRemoteMediator(
             articlesDao = newsDatabase.articlesDao(),
+            allNewsRemoteKeyDao = newsDatabase.allNewsRemoteKeysDao(),
             newsNetworkDataSource = newsNetworkDataSource,
-            newsType = NewsType.AllNews(query = "")
+            query = "",
         )
 
         val pagingState = PagingState<Int, ArticleEntity>(
@@ -84,10 +84,10 @@ class NewsRemoteMediatorTest {
         )
 
         var result = subject.load(LoadType.PREPEND, pagingState)
-        assertTrue(result is RemoteMediator.MediatorResult.Success)
+        Assertions.assertTrue(result is RemoteMediator.MediatorResult.Success)
 
         result = result as RemoteMediator.MediatorResult.Success
-        assertTrue(result.endOfPaginationReached)
+        Assertions.assertTrue(result.endOfPaginationReached)
     }
 
     @Test
@@ -96,15 +96,22 @@ class NewsRemoteMediatorTest {
         coEvery {
             newsNetworkDataSource.getAllNews(
                 query = "",
-                page = START_PAGE,
+                page = 1,
                 pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE
             )
-        }.returns(NewsDto("", 0, listOf()))
+        }.returns(
+            NewsDto(
+                status = "",
+                totalResults = 1,
+                articles = listOf()
+            )
+        )
 
-        val subject = NewsRemoteMediator(
+        val subject = AllNewsRemoteMediator(
             articlesDao = newsDatabase.articlesDao(),
+            allNewsRemoteKeyDao = newsDatabase.allNewsRemoteKeysDao(),
             newsNetworkDataSource = newsNetworkDataSource,
-            newsType = NewsType.AllNews(query = "")
+            query = "",
         )
 
         val pagingState = PagingState<Int, ArticleEntity>(
@@ -115,10 +122,10 @@ class NewsRemoteMediatorTest {
         )
 
         var result = subject.load(LoadType.REFRESH, pagingState)
-        assertTrue(result is RemoteMediator.MediatorResult.Success)
+        Assertions.assertTrue(result is RemoteMediator.MediatorResult.Success)
 
         result = result as RemoteMediator.MediatorResult.Success
-        assertTrue(result.endOfPaginationReached)
+        Assertions.assertTrue(result.endOfPaginationReached)
     }
 
     @Test
@@ -127,15 +134,16 @@ class NewsRemoteMediatorTest {
         coEvery {
             newsNetworkDataSource.getAllNews(
                 query = "",
-                page = START_PAGE,
+                page = 1,
                 pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE
             )
         }.throws(IOException())
 
-        val subject = NewsRemoteMediator(
+        val subject = AllNewsRemoteMediator(
             articlesDao = newsDatabase.articlesDao(),
+            allNewsRemoteKeyDao = newsDatabase.allNewsRemoteKeysDao(),
             newsNetworkDataSource = newsNetworkDataSource,
-            newsType = NewsType.AllNews(query = "")
+            query = "",
         )
 
         val pagingState = PagingState<Int, ArticleEntity>(
@@ -147,7 +155,7 @@ class NewsRemoteMediatorTest {
 
         val result = subject.load(LoadType.REFRESH, pagingState)
 
-        assertTrue(result is RemoteMediator.MediatorResult.Error)
+        Assertions.assertTrue(result is RemoteMediator.MediatorResult.Error)
     }
 
     @AfterEach
