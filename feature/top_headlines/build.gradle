@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kapt)
+    alias(libs.plugins.junit5)
 }
 
 android {
@@ -46,6 +47,10 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.swiperefresh)
 
+    // Navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
     // Glide
     implementation(libs.glide)
 
@@ -56,7 +61,6 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
 
     // Dagger 2
-    implementation(libs.dagger.android)
-    kapt(libs.dagger.compiler)
-    kapt(libs.dagger.processor)
+    implementation(libs.dagger2.core)
+    kapt(libs.dagger2.compiler)
 }

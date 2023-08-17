@@ -1,5 +1,6 @@
 <resources>
     <string name="top_headlines">Top headlines</string>
+    <string name="top_headline_image">Top Headline Image</string>
 
     <!-- Top Headlines Categories -->
     <string name="business">Business</string>

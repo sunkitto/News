@@ -7,80 +7,91 @@
     tools:context=".TopHeadlinesFragment">
 
     <TextView
-        android:id="@+id/textView"
-        style="@style/MaterialAlertDialog.Material3.Title.Text"
+        android:id="@+id/topHeadlinesTextView"
+        style="@style/TextAppearance.News.ScreenTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_indent"
+        android:layout_marginTop="@dimen/default_indent"
         android:text="@string/top_headlines"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toTopOf="@+id/topGuideline" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/categoriesChipGroup"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        style="@style/Widget.Material3.ChipGroup"
-        app:singleSelection="true"
-        app:selectionRequired="true"
-        app:checkedChip="@id/generalChip"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topHeadlinesTextView">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/generalChip"
-            android:layout_width="wrap_content"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/categoriesChipGroup"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:chipIcon="@drawable/ic_general_24"
-            android:text="@string/general" />
+            android:layout_marginTop="@dimen/default_indent"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/default_indent"
+            app:checkedChip="@id/generalChip"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
+            app:layout_constraintStart_toStartOf="@+id/leftGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/topHeadlinesTextView"
+            app:singleSelection="true">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/businessChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:chipIcon="@drawable/ic_work_24"
-            android:text="@string/business" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/generalChip"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/general" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/technologyChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:chipIcon="@drawable/ic_technology_24"
-            android:text="@string/technology" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/businessChip"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/business" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/scienceChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:chipIcon="@drawable/ic_science_24"
-            android:text="@string/science" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/technologyChip"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/technology" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/entertainmentChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:chipIcon="@drawable/ic_entertainment_24"
-            android:text="@string/entertainment" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/scienceChip"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/science" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/sportsChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:chipIcon="@drawable/ic_sports_24"
-            android:text="@string/sports" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/entertainmentChip"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/entertainment" />
 
-    </com.google.android.material.chip.ChipGroup>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sportsChip"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sports" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/topHeadlinesSwipeRefreshLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/categoriesChipGroup">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/topHeadlinesRecyclerView"
@@ -88,30 +99,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_top_headline"
-            tools:scrollbars="vertical" />
+            tools:listitem="@layout/item_top_headline" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/leftGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rightGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/topGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="14dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/top_headlines_nav_graph"
+    app:startDestination="@id/topHeadlinesFragment">
+
+    <fragment
+        android:id="@+id/topHeadlinesFragment"
+        android:name="com.sunkitto.news.feature.top_headlines.TopHeadlinesFragment"
+        android:label="fragment_top_headlines"
+        tools:layout="@layout/fragment_top_headlines" />
+</navigation>

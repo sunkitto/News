@@ -4,65 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="30dp"
-    style="@style/Widget.Material3.CardView.Elevated"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    style="@style/Widget.Material3.CardView.Filled"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    app:cardCornerRadius="@dimen/card_corner_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/articleImageView"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:contentDescription="@string/article_image"
+            android:layout_margin="@dimen/top_headline_image_indent"
+            android:contentDescription="@string/top_headline_image"
             android:scaleType="centerCrop"
+            app:shapeAppearance="@style/RoundedSquare"
+            app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.75"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <TextView
             android:id="@+id/titleTextView"
+            style="@style/TextAppearance.News.TopHeadlineTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/top_headline_inner_indent"
             android:ellipsize="end"
-            android:maxLines="2"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="@+id/articleImageView"
+            app:layout_constraintStart_toStartOf="@+id/articleImageView"
             app:layout_constraintTop_toBottomOf="@+id/articleImageView"
             tools:text="@tools:sample/lorem/random" />
 
         <TextView
             android:id="@+id/descriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/TextAppearance.News.ArticleDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/top_headline_inner_indent"
             android:ellipsize="end"
-            android:maxLines="3"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:maxLines="4"
+            app:layout_constraintEnd_toEndOf="@+id/articleImageView"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/articleImageView"
             app:layout_constraintTop_toBottomOf="@+id/titleTextView"
             tools:text="@tools:sample/lorem/random" />
 
         <TextView
             android:id="@+id/dateTextView"
+            style="@style/TextAppearance.News.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="@dimen/top_headline_label_indent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/articleImageView"
             app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
             tools:text="07.08.2023, 19:46" />
 
         <TextView
             android:id="@+id/sourceTextView"
+            style="@style/TextAppearance.News.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/top_headline_label_indent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/articleImageView"
             app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
             tools:text="Associated Press" />
 
