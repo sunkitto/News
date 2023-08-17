@@ -1,6 +1,8 @@
 # About
 🗞️ News App is a convenient app for searching and viewing of news articles from different sources and countries.
 
+⏬[Download from here](https://github.com/sunkitto/News/releases/tag/Latest)⏬
+
 # Screenshots
 ![News Screenshots](https://github.com/sunkitto/News/assets/138574608/3112ef2c-a248-476a-95d5-43d0d78cba65)
 
