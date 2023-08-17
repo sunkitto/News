@@ -6,26 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".AllNewsFragment">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/allNewsSwipeRefreshLayout"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/allNewsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rightGuideline"
-        app:layout_constraintStart_toStartOf="@+id/leftGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/searchBar">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/allNewsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_all_news"
-            tools:scrollbars="vertical" />
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:nestedScrollingEnabled="false"
+        tools:listitem="@layout/item_all_news" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -33,7 +22,6 @@
 
         <com.google.android.material.search.SearchBar
             android:id="@+id/search_bar"
-            style="@style/ShapeAppearanceOverlay.Material3.SearchBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/search_news" />
@@ -48,12 +36,12 @@
         app:layout_anchor="@id/search_bar">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/resultsRecyclerView"
+            android:id="@+id/recentSearchesRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_all_news"
+            tools:listitem="@layout/item_recent_search"
             tools:scrollbars="vertical" />
 
     </com.google.android.material.search.SearchView>

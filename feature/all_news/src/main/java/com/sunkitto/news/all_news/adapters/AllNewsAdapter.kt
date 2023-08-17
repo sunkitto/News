@@ -4,48 +4,78 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.sunkitto.news.all_news.R
 import com.sunkitto.news.all_news.databinding.ItemAllNewsBinding
-import com.sunkitto.news.core.model.ArticleUi
+import com.sunkitto.news.core.model.ui.ArticleUi
 import com.sunkitto.news.design_system.ArticleUiDiffCallback
 
-class AllNewsAdapter : PagingDataAdapter<ArticleUi, AllNewsAdapter.ViewHolder>(
-    ArticleUiDiffCallback()
-) {
+class AllNewsAdapter(
+    private val listener: AllNewsRecyclerViewClickListener
+) : PagingDataAdapter<ArticleUi, RecyclerView.ViewHolder>(ArticleUiDiffCallback()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ViewHolder =
-        ViewHolder(
-            ItemAllNewsBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        )
+    ): RecyclerView.ViewHolder =
+        AllNewsViewHolder.create(parent)
 
     override fun onBindViewHolder(
-        holder: ViewHolder,
+        holder: RecyclerView.ViewHolder,
         position: Int,
     ) {
-        getItem(position)?.let { articleUi ->
-            with(holder.binding) {
+        val articleUi = getItem(position)
+        articleUi?.let {
+            if(holder is AllNewsViewHolder) {
+                holder.bind(
+                    articleUi = articleUi,
+                    listener = listener,
+                )
+            }
+        }
+    }
 
-                com.bumptech.glide.Glide.with(articleImageView.context)
+    override fun getItemViewType(position: Int): Int {
+        return R.layout.item_all_news
+    }
+
+    class AllNewsViewHolder(
+        private val binding: ItemAllNewsBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(
+            articleUi: ArticleUi,
+            listener: AllNewsRecyclerViewClickListener,
+        ) {
+            with(binding) {
+                this.root.setOnClickListener {
+                    listener.onArticleClick(articleUi.url)
+                }
+
+                Glide.with(articleImageView.context)
                     .load(articleUi.urlToImage)
                     .error(articleUi.placeholder)
                     .into(articleImageView)
 
                 titleTextView.text = articleUi.title
-
-                descriptionTextView.text = articleUi.description.value
-                descriptionTextView.visibility = articleUi.description.isVisible()
-
                 sourceTextView.text = articleUi.sourceName
                 dateTextView.text = articleUi.publishedAt
             }
         }
-    }
 
-    class ViewHolder(val binding: ItemAllNewsBinding) : RecyclerView.ViewHolder(binding.root)
+        companion object {
+            @JvmStatic
+            fun create(parent: ViewGroup): AllNewsViewHolder =
+                AllNewsViewHolder(
+                    ItemAllNewsBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                )
+        }
+    }
+}
+
+interface AllNewsRecyclerViewClickListener {
+    fun onArticleClick(topHeadlineUrl: String)
 }
