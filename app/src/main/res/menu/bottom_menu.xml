@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@id/top_headlines_nav_graph"
+        android:title="@string/top_headlines_menu"
+        android:icon="@drawable/ic_show_chart_24" />
+
+    <item
+        android:id="@id/all_news_nav_graph"
+        android:title="@string/search_menu"
+        android:icon="@drawable/ic_search_24" />
+
+    <item
+        android:id="@id/settings_nav_graph"
+        android:title="@string/search_menu"
+        android:icon="@drawable/ic_settings_24" />
+
+</menu>
