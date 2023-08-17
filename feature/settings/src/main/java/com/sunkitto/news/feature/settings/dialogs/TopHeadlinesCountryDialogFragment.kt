@@ -9,11 +9,10 @@ import com.sunkitto.news.feature.settings.R
 
 class TopHeadlinesCountryDialogFragment(
     private val checkedItem: Int,
-    private val onClick: (topHeadlinesCountry: TopHeadlinesCountry) -> Unit
+    private val onClick: (topHeadlinesCountry: TopHeadlinesCountry) -> Unit,
 ) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-
         val topHeadlinesCountries = TopHeadlinesCountry.values()
         val topHeadlinesCountryNames = topHeadlinesCountries
             .map { getString(it.nameId) }.toTypedArray()

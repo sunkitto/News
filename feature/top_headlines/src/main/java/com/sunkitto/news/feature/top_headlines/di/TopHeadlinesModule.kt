@@ -19,11 +19,10 @@ class TopHeadlinesModule {
     ) =
         GetTopHeadlinesUseCase(newsRepository = newsRepository)
 
-
     @Provides
     @TopHeadlinesViewModelFactory
     fun provideTopHeadlinesViewModelFactory(
-        getTopHeadlinesUseCase: GetTopHeadlinesUseCase
+        getTopHeadlinesUseCase: GetTopHeadlinesUseCase,
     ): ViewModelProvider.Factory =
         viewModelFactory {
             initializer {

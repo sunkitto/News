@@ -11,8 +11,8 @@ import com.sunkitto.news.di.ApplicationContext
 import com.sunkitto.news.di.ApplicationScope
 import dagger.Module
 import dagger.Provides
-import kotlinx.coroutines.CoroutineScope
 import javax.inject.Singleton
+import kotlinx.coroutines.CoroutineScope
 
 @Module
 object DataStoreModule {
@@ -21,19 +21,19 @@ object DataStoreModule {
     @Provides
     fun providesSettingsDataStore(
         @ApplicationContext context: Context,
-        @ApplicationScope coroutineScope: CoroutineScope
+        @ApplicationScope coroutineScope: CoroutineScope,
     ) =
         DataStoreFactory.create(
             serializer = SettingsPreferencesSerializer,
             scope = coroutineScope,
             produceFile = {
                 context.dataStoreFile(SettingsDataSource.SETTINGS_DATA_STORE_FILE_NAME)
-            }
+            },
         )
 
     @Provides
     fun provideSettingsDataSource(
-        settingsDataStore: DataStore<SettingsPreferences>
+        settingsDataStore: DataStore<SettingsPreferences>,
     ): SettingsDataSource =
         SettingsDataSource(settingsDataStore = settingsDataStore)
 }

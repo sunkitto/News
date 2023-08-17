@@ -21,7 +21,7 @@ interface TopHeadlinesDao {
 
     @Transaction
     suspend fun deleteAllAndInsertNewTopHeadlines(
-        topHeadlinesEntities: List<TopHeadlinesEntity>
+        topHeadlinesEntities: List<TopHeadlinesEntity>,
     ) {
         deleteAllTopHeadlines()
         insertTopHeadlines(topHeadlinesEntities)

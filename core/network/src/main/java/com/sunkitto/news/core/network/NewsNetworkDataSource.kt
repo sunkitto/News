@@ -3,12 +3,12 @@ package com.sunkitto.news.core.network
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.sunkitto.news.core.network.model.NewsDto
 import com.sunkitto.news.core.network.retrofit.NewsService
+import javax.inject.Inject
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import javax.inject.Inject
 
 private const val BASE_URL = "https://newsapi.org"
 private const val MEDIA_TYPE = "application/json"
@@ -31,7 +31,7 @@ interface NewsNetworkDataSource {
 }
 
 class NewsNetworkDataSourceImpl @Inject constructor(
-    private val apiKey: String
+    private val apiKey: String,
 ) : NewsNetworkDataSource {
 
     private val json = Json {

@@ -33,11 +33,11 @@ class SettingsDataSourceTest {
             scope = testScope,
             produceFile = {
                 context.dataStoreFile("testSettingsPreferences.json")
-            }
+            },
         )
 
         subject = SettingsDataSource(
-            settingsDataStore = settingsDataStore
+            settingsDataStore = settingsDataStore,
         )
     }
 
@@ -47,7 +47,7 @@ class SettingsDataSourceTest {
             val expected = SettingsPreferences(
                 language = Language.POLISH,
                 theme = Theme.DARK,
-                topHeadlinesCountry = TopHeadlinesCountry.POLAND
+                topHeadlinesCountry = TopHeadlinesCountry.POLAND,
             )
             subject.apply {
                 setLanguage(Language.POLISH)

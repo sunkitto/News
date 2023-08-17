@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class AllNewsRemoteKey(
     @PrimaryKey
     val articleUrl: String,
-    val nextPage: Int?
+    val nextPage: Int?,
 )

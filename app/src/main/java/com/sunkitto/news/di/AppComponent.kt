@@ -28,7 +28,7 @@ import javax.inject.Singleton
         DispatchersModule::class,
         NetworkModule::class,
         CoroutineScopesModule::class,
-    ]
+    ],
 )
 interface AppComponent : TopHeadlinesDependencies, AllNewsDependencies, SettingsDependencies {
 
@@ -51,4 +51,3 @@ interface AppComponent : TopHeadlinesDependencies, AllNewsDependencies, Settings
         fun build(): AppComponent
     }
 }
-

@@ -16,11 +16,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import java.util.Locale
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class TopHeadlinesViewModel(
-    private val getTopHeadlinesUseCase: GetTopHeadlinesUseCase
+    private val getTopHeadlinesUseCase: GetTopHeadlinesUseCase,
 ) : ViewModel() {
 
     private val category = MutableStateFlow(TopHeadlinesCategory.GENERAL)
@@ -38,8 +37,15 @@ class TopHeadlinesViewModel(
 
     fun setCategory(chip: Chip) {
         viewModelScope.launch {
-            val selectedCategory = TopHeadlinesCategory
-                .valueOf(chip.text.toString().uppercase(Locale.ROOT))
+            val selectedCategory = when(chip.id) {
+                R.id.generalChip -> TopHeadlinesCategory.GENERAL
+                R.id.businessChip -> TopHeadlinesCategory.BUSINESS
+                R.id.technologyChip -> TopHeadlinesCategory.TECHNOLOGY
+                R.id.scienceChip -> TopHeadlinesCategory.SCIENCE
+                R.id.entertainmentChip -> TopHeadlinesCategory.ENTERTAINMENT
+                R.id.sportsChip -> TopHeadlinesCategory.SPORTS
+                else -> TopHeadlinesCategory.GENERAL
+            }
             category.emit(selectedCategory)
         }
     }

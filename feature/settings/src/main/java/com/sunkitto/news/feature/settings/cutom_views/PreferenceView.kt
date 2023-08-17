@@ -11,7 +11,7 @@ class PreferenceView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-    defStyleRes: Int = 0
+    defStyleRes: Int = 0,
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private val binding: PreferenceViewBinding
@@ -31,15 +31,17 @@ class PreferenceView @JvmOverloads constructor(
     private fun initializeAttributes(
         attrs: AttributeSet?,
         defStyleAttr: Int,
-        defStyleRes: Int
+        defStyleRes: Int,
     ) {
-        if(attrs == null) return
+        if (attrs == null) return
         val typedArray = context
             .obtainStyledAttributes(attrs, R.styleable.PreferenceView, defStyleAttr, defStyleRes)
 
         val titleTextView = typedArray.getString(R.styleable.PreferenceView_titleTextViewText)
         binding.titleTextView.text = titleTextView
-        val descriptionTextView = typedArray.getString(R.styleable.PreferenceView_descriptionTextViewText)
+        val descriptionTextView = typedArray.getString(
+            R.styleable.PreferenceView_descriptionTextViewText,
+        )
         binding.descriptionTextView.text = descriptionTextView
 
         typedArray.recycle()

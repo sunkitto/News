@@ -9,11 +9,10 @@ import com.sunkitto.news.feature.settings.R
 
 class LanguageDialogFragment(
     private val checkedItem: Int,
-    private val onClick: (language: Language) -> Unit
+    private val onClick: (language: Language) -> Unit,
 ) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-
         val languages = Language.values()
         val languageNames = languages.map { getString(it.nameId) }.toTypedArray()
 

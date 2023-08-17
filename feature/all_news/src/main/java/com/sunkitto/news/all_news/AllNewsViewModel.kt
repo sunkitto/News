@@ -36,20 +36,22 @@ class AllNewsViewModel(
             getAllNewsUseCase.invoke(query = searchQuery)
                 .map { pagingData ->
                     pagingData.map { article ->
-                        article.asArticleUi(com.sunkitto.news.core.design_system.R.drawable.placeholder)
+                        article.asArticleUi(
+                            com.sunkitto.news.core.design_system.R.drawable.placeholder,
+                        )
                     }
-            }
+                }
         }
         .cachedIn(viewModelScope)
 
     fun searchNews(query: String) {
-        if(query.isNotBlank()) {
+        if (query.isNotBlank()) {
             viewModelScope.launch(Dispatchers.IO) {
                 recentSearchRepository.upsertRecentSearch(
                     RecentSearch(
                         query = query,
-                        date = Clock.System.now()
-                    )
+                        date = Clock.System.now(),
+                    ),
                 )
                 searchQuery.emit(query)
                 loadRecentSearches()

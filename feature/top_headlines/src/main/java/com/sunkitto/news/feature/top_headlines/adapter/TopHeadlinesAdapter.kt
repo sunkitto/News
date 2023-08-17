@@ -11,12 +11,12 @@ import com.sunkitto.news.feature.top_headlines.R
 import com.sunkitto.news.feature.top_headlines.databinding.ItemTopHeadlineBinding
 
 class TopHeadlinesAdapter(
-    private val listener: TopHeadlinesRecyclerViewClickListener
+    private val listener: TopHeadlinesRecyclerViewClickListener,
 ) : PagingDataAdapter<ArticleUi, RecyclerView.ViewHolder>(ArticleUiDiffCallback()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        viewType: Int,
     ): RecyclerView.ViewHolder =
         TopHeadlineViewHolder.create(parent)
 
@@ -26,7 +26,7 @@ class TopHeadlinesAdapter(
     ) {
         val articleUi = getItem(position)
         articleUi?.let {
-            if(holder is TopHeadlineViewHolder) {
+            if (holder is TopHeadlineViewHolder) {
                 holder.bind(
                     articleUi = articleUi,
                     listener = listener,
@@ -40,12 +40,12 @@ class TopHeadlinesAdapter(
     }
 
     class TopHeadlineViewHolder(
-        private val binding: ItemTopHeadlineBinding
+        private val binding: ItemTopHeadlineBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
             articleUi: ArticleUi,
-            listener: TopHeadlinesRecyclerViewClickListener
+            listener: TopHeadlinesRecyclerViewClickListener,
         ) {
             with(binding) {
                 this.root.setOnClickListener {
@@ -74,8 +74,8 @@ class TopHeadlinesAdapter(
                     ItemTopHeadlineBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
-                        false
-                    )
+                        false,
+                    ),
                 )
         }
     }

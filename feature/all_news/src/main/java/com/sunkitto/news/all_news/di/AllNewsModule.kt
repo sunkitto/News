@@ -17,7 +17,7 @@ object AllNewsModule {
 
     @Provides
     fun providesGetRecentSearchUseCase(
-        recentSearchRepository: RecentSearchRepository
+        recentSearchRepository: RecentSearchRepository,
     ): GetRecentSearchesUseCase =
         GetRecentSearchesUseCase(recentSearchRepository = recentSearchRepository)
 
@@ -37,7 +37,7 @@ object AllNewsModule {
                 AllNewsViewModel(
                     getAllNewsUseCase = getAllNewsUseCase,
                     getRecentSearchesUseCase = getRecentSearchesUseCase,
-                    recentSearchRepository = recentSearchRepository
+                    recentSearchRepository = recentSearchRepository,
                 )
             }
         }

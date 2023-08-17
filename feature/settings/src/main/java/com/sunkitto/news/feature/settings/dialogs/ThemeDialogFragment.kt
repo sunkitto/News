@@ -9,11 +9,10 @@ import com.sunkitto.news.feature.settings.R
 
 class ThemeDialogFragment(
     private val checkedItem: Int,
-    private val onClick: (theme: Theme) -> Unit
+    private val onClick: (theme: Theme) -> Unit,
 ) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-
         val themes = Theme.values()
         val themeNames = themes.map { getString(it.nameId) }.toTypedArray()
 

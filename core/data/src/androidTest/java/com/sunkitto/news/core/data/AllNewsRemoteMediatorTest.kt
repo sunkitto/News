@@ -17,12 +17,12 @@ import com.sunkitto.news.core.network.model.SourceDto
 import com.sunkitto.news.core.network.retrofit.NewsService
 import io.mockk.coEvery
 import io.mockk.mockk
+import java.io.IOException
 import kotlinx.coroutines.test.runTest
 import kotlinx.datetime.Instant
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import java.io.IOException
 
 @OptIn(ExperimentalPagingApi::class)
 class AllNewsRemoteMediatorTest {
@@ -36,12 +36,11 @@ class AllNewsRemoteMediatorTest {
 
     @Test
     fun load_refresh_returns_success_when_data_is_present() = runTest {
-
         coEvery {
             newsNetworkDataSource.getAllNews(
                 query = "",
                 page = 1,
-                pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE
+                pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE,
             )
         }.returns(testNewsDto)
 
@@ -56,7 +55,7 @@ class AllNewsRemoteMediatorTest {
             pages = listOf(),
             anchorPosition = null,
             config = PagingConfig(pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE),
-            leadingPlaceholderCount = 1
+            leadingPlaceholderCount = 1,
         )
 
         var result = subject.load(LoadType.REFRESH, pagingState)
@@ -68,7 +67,6 @@ class AllNewsRemoteMediatorTest {
 
     @Test
     fun load_prepend_returns_success_and_end_of_pagination() = runTest {
-
         val subject = AllNewsRemoteMediator(
             articlesDao = newsDatabase.articlesDao(),
             allNewsRemoteKeyDao = newsDatabase.allNewsRemoteKeysDao(),
@@ -80,7 +78,7 @@ class AllNewsRemoteMediatorTest {
             pages = listOf(),
             anchorPosition = null,
             config = PagingConfig(pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE),
-            leadingPlaceholderCount = 1
+            leadingPlaceholderCount = 1,
         )
 
         var result = subject.load(LoadType.PREPEND, pagingState)
@@ -92,19 +90,18 @@ class AllNewsRemoteMediatorTest {
 
     @Test
     fun load_append_returns_success_and_end_of_pagination_when_data_not_present() = runTest {
-
         coEvery {
             newsNetworkDataSource.getAllNews(
                 query = "",
                 page = 1,
-                pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE
+                pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE,
             )
         }.returns(
             NewsDto(
                 status = "",
                 totalResults = 1,
-                articles = listOf()
-            )
+                articles = listOf(),
+            ),
         )
 
         val subject = AllNewsRemoteMediator(
@@ -118,7 +115,7 @@ class AllNewsRemoteMediatorTest {
             pages = listOf(),
             anchorPosition = null,
             config = PagingConfig(pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE),
-            leadingPlaceholderCount = 1
+            leadingPlaceholderCount = 1,
         )
 
         var result = subject.load(LoadType.REFRESH, pagingState)
@@ -130,12 +127,11 @@ class AllNewsRemoteMediatorTest {
 
     @Test
     fun load_refresh_returns_error_when_error_occurs() = runTest {
-
         coEvery {
             newsNetworkDataSource.getAllNews(
                 query = "",
                 page = 1,
-                pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE
+                pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE,
             )
         }.throws(IOException())
 
@@ -150,7 +146,7 @@ class AllNewsRemoteMediatorTest {
             pages = listOf(),
             anchorPosition = null,
             config = PagingConfig(pageSize = NewsService.DEFAULT_ALL_NEWS_PAGE_SIZE),
-            leadingPlaceholderCount = 1
+            leadingPlaceholderCount = 1,
         )
 
         val result = subject.load(LoadType.REFRESH, pagingState)
@@ -181,6 +177,6 @@ private val testNewsDto =
                 urlToImage = "",
                 publishedAt = Instant.fromEpochMilliseconds(1),
                 content = "",
-            )
-        )
+            ),
+        ),
     )

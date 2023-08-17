@@ -21,7 +21,7 @@ internal class TopHeadlinesRemoteMediator(
     private val newsNetworkDataSource: NewsNetworkDataSource,
     private val topHeadlinesCategory: TopHeadlinesCategory,
     private val settingsRepository: SettingsRepository,
-): RemoteMediator<Int, TopHeadlinesEntity>() {
+) : RemoteMediator<Int, TopHeadlinesEntity>() {
 
     override suspend fun initialize(): InitializeAction {
         return InitializeAction.LAUNCH_INITIAL_REFRESH
@@ -29,7 +29,7 @@ internal class TopHeadlinesRemoteMediator(
 
     override suspend fun load(
         loadType: LoadType,
-        state: PagingState<Int, TopHeadlinesEntity>
+        state: PagingState<Int, TopHeadlinesEntity>,
     ): MediatorResult {
         try {
             val page = when (loadType) {
@@ -42,7 +42,7 @@ internal class TopHeadlinesRemoteMediator(
                         topHeadlinesRemoteKeyDao.getRemoteKey(topHeadlinesEntity.url)
                     }
                     val nextPage = remoteKey?.nextPage ?: return MediatorResult.Success(
-                        endOfPaginationReached = remoteKey != null
+                        endOfPaginationReached = remoteKey != null,
                     )
                     nextPage
                 }
@@ -64,7 +64,7 @@ internal class TopHeadlinesRemoteMediator(
             val remoteKeys = topHeadlines.map { topHeadlinesEntity ->
                 TopHeadlinesRemoteKey(
                     articleUrl = topHeadlinesEntity.url,
-                    nextPage = nextPage
+                    nextPage = nextPage,
                 )
             }
 

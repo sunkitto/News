@@ -51,15 +51,14 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
-
             languagePreference.descriptionText = getString(
-                viewModel.settings.value.language.nameId
+                viewModel.settings.value.language.nameId,
             )
             topHeadlinesCountryPreference.descriptionText = getString(
-                viewModel.settings.value.topHeadlinesCountry.nameId
+                viewModel.settings.value.topHeadlinesCountry.nameId,
             )
             themePreference.descriptionText = getString(
-                viewModel.settings.value.theme.nameId
+                viewModel.settings.value.theme.nameId,
             )
 
             languagePreference.setOnClickListener {
@@ -67,7 +66,6 @@ class SettingsFragment : Fragment() {
                 LanguageDialogFragment(currentLanguage.index) { language ->
                     viewModel.setLanguage(language)
                     languagePreference.descriptionText = getString(language.nameId)
-
                 }.show(
                     childFragmentManager,
                     LanguageDialogFragment.TAG,
@@ -78,7 +76,7 @@ class SettingsFragment : Fragment() {
                 val currentTopHeadlinesCountry = viewModel.settings.value.topHeadlinesCountry
 
                 TopHeadlinesCountryDialogFragment(
-                    currentTopHeadlinesCountry.index
+                    currentTopHeadlinesCountry.index,
                 ) { topHeadlinesCountry ->
                     viewModel.setTopHeadlinesCountry(topHeadlinesCountry)
                     topHeadlinesCountryPreference.descriptionText =

@@ -14,7 +14,7 @@ class GroupVerticalItemDecorator(
         outRect: Rect,
         view: View,
         parent: RecyclerView,
-        state: RecyclerView.State
+        state: RecyclerView.State,
     ) {
         super.getItemOffsets(outRect, view, parent, state)
 
@@ -36,12 +36,12 @@ class GroupVerticalItemDecorator(
 
     private fun RecyclerView.Adapter<*>.isPrevTargetView(
         currentPosition: Int,
-        viewType: Int
+        viewType: Int,
     ) = currentPosition != 0 && getItemViewType(currentPosition - 1) == viewType
 
     private fun RecyclerView.Adapter<*>.isNextTargetView(
         currentPosition: Int,
-        viewType: Int
+        viewType: Int,
     ): Boolean {
         val lastIndex = itemCount - 1
         return currentPosition != lastIndex && getItemViewType(currentPosition + 1) == viewType

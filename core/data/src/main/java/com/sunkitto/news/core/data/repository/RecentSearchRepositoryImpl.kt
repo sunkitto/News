@@ -5,12 +5,12 @@ import com.sunkitto.news.core.data.asRecentSearchEntity
 import com.sunkitto.news.core.database.dao.RecentSearchDao
 import com.sunkitto.news.core.domain.repository.RecentSearchRepository
 import com.sunkitto.news.core.model.RecentSearch
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 class RecentSearchRepositoryImpl @Inject constructor(
-    private val recentSearchDao: RecentSearchDao
+    private val recentSearchDao: RecentSearchDao,
 ) : RecentSearchRepository {
 
     override fun getRecentSearches(): Flow<List<RecentSearch>> =
