@@ -10,7 +10,6 @@ import com.sunkitto.news.core.data.asArticleUi
 import com.sunkitto.news.core.domain.GetTopHeadlinesUseCase
 import com.sunkitto.news.core.model.ui.ArticleUi
 import com.sunkitto.news.core.model.ui.TopHeadlinesCategory
-import java.util.Locale
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -38,8 +37,15 @@ class TopHeadlinesViewModel(
 
     fun setCategory(chip: Chip) {
         viewModelScope.launch {
-            val selectedCategory = TopHeadlinesCategory
-                .valueOf(chip.text.toString().uppercase(Locale.ROOT))
+            val selectedCategory = when(chip.id) {
+                R.id.generalChip -> TopHeadlinesCategory.GENERAL
+                R.id.businessChip -> TopHeadlinesCategory.BUSINESS
+                R.id.technologyChip -> TopHeadlinesCategory.TECHNOLOGY
+                R.id.scienceChip -> TopHeadlinesCategory.SCIENCE
+                R.id.entertainmentChip -> TopHeadlinesCategory.ENTERTAINMENT
+                R.id.sportsChip -> TopHeadlinesCategory.SPORTS
+                else -> TopHeadlinesCategory.GENERAL
+            }
             category.emit(selectedCategory)
         }
     }
