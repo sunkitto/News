@@ -1,9 +1,10 @@
-package com.sunkitto.news.core.database.model
+package com.sunkitto.news.core.database.model.all_news
 
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.sunkitto.news.core.database.model.SourceEntity
 import kotlinx.datetime.Instant
 
 @Entity(tableName = "articles")
@@ -20,10 +21,5 @@ data class ArticleEntity(
     val urlToImage: String?,
     @ColumnInfo("published_at")
     val publishedAt: Instant,
-    val content: String,
-)
-
-data class SourceEntity(
-    val id: String?,
-    val name: String,
+    val content: String?,
 )

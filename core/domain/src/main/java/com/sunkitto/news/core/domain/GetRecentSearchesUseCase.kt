@@ -7,5 +7,5 @@ class GetRecentSearchesUseCase @Inject constructor(
     private val recentSearchRepository: RecentSearchRepository
 ) {
 
-    operator fun invoke(limit: Int) = recentSearchRepository.getRecentSearches(limit = limit)
+    operator fun invoke() = recentSearchRepository.getRecentSearches()
 }

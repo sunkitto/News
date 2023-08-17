@@ -1,4 +1,4 @@
-package com.sunkitto.news.core.model
+package com.sunkitto.news.core.model.ui
 
 import android.view.View
 

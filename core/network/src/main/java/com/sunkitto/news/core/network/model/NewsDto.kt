@@ -21,7 +21,7 @@ data class ArticleDto(
     val urlToImage: String?,
     @Serializable(with = InstantIso8601Serializer::class)
     val publishedAt: Instant,
-    val content: String,
+    val content: String?,
 )
 
 @Serializable

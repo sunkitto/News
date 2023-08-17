@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="follow_system">Follow System</string>
+
+    <!-- Languages -->
+    <string name="english">English</string>
+    <string name="polish">Polish</string>
+
+    <!-- Themes -->
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+
+    <!-- Top Headlines Countries -->
+    <string name="czechia">Czechia</string>
+    <string name="germany">Germany</string>
+    <string name="lithuania">Lithuania</string>
+    <string name="latvia">Latvia</string>
+    <string name="poland">Poland</string>
+    <string name="ukraine">Ukraine</string>
+    <string name="usa">USA</string>
+</resources>

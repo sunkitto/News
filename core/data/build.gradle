@@ -28,6 +28,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = '17'
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
     }
 }
 
@@ -51,9 +52,8 @@ dependencies {
     implementation(libs.kotlinx.datetime)
 
     // Dagger 2
-    implementation(libs.dagger.android)
-    kapt(libs.dagger.compiler)
-    kapt(libs.dagger.processor)
+    implementation(libs.dagger2.core)
+    kapt(libs.dagger2.compiler)
 
     // Unit Tests
     testImplementation(libs.junit5.api)
@@ -64,6 +64,5 @@ dependencies {
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.junit5.api)
-
     testRuntimeOnly(libs.junit5.engine)
 }

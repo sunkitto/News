@@ -30,4 +30,8 @@ class SettingsDataSource @Inject constructor(
             settings.copy(topHeadlinesCountry = topHeadlinesCountry)
         }
     }
+
+    companion object {
+        const val SETTINGS_DATA_STORE_FILE_NAME = "settingsPreferences.json"
+    }
 }

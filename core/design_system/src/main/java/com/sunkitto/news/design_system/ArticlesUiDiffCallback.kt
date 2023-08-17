@@ -1,7 +1,7 @@
 package com.sunkitto.news.design_system
 
 import androidx.recyclerview.widget.DiffUtil
-import com.sunkitto.news.core.model.ArticleUi
+import com.sunkitto.news.core.model.ui.ArticleUi
 
 class ArticleUiDiffCallback : DiffUtil.ItemCallback<ArticleUi>() {
 

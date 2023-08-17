@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="follow_system">Systemowy</string>
+
+    <!-- Languages -->
+    <string name="english">Angielski</string>
+    <string name="polish">Polski</string>
+
+    <!-- Themes -->
+    <string name="light">Jasny</string>
+    <string name="dark">Ciemny</string>
+
+    <!-- Top Headlines Countries -->
+    <string name="czechia">Czechy</string>
+    <string name="germany">Niemcy</string>
+    <string name="lithuania">Litva</string>
+    <string name="latvia">Łotwa</string>
+    <string name="poland">Polska</string>
+    <string name="ukraine">Ukraina</string>
+    <string name="usa">Stany Zjednoczone</string>
+</resources>

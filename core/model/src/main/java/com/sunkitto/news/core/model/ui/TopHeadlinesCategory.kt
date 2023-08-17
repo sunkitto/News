@@ -1,4 +1,4 @@
-package com.sunkitto.news.core.model
+package com.sunkitto.news.core.model.ui
 
 enum class TopHeadlinesCategory(var value: String) {
     BUSINESS("business"),

@@ -5,11 +5,11 @@ import kotlinx.coroutines.flow.Flow
 
 interface RecentSearchRepository {
 
-    fun getRecentSearches(limit: Int): Flow<List<RecentSearch>>
+    fun getRecentSearches(): Flow<List<RecentSearch>>
 
     suspend fun upsertRecentSearch(recentSearch: RecentSearch)
 
     suspend fun deleteRecentSearch(recentSearch: RecentSearch)
 
-    suspend fun deleteRecentSearches()
+    suspend fun deleteAllRecentSearches()
 }

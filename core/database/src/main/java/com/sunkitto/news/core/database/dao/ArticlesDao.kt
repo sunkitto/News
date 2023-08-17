@@ -5,17 +5,13 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
-import com.sunkitto.news.core.database.model.ArticleEntity
-import kotlinx.coroutines.flow.Flow
+import com.sunkitto.news.core.database.model.all_news.ArticleEntity
 
 @Dao
 interface ArticlesDao {
 
     @Query("SELECT * FROM articles ORDER BY published_at DESC")
     fun getArticles(): PagingSource<Int, ArticleEntity>
-
-    @Query("SELECT * FROM articles WHERE title LIKE :query OR description LIKE :query")
-    fun searchArticles(query: String): Flow<List<ArticleEntity>>
 
     @Insert
     suspend fun insertArticles(articleEntities: List<ArticleEntity>)

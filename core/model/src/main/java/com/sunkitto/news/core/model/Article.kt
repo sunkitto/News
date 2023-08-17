@@ -11,7 +11,7 @@ data class Article(
     val url: String,
     val urlToImage: String?,
     val publishedAt: Instant,
-    val content: String,
+    val content: String?,
 )
 
 data class Source(

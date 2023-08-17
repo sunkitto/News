@@ -44,9 +44,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     // Dagger 2
-    implementation(libs.dagger.android)
-    kapt(libs.dagger.processor)
-    kapt(libs.dagger.compiler)
+    implementation(libs.dagger2.core)
+    implementation(libs.dagger2.compiler)
 
     // Android Tests
     androidTestImplementation(libs.androidx.test.core)

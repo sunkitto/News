@@ -13,8 +13,8 @@ class RecentSearchRepositoryImpl @Inject constructor(
     private val recentSearchDao: RecentSearchDao
 ) : RecentSearchRepository {
 
-    override fun getRecentSearches(limit: Int): Flow<List<RecentSearch>> =
-        recentSearchDao.getRecentSearches(limit = limit).map { recentSearches ->
+    override fun getRecentSearches(): Flow<List<RecentSearch>> =
+        recentSearchDao.getRecentSearches().map { recentSearches ->
             recentSearches.map { recentSearchEntity ->
                 recentSearchEntity.asRecentSearch()
             }
@@ -26,6 +26,6 @@ class RecentSearchRepositoryImpl @Inject constructor(
     override suspend fun deleteRecentSearch(recentSearch: RecentSearch) =
         recentSearchDao.deleteRecentSearch(recentSearch = recentSearch.asRecentSearchEntity())
 
-    override suspend fun deleteRecentSearches() =
-        recentSearchDao.deleteRecentSearches()
+    override suspend fun deleteAllRecentSearches() =
+        recentSearchDao.deleteAllRecentSearches()
 }

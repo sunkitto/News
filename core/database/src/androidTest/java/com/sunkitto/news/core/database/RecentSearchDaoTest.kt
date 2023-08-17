@@ -30,7 +30,7 @@ class RecentSearchDaoTest {
     }
 
     @Test
-    fun write_and_read_recent_searches_by_descending_date_with_limit() = runTest {
+    fun write_and_read_recent_searches_by_descending_date() = runTest {
         val fakeRecentSearchEntities = listOf(
             RecentSearchEntity(
                 query = "Test query 2",
@@ -54,9 +54,9 @@ class RecentSearchDaoTest {
                 recentSearch,
             )
         }
-        val orderedRecentSearches = recentSearchDao.getRecentSearches(limit = 3).first()
+        val orderedRecentSearches = recentSearchDao.getRecentSearches().first()
         assertEquals(
-            listOf(5L, 4L, 3L),
+            listOf(5L, 4L, 3L, 2L),
             orderedRecentSearches.map { recentSearch -> recentSearch.date.toEpochMilliseconds() },
         )
     }
@@ -69,7 +69,7 @@ class RecentSearchDaoTest {
         )
         recentSearchDao.upsertRecentSearch(fakeRecentSearchEntity)
         recentSearchDao.deleteRecentSearch(fakeRecentSearchEntity)
-        val recentSearches = recentSearchDao.getRecentSearches(1)
+        val recentSearches = recentSearchDao.getRecentSearches()
         assertTrue(recentSearches.first().isEmpty())
     }
 
@@ -90,8 +90,8 @@ class RecentSearchDaoTest {
                 recentSearch,
             )
         }
-        recentSearchDao.deleteRecentSearches()
-        val recentSearches = recentSearchDao.getRecentSearches(1)
+        recentSearchDao.deleteAllRecentSearches()
+        val recentSearches = recentSearchDao.getRecentSearches()
         assertTrue(recentSearches.first().isEmpty())
     }
 
