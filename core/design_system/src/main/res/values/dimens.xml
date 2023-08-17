@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_indent">15dp</dimen>
+    <dimen name="default_inner_indent">5dp</dimen>
+    <dimen name="icon_padding">12dp</dimen>
+    <dimen name="article_image_size">125dp</dimen>
+
+    <dimen name="card_corner_radius">30dp</dimen>
+
+    <dimen name="all_news_image_indent">10dp</dimen>
+    <dimen name="all_news_inner_indent">15dp</dimen>
+    <dimen name="all_news_label_indent">5dp</dimen>
+
+    <dimen name="top_headline_image_indent">20dp</dimen>
+    <dimen name="top_headline_inner_indent">10dp</dimen>
+    <dimen name="top_headline_label_indent">20dp</dimen>
+</resources>

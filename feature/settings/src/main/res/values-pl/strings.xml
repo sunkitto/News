@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">Ustawienia</string>
+    <string name="interface_language">Język Interfejsu</string>
+    <string name="apply">Zastosuj</string>
+    <string name="cancel">Anuluj</string>
+    <string name="theme">Motyw</string>
+    <string name="top_headlines_country">Kraj Najważniejszych Nagłówkow</string>
+</resources>

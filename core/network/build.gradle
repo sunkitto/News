@@ -1,0 +1,58 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.kotlin.serialization)
+}
+
+android {
+    namespace 'com.sunkitto.news.core.network'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 34
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        debug {
+            debuggable = true
+        }
+        release {
+            debuggable = false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+
+    // Retrofit
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit.kotlinx.serialization)
+
+    // OkHttp3
+    implementation(libs.okhttp3.logging)
+
+    // KotlinX
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlinx.serialization.json)
+
+    // Dagger 2
+    implementation(libs.dagger2.core)
+    kapt(libs.dagger2.compiler)
+}

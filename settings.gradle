@@ -14,3 +14,14 @@ dependencyResolutionManagement {
 }
 rootProject.name = "News"
 include ':app'
+include ':core:database'
+include ':core:network'
+include ':core:model'
+include ':core:datastore'
+include ':core:data'
+include ':core:domain'
+include ':feature:top_headlines'
+include ':core:design_system'
+include ':util'
+include ':feature:all_news'
+include ':feature:settings'

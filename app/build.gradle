@@ -1,45 +1,86 @@
 plugins {
-    alias libs.plugins.android.application
-    alias libs.plugins.kotlin
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kapt)
 }
 
 android {
     namespace 'com.sunkitto.news'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.sunkitto.news"
-        minSdk 24
-        targetSdk 33
+        minSdk 26
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        buildConfigField "String", "API_KEY", properties.getProperty("API_KEY")
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            buildConfigField 'boolean', 'DEVELOPER_MODE', 'true'
+            signingConfig signingConfigs.debug
+        }
         release {
+            debuggable false
+            buildConfigField 'boolean', 'DEVELOPER_MODE', 'false'
             minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        viewBinding true
+        buildConfig true
     }
 }
 
 dependencies {
 
-    implementation libs.androidx.core
-    implementation libs.androidx.appcompat
-    implementation libs.material
-    implementation libs.androidx.constraintlayout
+    implementation(project(":core:network"))
+    implementation(project(":core:database"))
+    implementation(project(":core:datastore"))
+    implementation(project(":core:data"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:model"))
+    implementation(project(":core:design_system"))
 
-    testImplementation libs.junit4
-    androidTestImplementation libs.androidx.test.ext.junit
-    androidTestImplementation libs.androidx.test.espresso
+    implementation(project(":feature:top_headlines"))
+    implementation(project(":feature:all_news"))
+    implementation(project(":feature:settings"))
+
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+
+    // Navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+    // DataStore
+    implementation(libs.androidx.datastore)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
+
+    // Dagger 2
+    implementation(libs.dagger2.core)
+    kapt(libs.dagger2.compiler)
 }

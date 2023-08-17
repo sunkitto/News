@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_news">Szukaj wiadomości</string>
+    <string name="history">Historia</string>
+    <string name="close">Zamknij</string>
+    <string name="article">Artykuł</string>
+</resources>

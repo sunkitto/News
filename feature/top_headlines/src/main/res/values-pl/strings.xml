@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="top_headlines">Najważniejsze nagłówki</string>
+    <string name="top_headline_image">Obraz najważniejszego nagłówka</string>
+    <string name="business">Biznes</string>
+    <string name="technology">Technologie</string>
+    <string name="general">Ogólne</string>
+    <string name="science">Nauka</string>
+    <string name="entertainment">Rozrywka</string>
+    <string name="sports">Sport</string>
+</resources>

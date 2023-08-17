@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.News.ScreenTitle" parent="TextAppearance.Material3.HeadlineLarge"/>
+    <style name="TextAppearance.News.TopHeadlineTitle" parent="TextAppearance.Material3.TitleMedium"/>
+    <style name="TextAppearance.News.ArticleTitle" parent="TextAppearance.Material3.BodySmall"/>
+    <style name="TextAppearance.News.ArticleDescription" parent="TextAppearance.Material3.BodySmall"/>
+    <style name="TextAppearance.News.Label" parent="TextAppearance.Material3.LabelSmall"/>
+    <style name="TextAppearance.News.RecentSearch" parent="TextAppearance.Material3.BodyMedium"/>
+
+</resources>
