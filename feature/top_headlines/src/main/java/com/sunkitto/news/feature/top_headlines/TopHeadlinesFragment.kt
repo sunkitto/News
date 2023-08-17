@@ -25,9 +25,9 @@ import com.sunkitto.news.feature.top_headlines.adapter.TopHeadlinesRecyclerViewC
 import com.sunkitto.news.feature.top_headlines.databinding.FragmentTopHeadlinesBinding
 import com.sunkitto.news.feature.top_headlines.di.TopHeadlinesComponentViewModel
 import com.sunkitto.news.feature.top_headlines.di.TopHeadlinesModule.TopHeadlinesViewModelFactory
+import javax.inject.Inject
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
 
@@ -55,7 +55,7 @@ class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentTopHeadlinesBinding.inflate(inflater, container, false)
         return binding.root
@@ -63,7 +63,7 @@ class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
 
     override fun onViewCreated(
         view: View,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -87,13 +87,13 @@ class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
             adapter = topHeadlinesAdapter
 
             addItemDecoration(
-                GroupVerticalItemDecorator(R.layout.item_top_headline, 0, 50)
+                GroupVerticalItemDecorator(R.layout.item_top_headline, 0, 50),
             )
             addItemDecoration(
-                GroupVerticalItemDecorator(R.layout.item_top_headline, 50, 0)
+                GroupVerticalItemDecorator(R.layout.item_top_headline, 50, 0),
             )
             addItemDecoration(
-                HorizontalItemDecorator(100)
+                HorizontalItemDecorator(100),
             )
         }
 
@@ -101,7 +101,7 @@ class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
             setOnRefreshListener {
                 topHeadlinesAdapter.refresh()
                 isRefreshing =
-                    when(refreshLoadState) {
+                    when (refreshLoadState) {
                         is LoadState.Loading -> true
                         is LoadState.NotLoading -> false
                         is LoadState.Error -> false

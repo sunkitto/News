@@ -83,7 +83,7 @@ class RecentSearchDaoTest {
             RecentSearchEntity(
                 query = "Test query 2",
                 date = Instant.fromEpochMilliseconds(1),
-            )
+            ),
         )
         for (recentSearch in fakeRecentSearchEntities) {
             recentSearchDao.upsertRecentSearch(

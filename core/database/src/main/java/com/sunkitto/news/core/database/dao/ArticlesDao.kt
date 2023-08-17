@@ -21,7 +21,7 @@ interface ArticlesDao {
 
     @Transaction
     suspend fun deleteAllAndInsertNewArticles(
-        articleEntities: List<ArticleEntity>
+        articleEntities: List<ArticleEntity>,
     ) {
         deleteAllArticles()
         insertArticles(articleEntities)

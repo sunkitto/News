@@ -11,7 +11,7 @@ object NetworkModule {
 
     @Provides
     fun provideNewsNetworkDataSource(
-        @NewsApiKeyQualifier apiKey: String
+        @NewsApiKeyQualifier apiKey: String,
     ): NewsNetworkDataSource =
         NewsNetworkDataSourceImpl(apiKey = apiKey)
 }

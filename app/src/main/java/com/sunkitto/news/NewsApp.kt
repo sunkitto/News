@@ -24,7 +24,7 @@ class NewsApp : Application() {
         AllNewsDependencyStore.dependencies = appComponent
         SettingsDependencyStore.dependencies = appComponent
 
-        if(BuildConfig.DEVELOPER_MODE) {
+        if (BuildConfig.DEVELOPER_MODE) {
             FragmentStrictMode.defaultPolicy =
                 FragmentStrictMode.Policy.Builder()
                     .detectFragmentReuse()
@@ -41,7 +41,7 @@ class NewsApp : Application() {
                     .detectDiskWrites()
                     .detectNetwork()
                     .detectCustomSlowCalls()
-                    .build()
+                    .build(),
             )
 
             StrictMode.setVmPolicy(
@@ -50,7 +50,7 @@ class NewsApp : Application() {
                     .detectLeakedClosableObjects()
                     .penaltyLog()
                     .penaltyDeath()
-                    .build()
+                    .build(),
             )
         }
         super.onCreate()

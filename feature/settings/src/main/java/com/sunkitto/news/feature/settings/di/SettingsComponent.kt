@@ -10,7 +10,7 @@ import kotlin.properties.Delegates
 @SettingsScope
 @Component(
     dependencies = [SettingsDependencies::class],
-    modules = [SettingsModel::class]
+    modules = [SettingsModel::class],
 )
 interface SettingsComponent {
 

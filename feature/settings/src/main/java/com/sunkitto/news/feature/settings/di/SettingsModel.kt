@@ -23,7 +23,7 @@ object SettingsModel {
             initializer {
                 SettingsViewModel(
                     settingsRepository = settingsRepository,
-                    preferencesManager = preferencesManager
+                    preferencesManager = preferencesManager,
                 )
             }
         }

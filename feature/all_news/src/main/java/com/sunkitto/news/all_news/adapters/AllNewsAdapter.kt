@@ -11,12 +11,12 @@ import com.sunkitto.news.core.model.ui.ArticleUi
 import com.sunkitto.news.design_system.ArticleUiDiffCallback
 
 class AllNewsAdapter(
-    private val listener: AllNewsRecyclerViewClickListener
+    private val listener: AllNewsRecyclerViewClickListener,
 ) : PagingDataAdapter<ArticleUi, RecyclerView.ViewHolder>(ArticleUiDiffCallback()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        viewType: Int,
     ): RecyclerView.ViewHolder =
         AllNewsViewHolder.create(parent)
 
@@ -26,7 +26,7 @@ class AllNewsAdapter(
     ) {
         val articleUi = getItem(position)
         articleUi?.let {
-            if(holder is AllNewsViewHolder) {
+            if (holder is AllNewsViewHolder) {
                 holder.bind(
                     articleUi = articleUi,
                     listener = listener,
@@ -40,7 +40,7 @@ class AllNewsAdapter(
     }
 
     class AllNewsViewHolder(
-        private val binding: ItemAllNewsBinding
+        private val binding: ItemAllNewsBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
             articleUi: ArticleUi,
@@ -69,8 +69,8 @@ class AllNewsAdapter(
                     ItemAllNewsBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
-                        false
-                    )
+                        false,
+                    ),
                 )
         }
     }

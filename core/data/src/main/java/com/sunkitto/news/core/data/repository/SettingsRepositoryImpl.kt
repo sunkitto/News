@@ -7,12 +7,12 @@ import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.core.model.settings.Settings
 import com.sunkitto.news.core.model.settings.Theme
 import com.sunkitto.news.core.model.settings.TopHeadlinesCountry
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 class SettingsRepositoryImpl @Inject constructor(
-    private val settingsDataSource: SettingsDataSource
+    private val settingsDataSource: SettingsDataSource,
 ) : SettingsRepository {
 
     override val settings: Flow<Settings>

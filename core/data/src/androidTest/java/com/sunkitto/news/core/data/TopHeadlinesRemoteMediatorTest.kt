@@ -20,12 +20,12 @@ import com.sunkitto.news.core.network.model.SourceDto
 import com.sunkitto.news.core.network.retrofit.NewsService
 import io.mockk.coEvery
 import io.mockk.mockk
+import java.io.IOException
 import kotlinx.coroutines.test.runTest
 import kotlinx.datetime.Instant
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import java.io.IOException
 
 @OptIn(ExperimentalPagingApi::class)
 class TopHeadlinesRemoteMediatorTest {
@@ -40,13 +40,12 @@ class TopHeadlinesRemoteMediatorTest {
 
     @Test
     fun load_refresh_returns_success_when_data_is_present() = runTest {
-
         coEvery {
             newsNetworkDataSource.getTopHeadlines(
                 country = TopHeadlinesCountry.POLAND.isoCode,
                 category = TopHeadlinesCategory.GENERAL.value,
                 page = 1,
-                pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE
+                pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE,
             )
         }.returns(testNewsDto)
 
@@ -62,7 +61,7 @@ class TopHeadlinesRemoteMediatorTest {
             pages = listOf(),
             anchorPosition = null,
             config = PagingConfig(pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE),
-            leadingPlaceholderCount = 1
+            leadingPlaceholderCount = 1,
         )
 
         var result = subject.load(LoadType.REFRESH, pagingState)
@@ -74,7 +73,6 @@ class TopHeadlinesRemoteMediatorTest {
 
     @Test
     fun load_prepend_returns_success_and_end_of_pagination() = runTest {
-
         val subject = TopHeadlinesRemoteMediator(
             topHeadlinesDao = newsDatabase.topHeadlinesDao(),
             topHeadlinesRemoteKeyDao = newsDatabase.topHeadlinesRemoteKeysDao(),
@@ -87,7 +85,7 @@ class TopHeadlinesRemoteMediatorTest {
             pages = listOf(),
             anchorPosition = null,
             config = PagingConfig(pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE),
-            leadingPlaceholderCount = 1
+            leadingPlaceholderCount = 1,
         )
 
         var result = subject.load(LoadType.PREPEND, pagingState)
@@ -99,20 +97,19 @@ class TopHeadlinesRemoteMediatorTest {
 
     @Test
     fun load_append_returns_success_and_end_of_pagination_when_data_not_present() = runTest {
-
         coEvery {
             newsNetworkDataSource.getTopHeadlines(
                 country = TopHeadlinesCountry.POLAND.isoCode,
                 category = TopHeadlinesCategory.GENERAL.value,
                 page = 1,
-                pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE
+                pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE,
             )
         }.returns(
             NewsDto(
                 status = "",
                 totalResults = 1,
-                articles = listOf()
-            )
+                articles = listOf(),
+            ),
         )
 
         val subject = TopHeadlinesRemoteMediator(
@@ -127,7 +124,7 @@ class TopHeadlinesRemoteMediatorTest {
             pages = listOf(),
             anchorPosition = null,
             config = PagingConfig(pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE),
-            leadingPlaceholderCount = 1
+            leadingPlaceholderCount = 1,
         )
 
         var result = subject.load(LoadType.REFRESH, pagingState)
@@ -139,13 +136,12 @@ class TopHeadlinesRemoteMediatorTest {
 
     @Test
     fun load_refresh_returns_error_when_error_occurs() = runTest {
-
         coEvery {
             newsNetworkDataSource.getTopHeadlines(
                 country = TopHeadlinesCountry.POLAND.isoCode,
                 category = TopHeadlinesCategory.GENERAL.value,
                 page = 1,
-                pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE
+                pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE,
             )
         }.throws(IOException())
 
@@ -161,7 +157,7 @@ class TopHeadlinesRemoteMediatorTest {
             pages = listOf(),
             anchorPosition = null,
             config = PagingConfig(pageSize = NewsService.DEFAULT_TOP_HEADLINES_PAGE_SIZE),
-            leadingPlaceholderCount = 1
+            leadingPlaceholderCount = 1,
         )
 
         val result = subject.load(LoadType.REFRESH, pagingState)
@@ -192,6 +188,6 @@ private val testNewsDto =
                 urlToImage = "",
                 publishedAt = Instant.fromEpochMilliseconds(1),
                 content = "",
-            )
-        )
+            ),
+        ),
     )

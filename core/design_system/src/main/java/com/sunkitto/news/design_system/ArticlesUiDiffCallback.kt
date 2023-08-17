@@ -7,13 +7,13 @@ class ArticleUiDiffCallback : DiffUtil.ItemCallback<ArticleUi>() {
 
     override fun areItemsTheSame(
         oldItem: ArticleUi,
-        newItem: ArticleUi
+        newItem: ArticleUi,
     ): Boolean =
         oldItem.id == newItem.id
 
     override fun areContentsTheSame(
         oldItem: ArticleUi,
-        newItem: ArticleUi
+        newItem: ArticleUi,
     ): Boolean =
         oldItem == newItem
 }

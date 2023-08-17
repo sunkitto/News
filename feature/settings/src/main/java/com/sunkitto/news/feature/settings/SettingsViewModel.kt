@@ -23,8 +23,8 @@ class SettingsViewModel(
             Settings(
                 Language.FOLLOW_SYSTEM,
                 Theme.FOLLOW_SYSTEM,
-                TopHeadlinesCountry.USA
-            )
+                TopHeadlinesCountry.USA,
+            ),
         )
 
     fun setTopHeadlinesCountry(topHeadlinesCountry: TopHeadlinesCountry) {

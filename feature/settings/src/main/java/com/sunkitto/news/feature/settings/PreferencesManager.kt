@@ -8,43 +8,43 @@ import com.sunkitto.news.core.model.settings.Theme
 
 class PreferencesManager(private val context: Context) {
     fun switchLanguage(language: Language) {
-        when(language) {
+        when (language) {
             Language.FOLLOW_SYSTEM -> {
                 AppCompatDelegate
                     .setApplicationLocales(
                         LocaleListCompat.forLanguageTags(
-                            context.resources.configuration.locales.get(0).isO3Language
-                        )
+                            context.resources.configuration.locales.get(0).isO3Language,
+                        ),
                     )
             }
             Language.ENGLISH -> {
                 AppCompatDelegate.setApplicationLocales(
-                    LocaleListCompat.forLanguageTags(Language.ENGLISH.isoCode)
+                    LocaleListCompat.forLanguageTags(Language.ENGLISH.isoCode),
                 )
             }
             Language.POLISH -> {
                 AppCompatDelegate.setApplicationLocales(
-                    LocaleListCompat.forLanguageTags(Language.POLISH.isoCode)
+                    LocaleListCompat.forLanguageTags(Language.POLISH.isoCode),
                 )
             }
         }
     }
 
     fun switchTheme(theme: Theme) {
-        when(theme) {
+        when (theme) {
             Theme.FOLLOW_SYSTEM -> {
                 AppCompatDelegate.setDefaultNightMode(
-                    AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                    AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM,
                 )
             }
             Theme.LIGHT -> {
                 AppCompatDelegate.setDefaultNightMode(
-                    AppCompatDelegate.MODE_NIGHT_NO
+                    AppCompatDelegate.MODE_NIGHT_NO,
                 )
             }
             Theme.DARK -> {
                 AppCompatDelegate.setDefaultNightMode(
-                    AppCompatDelegate.MODE_NIGHT_YES
+                    AppCompatDelegate.MODE_NIGHT_YES,
                 )
             }
         }

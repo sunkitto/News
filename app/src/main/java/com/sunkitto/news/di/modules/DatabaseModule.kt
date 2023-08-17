@@ -12,11 +12,11 @@ object DatabaseModule {
 
     @Provides
     fun provideNewsDatabase(
-        @ApplicationContext context: Context
+        @ApplicationContext context: Context,
     ): NewsDatabase =
         Room.databaseBuilder(
             context = context,
             klass = NewsDatabase::class.java,
-            name = "news.db"
+            name = "news.db",
         ).build()
 }

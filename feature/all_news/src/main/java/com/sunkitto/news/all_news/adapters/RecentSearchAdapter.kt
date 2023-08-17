@@ -10,7 +10,7 @@ import com.sunkitto.news.all_news.databinding.ItemRecentSearchBinding
 import com.sunkitto.news.core.model.RecentSearch
 
 class RecentSearchAdapter(
-    private val listener: RecentSearchRecyclerViewOnClickListener
+    private val listener: RecentSearchRecyclerViewOnClickListener,
 ) : ListAdapter<RecentSearch, RecentSearchAdapter.ViewHolder>(RecentSearchDiffCallback) {
 
     override fun onCreateViewHolder(
@@ -21,13 +21,13 @@ class RecentSearchAdapter(
             ItemRecentSearchBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
-                false
-            )
+                false,
+            ),
         )
 
     override fun onBindViewHolder(
         holder: ViewHolder,
-        position: Int
+        position: Int,
     ) {
         getItem(position).let { recentSearch ->
             with(holder.binding) {
@@ -46,18 +46,18 @@ class RecentSearchAdapter(
         return R.layout.item_recent_search
     }
 
-    class ViewHolder(val binding: ItemRecentSearchBinding): RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: ItemRecentSearchBinding) : RecyclerView.ViewHolder(binding.root)
 
     object RecentSearchDiffCallback : DiffUtil.ItemCallback<RecentSearch>() {
         override fun areItemsTheSame(
             oldItem: RecentSearch,
-            newItem: RecentSearch
+            newItem: RecentSearch,
         ): Boolean =
             oldItem.query == newItem.query
 
         override fun areContentsTheSame(
             oldItem: RecentSearch,
-            newItem: RecentSearch
+            newItem: RecentSearch,
         ): Boolean =
             oldItem == newItem
     }

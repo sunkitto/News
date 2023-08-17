@@ -18,13 +18,13 @@ class AllNewsLoadStateAdapter : LoadStateAdapter<AllNewsLoadStateAdapter.ViewHol
             ItemLoadStateBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
-                false
-            )
+                false,
+            ),
         )
 
     override fun onBindViewHolder(
         holder: ViewHolder,
-        loadState: LoadState
+        loadState: LoadState,
     ) {
         holder.binding.progressBar.isVisible = loadState is LoadState.Loading
     }

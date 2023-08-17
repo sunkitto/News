@@ -10,7 +10,7 @@ import kotlin.properties.Delegates
 @AllNewsScope
 @Component(
     dependencies = [AllNewsDependencies::class],
-    modules = [AllNewsModule::class]
+    modules = [AllNewsModule::class],
 )
 interface AllNewsComponent {
 

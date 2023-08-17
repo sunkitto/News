@@ -2,10 +2,10 @@ package com.sunkitto.news.core.datastore.serializers
 
 import androidx.datastore.core.Serializer
 import com.sunkitto.news.core.datastore.model.SettingsPreferences
-import kotlinx.serialization.SerializationException
-import kotlinx.serialization.json.Json
 import java.io.InputStream
 import java.io.OutputStream
+import kotlinx.serialization.SerializationException
+import kotlinx.serialization.json.Json
 
 object SettingsPreferencesSerializer : Serializer<SettingsPreferences> {
 
@@ -16,9 +16,9 @@ object SettingsPreferencesSerializer : Serializer<SettingsPreferences> {
         return try {
             Json.decodeFromString(
                 deserializer = SettingsPreferences.serializer(),
-                string = input.readBytes().decodeToString()
+                string = input.readBytes().decodeToString(),
             )
-        } catch(e: SerializationException) {
+        } catch (e: SerializationException) {
             e.printStackTrace()
             defaultValue
         }
@@ -29,7 +29,7 @@ object SettingsPreferencesSerializer : Serializer<SettingsPreferences> {
         output.write(
             Json.encodeToString(
                 serializer = SettingsPreferences.serializer(),
-                value = t
-            ).encodeToByteArray()
+                value = t,
+            ).encodeToByteArray(),
         )
 }

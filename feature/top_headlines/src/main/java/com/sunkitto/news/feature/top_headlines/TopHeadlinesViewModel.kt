@@ -10,17 +10,17 @@ import com.sunkitto.news.core.data.asArticleUi
 import com.sunkitto.news.core.domain.GetTopHeadlinesUseCase
 import com.sunkitto.news.core.model.ui.ArticleUi
 import com.sunkitto.news.core.model.ui.TopHeadlinesCategory
+import java.util.Locale
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import java.util.Locale
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class TopHeadlinesViewModel(
-    private val getTopHeadlinesUseCase: GetTopHeadlinesUseCase
+    private val getTopHeadlinesUseCase: GetTopHeadlinesUseCase,
 ) : ViewModel() {
 
     private val category = MutableStateFlow(TopHeadlinesCategory.GENERAL)

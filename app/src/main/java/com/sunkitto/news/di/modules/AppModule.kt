@@ -22,7 +22,7 @@ object AppModule {
     fun provideNewsRepository(
         newsDatabase: NewsDatabase,
         newsNetworkDataSource: NewsNetworkDataSource,
-        settingsRepository: SettingsRepository
+        settingsRepository: SettingsRepository,
     ): NewsRepository =
         NewsRepositoryImpl(
             topHeadlinesDao = newsDatabase.topHeadlinesDao(),
@@ -30,12 +30,12 @@ object AppModule {
             newsNetworkDataSource = newsNetworkDataSource,
             topHeadlinesRemoteKeyDao = newsDatabase.topHeadlinesRemoteKeysDao(),
             allNewsRemoteKeyDao = newsDatabase.allNewsRemoteKeysDao(),
-            settingsRepository = settingsRepository
+            settingsRepository = settingsRepository,
         )
 
     @Provides
     fun provideSettingsRepository(
-        settingsDataSource: SettingsDataSource
+        settingsDataSource: SettingsDataSource,
     ): SettingsRepository =
         SettingsRepositoryImpl(settingsDataSource = settingsDataSource)
 
@@ -47,7 +47,7 @@ object AppModule {
 
     @Provides
     fun providePreferenceManager(
-        @ApplicationContext context: Context
-    ): PreferencesManager
-        = PreferencesManager(context = context)
+        @ApplicationContext context: Context,
+    ): PreferencesManager =
+        PreferencesManager(context = context)
 }

@@ -9,5 +9,5 @@ import kotlinx.serialization.Serializable
 data class SettingsPreferences(
     val language: Language = Language.FOLLOW_SYSTEM,
     val theme: Theme = Theme.FOLLOW_SYSTEM,
-    val topHeadlinesCountry: TopHeadlinesCountry = TopHeadlinesCountry.USA
+    val topHeadlinesCountry: TopHeadlinesCountry = TopHeadlinesCountry.USA,
 )

@@ -24,11 +24,12 @@ import com.sunkitto.news.all_news.di.AllNewsModule.AllNewsViewModelFactory
 import com.sunkitto.news.core.model.RecentSearch
 import com.sunkitto.news.design_system.GroupVerticalItemDecorator
 import com.sunkitto.news.design_system.HorizontalItemDecorator
+import javax.inject.Inject
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class AllNewsFragment : Fragment(),
+class AllNewsFragment :
+    Fragment(),
     AllNewsRecyclerViewClickListener,
     RecentSearchRecyclerViewOnClickListener {
 
@@ -52,7 +53,8 @@ class AllNewsFragment : Fragment(),
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentAllNewsBinding.inflate(inflater, container, false)
@@ -61,7 +63,7 @@ class AllNewsFragment : Fragment(),
 
     override fun onViewCreated(
         view: View,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -82,26 +84,26 @@ class AllNewsFragment : Fragment(),
             allNewsAdapter.withLoadStateFooter(AllNewsLoadStateAdapter())
             adapter = allNewsAdapter
             addItemDecoration(
-                HorizontalItemDecorator(100)
+                HorizontalItemDecorator(100),
             )
             addItemDecoration(
-                GroupVerticalItemDecorator(R.layout.item_all_news, 0, 50)
+                GroupVerticalItemDecorator(R.layout.item_all_news, 0, 50),
             )
             addItemDecoration(
-                GroupVerticalItemDecorator(R.layout.item_all_news, 50, 0)
+                GroupVerticalItemDecorator(R.layout.item_all_news, 50, 0),
             )
         }
 
         with(binding.recentSearchesRecyclerView) {
             adapter = recentSearchAdapter
             addItemDecoration(
-                HorizontalItemDecorator(100)
+                HorizontalItemDecorator(100),
             )
             addItemDecoration(
-                GroupVerticalItemDecorator(R.layout.item_recent_search, 0, 50)
+                GroupVerticalItemDecorator(R.layout.item_recent_search, 0, 50),
             )
             addItemDecoration(
-                GroupVerticalItemDecorator(R.layout.item_recent_search, 50, 0)
+                GroupVerticalItemDecorator(R.layout.item_recent_search, 50, 0),
             )
         }
 
