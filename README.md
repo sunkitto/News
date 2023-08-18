@@ -16,15 +16,15 @@ JUnit 5, Mockk
 # Features
 - Watch Top Headlines for chosen country
 - Filter Top Headlines for 6 different categories
-- Easily search for news from different sources
+- Search easily for news from different sources
 - View recent searches and remove some of them that you don't more need
-- Offline support: all viewved news will be saved and avaiable offline
 - Pick preferred Theme, Language or Country for Top Headlines Screen
+- Offline support: all viewed and last searched news will be saved and available offline
 
 # Information
 - Languages: English, Polish
 - Required OS version: Android 8.0 or higher
-- Devices: Mobile, Foldable
+- Devices: Mobile, Foldable (Tablets not supported for now)
 - Size: 35.08 MB
 
 # Powered With
