@@ -17,7 +17,8 @@ JUnit 5, Mockk
 - Watch Top Headlines for chosen country
 - Filter Top Headlines for 6 different categories
 - Easily search for news from different sources
-- Offline support: all viewed news will be saved and avaiable offline
+- View recent searches and remove some of them that you don't more need
+- Offline support: all viewved news will be saved and avaiable offline
 - Pick preferred Theme, Language or Country for Top Headlines Screen
 
 # Information
