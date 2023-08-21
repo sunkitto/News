@@ -19,13 +19,13 @@ class LanguageDialogFragment : DialogFragment() {
             .setTitle(R.string.interface_language)
             .setSingleChoiceItems(
                 languageNames,
-                requireArguments().getInt(LANGUAGE_CHECKED_ITEM_INDEX_KEY)
+                requireArguments().getInt(LANGUAGE_CHECKED_ITEM_INDEX_KEY),
             ) { dialog, which ->
                 val selectedLanguage = languages[which]
                 requireActivity().supportFragmentManager
                     .setFragmentResult(
                         SharedConstants.REFRESH_REQUEST_KEY,
-                        bundleOf(Pair(SELECTED_LANGUAGE_KEY, selectedLanguage))
+                        bundleOf(Pair(SELECTED_LANGUAGE_KEY, selectedLanguage)),
                     )
                 dialog.dismiss()
             }

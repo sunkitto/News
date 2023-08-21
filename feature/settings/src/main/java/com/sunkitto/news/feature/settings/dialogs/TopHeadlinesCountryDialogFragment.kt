@@ -20,7 +20,7 @@ class TopHeadlinesCountryDialogFragment : DialogFragment() {
             .setTitle(R.string.top_headlines_country)
             .setSingleChoiceItems(
                 topHeadlinesCountryNames,
-                requireArguments().getInt(TOP_HEADLINES_CHECKED_ITEM_INDEX_KEY)
+                requireArguments().getInt(TOP_HEADLINES_CHECKED_ITEM_INDEX_KEY),
             ) { dialog, which ->
                 val selectedTopHeadlinesCountry = topHeadlinesCountries[which]
                 requireActivity().supportFragmentManager
@@ -29,9 +29,9 @@ class TopHeadlinesCountryDialogFragment : DialogFragment() {
                         bundleOf(
                             Pair(
                                 LanguageDialogFragment.SELECTED_LANGUAGE_KEY,
-                                selectedTopHeadlinesCountry
-                            )
-                        )
+                                selectedTopHeadlinesCountry,
+                            ),
+                        ),
                     )
                 dialog.dismiss()
             }

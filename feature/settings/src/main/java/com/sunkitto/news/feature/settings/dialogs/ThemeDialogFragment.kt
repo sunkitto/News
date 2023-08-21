@@ -19,13 +19,13 @@ class ThemeDialogFragment : DialogFragment() {
             .setTitle(R.string.theme)
             .setSingleChoiceItems(
                 themeNames,
-                requireArguments().getInt(THEME_CHECKED_ITEM_INDEX_KEY)
+                requireArguments().getInt(THEME_CHECKED_ITEM_INDEX_KEY),
             ) { dialog, which ->
                 val selectedTheme = themes[which]
                 requireActivity().supportFragmentManager
                     .setFragmentResult(
                         SharedConstants.REFRESH_REQUEST_KEY,
-                        bundleOf(Pair(LanguageDialogFragment.SELECTED_LANGUAGE_KEY, selectedTheme))
+                        bundleOf(Pair(LanguageDialogFragment.SELECTED_LANGUAGE_KEY, selectedTheme)),
                     )
                 dialog.dismiss()
             }

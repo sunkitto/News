@@ -63,7 +63,7 @@ class SettingsFragment : Fragment() {
         requireActivity().supportFragmentManager.apply {
             setFragmentResultListener(
                 LANGUAGE_DIALOG_REQUEST_KEY,
-                viewLifecycleOwner
+                viewLifecycleOwner,
             ) { _, bundle ->
                 val language: Language =
                     bundle.getParcelable(SELECTED_LANGUAGE_KEY)!!
@@ -72,7 +72,7 @@ class SettingsFragment : Fragment() {
             }
             setFragmentResultListener(
                 TOP_HEADLINES_DIALOG_REQUEST_KEY,
-                viewLifecycleOwner
+                viewLifecycleOwner,
             ) { _, bundle ->
                 val topHeadlinesCountry: TopHeadlinesCountry =
                     bundle.getParcelable(SELECTED_TOP_HEADLINE_KEY)!!
@@ -82,7 +82,7 @@ class SettingsFragment : Fragment() {
             }
             setFragmentResultListener(
                 THEME_DIALOG_REQUEST_KEY,
-                viewLifecycleOwner
+                viewLifecycleOwner,
             ) { _, bundle ->
                 val theme: Theme =
                     bundle.getParcelable(SELECTED_THEME_KEY)!!
@@ -114,7 +114,7 @@ class SettingsFragment : Fragment() {
             topHeadlinesCountryPreference.setOnClickListener {
                 TopHeadlinesCountryDialogFragment
                     .newInstance(
-                        checkedItemIndex = viewModel.settings.value.topHeadlinesCountry.ordinal
+                        checkedItemIndex = viewModel.settings.value.topHeadlinesCountry.ordinal,
                     )
                     .show(
                         childFragmentManager,
