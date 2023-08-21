@@ -17,6 +17,7 @@ androidx_test_ext_junit = "1.1.5"
 androidx_test_runner = "1.5.2"
 dagger = "2.47"
 glide = "4.15.1"
+junit = "4.13.2"
 junit5 = "5.10.0"
 junit5_plugin = "1.9.3.0"
 kotlin = "1.8.20"
@@ -24,13 +25,13 @@ kotlinx_coroutines = "1.7.3"
 kotlinx_datetime = "0.4.0"
 kotlinx_serialization_json = "1.5.1"
 ktlint = "11.4.2"
+leakcanary = "2.12"
 material = "1.9.0"
 mockk = "1.13.7"
 okhttp3_logging = "4.11.0"
 retrofit = "2.9.0"
 retrofit_kotlinx_serialization = "1.0.0"
 room = "2.5.2"
-junit = "4.13.2"
 
 [libraries]
 androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "androidx_annotation" }
@@ -45,32 +46,33 @@ androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navi
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "androidx_navigation" }
 androidx-paging = { group = "androidx.paging", name = "paging-runtime", version.ref = "androidx_paging" }
 androidx-paging-testing = { group = "androidx.paging", name = "paging-testing", version.ref = "androidx_paging" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-swiperefresh = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "androidx_swiperefresh" }
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx_test_core" }
 androidx-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx_test_espresso" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx_test_ext_junit" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx_test_runner" }
-dagger2-core = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
 dagger2-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
+dagger2-core = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
 junit5-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit5" }
-junit5-params = { group = "org.junit.jupiter", name = "junit-jupiter-params", version.ref = "junit5" }
 junit5-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit5" }
+junit5-params = { group = "org.junit.jupiter", name = "junit-jupiter-params", version.ref = "junit5" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx_coroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx_coroutines" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx_datetime" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx_serialization_json" }
+leakcanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakcanary" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
 okhttp3-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3_logging" }
-retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofit_kotlinx_serialization" }
-androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
-androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
-androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
+retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android_gradle_plugin" }
@@ -78,6 +80,6 @@ android-library = { id = "com.android.library", version.ref = "android_gradle_pl
 android-test = { id = "com.android.test", version.ref = "android_gradle_plugin" }
 junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5_plugin" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }

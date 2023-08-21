@@ -83,4 +83,7 @@ dependencies {
     // Dagger 2
     implementation(libs.dagger2.core)
     kapt(libs.dagger2.compiler)
+
+    // Leak Canary
+    debugImplementation(libs.leakcanary)
 }
