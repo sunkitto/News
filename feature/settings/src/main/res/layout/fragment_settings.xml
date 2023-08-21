@@ -1,53 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/topHeadlinesTextView"
-        style="@style/TextAppearance.News.ScreenTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="15dp"
-        android:text="@string/settings"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <com.sunkitto.news.feature.settings.cutom_views.PreferenceView
-        android:id="@+id/languagePreference"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topHeadlinesTextView"
-        app:titleTextViewText="@string/interface_language" />
+        <TextView
+            android:id="@+id/topHeadlinesTextView"
+            style="@style/TextAppearance.News.ScreenTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/settings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.sunkitto.news.feature.settings.cutom_views.PreferenceView
-        android:id="@+id/topHeadlinesCountryPreference"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        app:titleTextViewText="@string/top_headlines_country"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/languagePreference" />
+        <com.sunkitto.news.feature.settings.cutom_views.PreferenceView
+            android:id="@+id/languagePreference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topHeadlinesTextView"
+            app:titleTextViewText="@string/interface_language" />
 
-    <com.sunkitto.news.feature.settings.cutom_views.PreferenceView
-        android:id="@+id/themePreference"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        app:titleTextViewText="@string/theme"
-        app:descriptionTextViewText="Follow system"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topHeadlinesCountryPreference" />
+        <com.sunkitto.news.feature.settings.cutom_views.PreferenceView
+            android:id="@+id/topHeadlinesCountryPreference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            app:titleTextViewText="@string/top_headlines_country"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/languagePreference" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.sunkitto.news.feature.settings.cutom_views.PreferenceView
+            android:id="@+id/themePreference"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            app:titleTextViewText="@string/theme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topHeadlinesCountryPreference" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

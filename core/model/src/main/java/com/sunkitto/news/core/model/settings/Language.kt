@@ -1,14 +1,17 @@
 package com.sunkitto.news.core.model.settings
 
+import android.os.Parcelable
 import androidx.annotation.StringRes
 import com.sunkitto.news.core.model.R
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 enum class Language(
-    val index: Int,
     @StringRes val nameId: Int,
     val isoCode: String,
-) {
-    FOLLOW_SYSTEM(0, R.string.follow_system, ""),
-    ENGLISH(1, R.string.english, "en"),
-    POLISH(2, R.string.polish, "pl"),
+) : Parcelable {
+    FOLLOW_SYSTEM(R.string.follow_system, ""),
+    ENGLISH(R.string.english, "en"),
+    POLISH(R.string.polish, "pl"),
+    UKRAINIAN(R.string.ukrainian, "uk"),
 }

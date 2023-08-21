@@ -20,11 +20,11 @@
             android:layout_margin="@dimen/top_headline_image_indent"
             android:contentDescription="@string/top_headline_image"
             android:scaleType="centerCrop"
-            app:shapeAppearance="@style/RoundedSquare"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/RoundedSquare"
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <TextView
@@ -57,22 +57,31 @@
         <TextView
             android:id="@+id/dateTextView"
             style="@style/TextAppearance.News.Label"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/top_headline_label_indent"
+            android:layout_marginEnd="@dimen/top_headline_image_indent"
+            android:textAlignment="textEnd"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/articleImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/sourceTextView"
             app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
             tools:text="07.08.2023, 19:46" />
 
         <TextView
             android:id="@+id/sourceTextView"
             style="@style/TextAppearance.News.Label"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/top_headline_label_indent"
+            android:layout_marginStart="@dimen/top_headline_image_indent"
+            android:layout_marginEnd="@dimen/top_headline_inner_indent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/articleImageView"
+            app:layout_constraintEnd_toStartOf="@+id/dateTextView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
             tools:text="Associated Press" />
 

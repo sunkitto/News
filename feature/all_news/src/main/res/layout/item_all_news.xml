@@ -32,14 +32,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/default_indent"
+            android:layout_marginTop="@dimen/all_news_image_indent"
             android:layout_marginBottom="@dimen/all_news_inner_indent"
             android:ellipsize="end"
-            android:maxLines="4"
+            android:maxLines="5"
             app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toTopOf="@+id/sourceTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/articleImageView"
-            app:layout_constraintTop_toTopOf="@+id/articleImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
             tools:text="@tools:sample/lorem/random" />
 
         <TextView
@@ -51,15 +53,18 @@
             android:maxLines="2"
             app:layout_constraintBottom_toTopOf="@+id/dateTextView"
             app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/titleTextView"
             tools:text="Associated Press" />
 
         <TextView
             android:id="@+id/dateTextView"
             style="@style/TextAppearance.News.Label"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/articleImageView"
+            android:layout_marginBottom="@dimen/all_news_image_indent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/sourceTextView"
             app:layout_constraintStart_toStartOf="@+id/titleTextView"
             tools:text="07.08.2023, 19:46" />
 

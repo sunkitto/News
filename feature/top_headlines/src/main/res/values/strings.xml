@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="top_headlines">Top headlines</string>
     <string name="top_headline_image">Top Headline Image</string>
@@ -6,6 +7,7 @@
     <string name="business">Business</string>
     <string name="technology">Technology</string>
     <string name="general">General</string>
+    <string name="health">Health</string>
     <string name="science">Science</string>
     <string name="entertainment">Entertainment</string>
     <string name="sports">Sports</string>

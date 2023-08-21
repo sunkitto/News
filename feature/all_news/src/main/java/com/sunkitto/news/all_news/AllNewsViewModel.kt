@@ -9,7 +9,6 @@ import com.sunkitto.news.core.domain.GetAllNewsUseCase
 import com.sunkitto.news.core.domain.GetRecentSearchesUseCase
 import com.sunkitto.news.core.domain.repository.RecentSearchRepository
 import com.sunkitto.news.core.model.RecentSearch
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -46,7 +45,7 @@ class AllNewsViewModel(
 
     fun searchNews(query: String) {
         if (query.isNotBlank()) {
-            viewModelScope.launch(Dispatchers.IO) {
+            viewModelScope.launch {
                 recentSearchRepository.upsertRecentSearch(
                     RecentSearch(
                         query = query,
@@ -60,14 +59,14 @@ class AllNewsViewModel(
     }
 
     fun deleteRecentSearch(recentSearch: RecentSearch) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             recentSearchRepository.deleteRecentSearch(recentSearch)
             loadRecentSearches()
         }
     }
 
     fun loadRecentSearches() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             getRecentSearchesUseCase.invoke().collectLatest { recentSearches ->
                 _recentSearches.value = recentSearches
             }

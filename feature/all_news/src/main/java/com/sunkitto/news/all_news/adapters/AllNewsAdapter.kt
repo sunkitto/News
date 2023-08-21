@@ -51,10 +51,14 @@ class AllNewsAdapter(
                     listener.onArticleClick(articleUi.url)
                 }
 
-                Glide.with(articleImageView.context)
-                    .load(articleUi.urlToImage)
-                    .error(articleUi.placeholder)
-                    .into(articleImageView)
+                if (articleUi.urlToImage == null) {
+                    articleImageView.setImageResource(articleUi.placeholder)
+                } else {
+                    Glide.with(articleImageView.context)
+                        .load(articleUi.urlToImage)
+                        .error(articleUi.placeholder)
+                        .into(articleImageView)
+                }
 
                 titleTextView.text = articleUi.title
                 sourceTextView.text = articleUi.sourceName

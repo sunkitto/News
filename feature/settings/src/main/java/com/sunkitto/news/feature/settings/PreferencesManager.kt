@@ -7,28 +7,15 @@ import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.core.model.settings.Theme
 
 class PreferencesManager(private val context: Context) {
-    fun switchLanguage(language: Language) {
-        when (language) {
-            Language.FOLLOW_SYSTEM -> {
-                AppCompatDelegate
-                    .setApplicationLocales(
-                        LocaleListCompat.forLanguageTags(
-                            context.resources.configuration.locales.get(0).isO3Language,
-                        ),
-                    )
-            }
-            Language.ENGLISH -> {
-                AppCompatDelegate.setApplicationLocales(
-                    LocaleListCompat.forLanguageTags(Language.ENGLISH.isoCode),
+    fun switchLanguage(language: Language) =
+        AppCompatDelegate.setApplicationLocales(
+            when (language) {
+                Language.FOLLOW_SYSTEM -> LocaleListCompat.forLanguageTags(
+                    context.resources.configuration.locales.get(0).isO3Language,
                 )
-            }
-            Language.POLISH -> {
-                AppCompatDelegate.setApplicationLocales(
-                    LocaleListCompat.forLanguageTags(Language.POLISH.isoCode),
-                )
-            }
-        }
-    }
+                else -> LocaleListCompat.forLanguageTags(language.isoCode)
+            },
+        )
 
     fun switchTheme(theme: Theme) {
         when (theme) {

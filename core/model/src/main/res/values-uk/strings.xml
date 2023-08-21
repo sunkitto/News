@@ -1,0 +1,67 @@
+<resources>
+    <string name="follow_system">Як у Системі</string>
+
+    <!-- Languages -->
+    <string name="english">Англійська</string>
+    <string name="polish">Польський</string>
+    <string name="ukrainian">Українська</string>
+
+    <!-- Themes -->
+    <string name="light">Світла</string>
+    <string name="dark">Темна</string>
+
+    <!-- Top Headlines Countries -->
+    <string name="argentina">Аргентина</string>
+    <string name="australia">Австралія</string>
+    <string name="austria">Австрія</string>
+    <string name="belgium">Бельгія</string>
+    <string name="brazil">Бразилія</string>
+    <string name="bulgaria">Болгарія</string>
+    <string name="canada">Канада</string>
+    <string name="china">Китай</string>
+    <string name="colombia">Колумбія</string>
+    <string name="cuba">Куба</string>
+    <string name="czechia">Чехія</string>
+    <string name="egypt">Єгипет</string>
+    <string name="france">Франція</string>
+    <string name="germany">Німеччина</string>
+    <string name="greece">Греція</string>
+    <string name="hong_kong">Гонконг</string>
+    <string name="hungary">Угорщина</string>
+    <string name="india">Індія</string>
+    <string name="indonesia">Індонезія</string>
+    <string name="ireland">Ірландія</string>
+    <string name="israel">Ізраїль</string>
+    <string name="italy">Італія</string>
+    <string name="japan">Японія</string>
+    <string name="korea">Корея</string>
+    <string name="latvia">Латвія</string>
+    <string name="lithuania">Литва</string>
+    <string name="malaysia">Малайзія</string>
+    <string name="mexico">Мексика</string>
+    <string name="morocco">Марокко</string>
+    <string name="netherlands">Нідерланди</string>
+    <string name="new_zealand">Нова Зеландія</string>
+    <string name="nigeria">Нігерія</string>
+    <string name="norway">Норвегія</string>
+    <string name="philippines">Філіппіни</string>
+    <string name="poland">Польща</string>
+    <string name="portugal">Португалія</string>
+    <string name="romania">Румунія</string>
+    <string name="saudi_arabia">Саудівська Аравія</string>
+    <string name="serbia">Сербія</string>
+    <string name="singapore">Сінгапур</string>
+    <string name="slovakia">Словаччина</string>
+    <string name="slovenia">Словенія</string>
+    <string name="south_africa">Південна Африка</string>
+    <string name="sweden">Швеція</string>
+    <string name="switzerland">Швейцарія</string>
+    <string name="taiwan">Тайвань</string>
+    <string name="thailand">Таїланд</string>
+    <string name="turkey">Туреччина</string>
+    <string name="ukraine">Україна</string>
+    <string name="united_arab_emirates">Об\'єднані Арабські Емірати</string>
+    <string name="united_kingdom">Об\'єднане Королівство</string>
+    <string name="usa">США</string>
+    <string name="venezuela">Венесуела</string>
+</resources>

@@ -10,11 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.sunkitto.news.core.model.SharedConstants.REFRESH_REQUEST_KEY
+import com.sunkitto.news.core.model.settings.Language
+import com.sunkitto.news.core.model.settings.Theme
+import com.sunkitto.news.core.model.settings.TopHeadlinesCountry
 import com.sunkitto.news.feature.settings.databinding.FragmentSettingsBinding
 import com.sunkitto.news.feature.settings.di.SettingsComponentViewModel
 import com.sunkitto.news.feature.settings.di.SettingsModel.SettingsViewModelFactory
 import com.sunkitto.news.feature.settings.dialogs.LanguageDialogFragment
 import com.sunkitto.news.feature.settings.dialogs.ThemeDialogFragment
+import com.sunkitto.news.feature.settings.dialogs.ThemeDialogFragment.Companion.SELECTED_THEME_KEY
+import com.sunkitto.news.feature.settings.dialogs.ThemeDialogFragment.Companion.THEME_DIALOG_REQUEST_KEY
 import com.sunkitto.news.feature.settings.dialogs.TopHeadlinesCountryDialogFragment
 import javax.inject.Inject
 
@@ -50,6 +55,38 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().supportFragmentManager.setFragmentResultListener(
+            LanguageDialogFragment.LANGUAGE_DIALOG_REQUEST_KEY,
+            viewLifecycleOwner,
+        ) { _, bundle ->
+            val language: Language =
+                bundle.getParcelable(LanguageDialogFragment.SELECTED_LANGUAGE_KEY)!!
+            viewModel.setLanguage(language)
+            binding.languagePreference.descriptionText = getString(language.nameId)
+        }
+
+        requireActivity().supportFragmentManager.setFragmentResultListener(
+            TopHeadlinesCountryDialogFragment.TOP_HEADLINES_DIALOG_REQUEST_KEY,
+            viewLifecycleOwner,
+        ) { _, bundle ->
+            val topHeadlinesCountry: TopHeadlinesCountry =
+                bundle.getParcelable(TopHeadlinesCountryDialogFragment.SELECTED_TOP_HEADLINE_KEY)!!
+            viewModel.setTopHeadlinesCountry(topHeadlinesCountry)
+            binding.topHeadlinesCountryPreference.descriptionText =
+                getString(topHeadlinesCountry.nameId)
+        }
+
+        requireActivity().supportFragmentManager.setFragmentResultListener(
+            THEME_DIALOG_REQUEST_KEY,
+            viewLifecycleOwner,
+        ) { _, bundle ->
+            val theme: Theme =
+                bundle.getParcelable(SELECTED_THEME_KEY)!!
+            viewModel.setTheme(theme)
+            binding.themePreference.descriptionText = getString(theme.nameId)
+        }
+
         with(binding) {
             languagePreference.descriptionText = getString(
                 viewModel.settings.value.language.nameId,
@@ -62,45 +99,41 @@ class SettingsFragment : Fragment() {
             )
 
             languagePreference.setOnClickListener {
-                val currentLanguage = viewModel.settings.value.language
-                LanguageDialogFragment(currentLanguage.index) { language ->
-                    viewModel.setLanguage(language)
-                    languagePreference.descriptionText = getString(language.nameId)
-                }.show(
-                    childFragmentManager,
-                    LanguageDialogFragment.TAG,
-                )
+                LanguageDialogFragment
+                    .newInstance(checkedItemIndex = viewModel.settings.value.language.ordinal)
+                    .show(
+                        childFragmentManager,
+                        LanguageDialogFragment.TAG,
+                    )
             }
 
             topHeadlinesCountryPreference.setOnClickListener {
-                val currentTopHeadlinesCountry = viewModel.settings.value.topHeadlinesCountry
-
-                TopHeadlinesCountryDialogFragment(
-                    currentTopHeadlinesCountry.index,
-                ) { topHeadlinesCountry ->
-                    viewModel.setTopHeadlinesCountry(topHeadlinesCountry)
-                    topHeadlinesCountryPreference.descriptionText =
-                        getString(topHeadlinesCountry.nameId)
-                }.show(
-                    childFragmentManager,
-                    TopHeadlinesCountryDialogFragment.TAG,
-                )
+                TopHeadlinesCountryDialogFragment
+                    .newInstance(
+                        checkedItemIndex = viewModel.settings.value.topHeadlinesCountry.ordinal,
+                    )
+                    .show(
+                        childFragmentManager,
+                        TopHeadlinesCountryDialogFragment.TAG,
+                    )
 
                 requireActivity().supportFragmentManager
                     .setFragmentResult(REFRESH_REQUEST_KEY, bundleOf())
             }
 
             themePreference.setOnClickListener {
-                val currentTheme = viewModel.settings.value.theme
-
-                ThemeDialogFragment(currentTheme.index) { theme ->
-                    viewModel.setTheme(theme)
-                    themePreference.descriptionText = getString(theme.nameId)
-                }.show(
-                    childFragmentManager,
-                    ThemeDialogFragment.TAG,
-                )
+                ThemeDialogFragment
+                    .newInstance(checkedItemIndex = viewModel.settings.value.theme.ordinal)
+                    .show(
+                        childFragmentManager,
+                        ThemeDialogFragment.TAG,
+                    )
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
