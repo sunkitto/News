@@ -25,9 +25,9 @@ import com.sunkitto.news.feature.top_headlines.adapter.TopHeadlinesRecyclerViewC
 import com.sunkitto.news.feature.top_headlines.databinding.FragmentTopHeadlinesBinding
 import com.sunkitto.news.feature.top_headlines.di.TopHeadlinesComponentViewModel
 import com.sunkitto.news.feature.top_headlines.di.TopHeadlinesModule.TopHeadlinesViewModelFactory
-import javax.inject.Inject
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
 
@@ -127,8 +127,8 @@ class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 
