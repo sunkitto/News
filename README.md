@@ -1,10 +1,10 @@
 # About
 🗞️ News App is a convenient app for searching and viewing of news articles from different sources and countries.
 
-⏬[Download from here](https://github.com/sunkitto/News/releases/tag/Latest)⏬
+⏬[Download from here](https://github.com/sunkitto/News/releases/tag/v.1.0.1)⏬
 
 # Screenshots
-![News Screenshots](https://github.com/sunkitto/News/assets/138574608/3112ef2c-a248-476a-95d5-43d0d78cba65)
+![News Screenshot](https://github.com/sunkitto/News/assets/138574608/3a2b77f8-dbb4-43dd-a0cf-84694afb60cd)
 
 # Tech Stack
 Kotlin, Retrofit, Room, Dagger 2, Glide, Coroutines, Material 3, Paging 3, DataStore, Jetpack Navigation
@@ -15,14 +15,14 @@ JUnit 5, Mockk
 
 # Features
 - Watch Top Headlines for chosen country
-- Filter Top Headlines for 6 different categories
+- Filter Top Headlines for 7 different categories
 - Search easily for news from different sources in various languages
 - View recent searches and remove some of them that you don't more need
 - Pick preferred Theme, Language or Country for Top Headlines Screen
 - Offline support: all viewed and last searched news will be saved and available offline
 
 # Information
-- Languages: English, Polish
+- Languages: English, Polish, Ukrainian
 - Required OS: Android 8.0 or higher
 - Size: 35.08 MB
 
