@@ -11,6 +11,9 @@ import com.sunkitto.news.core.data.remote_mediator.TopHeadlinesRemoteMediator
 import com.sunkitto.news.core.data.repository.SettingsRepositoryImpl
 import com.sunkitto.news.core.database.NewsDatabase
 import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesEntity
+import com.sunkitto.news.core.model.settings.Language
+import com.sunkitto.news.core.model.settings.Settings
+import com.sunkitto.news.core.model.settings.Theme
 import com.sunkitto.news.core.model.settings.TopHeadlinesCountry
 import com.sunkitto.news.core.model.ui.TopHeadlinesCategory
 import com.sunkitto.news.core.network.NewsNetworkDataSourceImpl
@@ -20,12 +23,13 @@ import com.sunkitto.news.core.network.model.SourceDto
 import com.sunkitto.news.core.network.retrofit.NewsService
 import io.mockk.coEvery
 import io.mockk.mockk
-import java.io.IOException
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
 import kotlinx.datetime.Instant
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import java.io.IOException
 
 @OptIn(ExperimentalPagingApi::class)
 class TopHeadlinesRemoteMediatorTest {
@@ -40,6 +44,21 @@ class TopHeadlinesRemoteMediatorTest {
 
     @Test
     fun load_refresh_returns_success_when_data_is_present() = runTest {
+
+        coEvery {
+            settingsRepository.settings
+        }.returns(
+            flow {
+                emit(
+                    Settings(
+                        language = Language.FOLLOW_SYSTEM,
+                        theme = Theme.FOLLOW_SYSTEM,
+                        topHeadlinesCountry = TopHeadlinesCountry.POLAND,
+                    )
+                )
+            }
+        )
+
         coEvery {
             newsNetworkDataSource.getTopHeadlines(
                 country = TopHeadlinesCountry.POLAND.isoCode,
@@ -97,6 +116,21 @@ class TopHeadlinesRemoteMediatorTest {
 
     @Test
     fun load_append_returns_success_and_end_of_pagination_when_data_not_present() = runTest {
+
+        coEvery {
+            settingsRepository.settings
+        }.returns(
+            flow {
+                emit(
+                    Settings(
+                        language = Language.FOLLOW_SYSTEM,
+                        theme = Theme.FOLLOW_SYSTEM,
+                        topHeadlinesCountry = TopHeadlinesCountry.POLAND,
+                    )
+                )
+            }
+        )
+
         coEvery {
             newsNetworkDataSource.getTopHeadlines(
                 country = TopHeadlinesCountry.POLAND.isoCode,
