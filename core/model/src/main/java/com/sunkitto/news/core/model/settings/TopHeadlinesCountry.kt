@@ -1,12 +1,15 @@
 package com.sunkitto.news.core.model.settings
 
+import android.os.Parcelable
 import androidx.annotation.StringRes
 import com.sunkitto.news.core.model.R
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 enum class TopHeadlinesCountry(
     @StringRes val nameId: Int,
     val isoCode: String,
-) {
+) : Parcelable {
     ARGENTINA(R.string.argentina, "ar"),
     AUSTRALIA(R.string.australia, "au"),
     AUSTRIA(R.string.austria, "at"),

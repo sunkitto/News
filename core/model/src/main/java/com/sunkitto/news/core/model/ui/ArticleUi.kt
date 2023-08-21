@@ -9,7 +9,7 @@ data class ArticleUi(
     val title: String,
     val description: Visible<String?>,
     val url: String,
-    val urlToImage: String,
+    val urlToImage: String?,
     val publishedAt: String,
     @DrawableRes
     val placeholder: Int,
