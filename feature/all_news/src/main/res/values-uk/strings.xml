@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_news">Пошук Новин</string>
+    <string name="history">Історія</string>
+    <string name="close">Закрити</string>
+    <string name="article">Стаття</string>
+</resources>

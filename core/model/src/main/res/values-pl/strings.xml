@@ -5,17 +5,64 @@
     <!-- Languages -->
     <string name="english">Angielski</string>
     <string name="polish">Polski</string>
+    <string name="ukrainian">Ukraiński</string>
 
     <!-- Themes -->
     <string name="light">Jasny</string>
     <string name="dark">Ciemny</string>
 
     <!-- Top Headlines Countries -->
+    <string name="argentina">Argentyna</string>
+    <string name="australia">Australia</string>
+    <string name="austria">Austria</string>
+    <string name="belgium">Belgia</string>
+    <string name="brazil">Brazylia</string>
+    <string name="bulgaria">Bułgaria</string>
+    <string name="canada">Kanada</string>
+    <string name="china">Chiny</string>
+    <string name="colombia">Kolumbia</string>
+    <string name="cuba">Kuba</string>
     <string name="czechia">Czechy</string>
+    <string name="egypt">Egipt</string>
+    <string name="france">Francja</string>
     <string name="germany">Niemcy</string>
-    <string name="lithuania">Litva</string>
+    <string name="greece">Grecja</string>
+    <string name="hong_kong">Hong Kong</string>
+    <string name="hungary">Węgry</string>
+    <string name="india">Indie</string>
+    <string name="indonesia">Indonezja</string>
+    <string name="ireland">Irlandia</string>
+    <string name="israel">Izrael</string>
+    <string name="italy">Włochy</string>
+    <string name="japan">Japonia</string>
+    <string name="korea">Korea Południowa</string>
     <string name="latvia">Łotwa</string>
+    <string name="lithuania">Litva</string>
+    <string name="malaysia">Malezja</string>
+    <string name="mexico">Meksyk</string>
+    <string name="morocco">Maroko</string>
+    <string name="netherlands">Holandia</string>
+    <string name="new_zealand">Nowa Zelandia</string>
+    <string name="nigeria">Nigeria</string>
+    <string name="norway">Norwegia</string>
+    <string name="philippines">Filipiny</string>
     <string name="poland">Polska</string>
+    <string name="portugal">Portugalia</string>
+    <string name="romania">Rumunia</string>
+    <string name="saudi_arabia">Arabia Saudyjska</string>
+    <string name="serbia">Serbia</string>
+    <string name="singapore">Singapur</string>
+    <string name="slovakia">Słowacja</string>
+    <string name="slovenia">Słowenia</string>
+    <string name="south_africa">Republika Południowej Afryki</string>
+    <string name="sweden">Szwecja</string>
+    <string name="switzerland">Szwajcaria</string>
+    <string name="taiwan">Tajwan</string>
+    <string name="thailand">Tajlandia</string>
+    <string name="turkey">Turcja</string>
     <string name="ukraine">Ukraina</string>
+    <string name="united_arab_emirates">Zjednoczone Emiraty Arabskie</string>
+    <string name="united_kingdom">Wielka Brytania</string>
     <string name="usa">Stany Zjednoczone</string>
+    <string name="venezuela">Wenezuela</string>
 </resources>

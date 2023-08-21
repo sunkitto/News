@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="top_headlines">Головні Заголовки</string>
+    <string name="top_headline_image">Зображення Головного Заголовка</string>
+
+    <!-- Top Headlines Categories -->
+    <string name="business">Бізнес</string>
+    <string name="technology">Технології</string>
+    <string name="general">Загальний</string>
+    <string name="science">Наука</string>
+    <string name="entertainment">Розваги</string>
+    <string name="sports">Cпорт</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">Налаштування</string>
+    <string name="interface_language">Мова Інтерфейсу</string>
+    <string name="apply">Застосувати</string>
+    <string name="cancel">Скасувати</string>
+    <string name="theme">Тема</string>
+    <string name="top_headlines_country">Країна Головніх Заголовків</string>
+</resources>
