@@ -8,7 +8,7 @@ import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.feature.settings.R
 
 class LanguageDialogFragment(
-    private val checkedItem: Int,
+    private val checkedItemIndex: Int,
     private val onClick: (language: Language) -> Unit,
 ) : DialogFragment() {
 
@@ -18,7 +18,7 @@ class LanguageDialogFragment(
 
         return MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.interface_language)
-            .setSingleChoiceItems(languageNames, checkedItem) { dialog, which ->
+            .setSingleChoiceItems(languageNames, checkedItemIndex) { dialog, which ->
                 onClick(languages[which])
                 dialog.dismiss()
             }

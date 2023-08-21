@@ -8,7 +8,7 @@ import com.sunkitto.news.core.model.settings.Theme
 import com.sunkitto.news.feature.settings.R
 
 class ThemeDialogFragment(
-    private val checkedItem: Int,
+    private val checkedItemIndex: Int,
     private val onClick: (theme: Theme) -> Unit,
 ) : DialogFragment() {
 
@@ -18,7 +18,7 @@ class ThemeDialogFragment(
 
         return MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.theme)
-            .setSingleChoiceItems(themeNames, checkedItem) { dialog, which ->
+            .setSingleChoiceItems(themeNames, checkedItemIndex) { dialog, which ->
                 onClick(themes[which])
                 dialog.dismiss()
             }

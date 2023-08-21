@@ -8,7 +8,7 @@ import com.sunkitto.news.core.model.settings.TopHeadlinesCountry
 import com.sunkitto.news.feature.settings.R
 
 class TopHeadlinesCountryDialogFragment(
-    private val checkedItem: Int,
+    private val checkedItemIndex: Int,
     private val onClick: (topHeadlinesCountry: TopHeadlinesCountry) -> Unit,
 ) : DialogFragment() {
 
@@ -19,7 +19,7 @@ class TopHeadlinesCountryDialogFragment(
 
         return MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.top_headlines_country)
-            .setSingleChoiceItems(topHeadlinesCountryNames, checkedItem) { dialog, which ->
+            .setSingleChoiceItems(topHeadlinesCountryNames, checkedItemIndex) { dialog, which ->
                 onClick(topHeadlinesCountries[which])
                 dialog.dismiss()
             }

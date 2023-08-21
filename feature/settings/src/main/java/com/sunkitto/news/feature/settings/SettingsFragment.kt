@@ -62,8 +62,8 @@ class SettingsFragment : Fragment() {
             )
 
             languagePreference.setOnClickListener {
-                val currentLanguage = viewModel.settings.value.language
-                LanguageDialogFragment(currentLanguage.index) { language ->
+                val currentLanguageIndex = viewModel.settings.value.language.ordinal
+                LanguageDialogFragment(currentLanguageIndex) { language ->
                     viewModel.setLanguage(language)
                     languagePreference.descriptionText = getString(language.nameId)
                 }.show(
@@ -73,10 +73,11 @@ class SettingsFragment : Fragment() {
             }
 
             topHeadlinesCountryPreference.setOnClickListener {
-                val currentTopHeadlinesCountry = viewModel.settings.value.topHeadlinesCountry
+                val currentTopHeadlinesCountryIndex =
+                    viewModel.settings.value.topHeadlinesCountry.ordinal
 
                 TopHeadlinesCountryDialogFragment(
-                    currentTopHeadlinesCountry.index,
+                    currentTopHeadlinesCountryIndex,
                 ) { topHeadlinesCountry ->
                     viewModel.setTopHeadlinesCountry(topHeadlinesCountry)
                     topHeadlinesCountryPreference.descriptionText =
@@ -91,9 +92,9 @@ class SettingsFragment : Fragment() {
             }
 
             themePreference.setOnClickListener {
-                val currentTheme = viewModel.settings.value.theme
+                val currentThemeIndex = viewModel.settings.value.theme.ordinal
 
-                ThemeDialogFragment(currentTheme.index) { theme ->
+                ThemeDialogFragment(currentThemeIndex) { theme ->
                     viewModel.setTheme(theme)
                     themePreference.descriptionText = getString(theme.nameId)
                 }.show(
