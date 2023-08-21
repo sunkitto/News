@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.sunkitto.news.core.model.SharedConstants
 import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.feature.settings.R
 
@@ -19,13 +18,13 @@ class LanguageDialogFragment : DialogFragment() {
             .setTitle(R.string.interface_language)
             .setSingleChoiceItems(
                 languageNames,
-                requireArguments().getInt(LANGUAGE_CHECKED_ITEM_INDEX_KEY)
+                requireArguments().getInt(LANGUAGE_CHECKED_ITEM_INDEX_KEY),
             ) { dialog, which ->
                 val selectedLanguage = languages[which]
                 requireActivity().supportFragmentManager
                     .setFragmentResult(
-                        SharedConstants.REFRESH_REQUEST_KEY,
-                        bundleOf(Pair(SELECTED_LANGUAGE_KEY, selectedLanguage))
+                        LANGUAGE_DIALOG_REQUEST_KEY,
+                        bundleOf(Pair(SELECTED_LANGUAGE_KEY, selectedLanguage)),
                     )
                 dialog.dismiss()
             }

@@ -24,9 +24,9 @@ import com.sunkitto.news.all_news.di.AllNewsModule.AllNewsViewModelFactory
 import com.sunkitto.news.core.model.RecentSearch
 import com.sunkitto.news.design_system.GroupVerticalItemDecorator
 import com.sunkitto.news.design_system.HorizontalItemDecorator
+import javax.inject.Inject
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 class AllNewsFragment :
     Fragment(),

@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.sunkitto.news.core.model.SharedConstants
 import com.sunkitto.news.core.model.settings.TopHeadlinesCountry
 import com.sunkitto.news.feature.settings.R
 
@@ -20,18 +19,18 @@ class TopHeadlinesCountryDialogFragment : DialogFragment() {
             .setTitle(R.string.top_headlines_country)
             .setSingleChoiceItems(
                 topHeadlinesCountryNames,
-                requireArguments().getInt(TOP_HEADLINES_CHECKED_ITEM_INDEX_KEY)
+                requireArguments().getInt(TOP_HEADLINES_CHECKED_ITEM_INDEX_KEY),
             ) { dialog, which ->
                 val selectedTopHeadlinesCountry = topHeadlinesCountries[which]
                 requireActivity().supportFragmentManager
                     .setFragmentResult(
-                        SharedConstants.REFRESH_REQUEST_KEY,
+                        TOP_HEADLINES_DIALOG_REQUEST_KEY,
                         bundleOf(
                             Pair(
-                                LanguageDialogFragment.SELECTED_LANGUAGE_KEY,
-                                selectedTopHeadlinesCountry
-                            )
-                        )
+                                SELECTED_TOP_HEADLINE_KEY,
+                                selectedTopHeadlinesCountry,
+                            ),
+                        ),
                     )
                 dialog.dismiss()
             }

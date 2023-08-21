@@ -58,7 +58,7 @@ enum class TopHeadlinesCountry(
     THAILAND(R.string.thailand, "th"),
     TURKEY(R.string.turkey, "tr"),
     UKRAINE(R.string.ukraine, "ua"),
-    UNITED_ARAB_EMIRATES(R.string.united_arab_emirates,"ae"),
+    UNITED_ARAB_EMIRATES(R.string.united_arab_emirates, "ae"),
     UNITED_KINGDOM(R.string.united_kingdom, "gb"),
     USA(R.string.usa, "us"),
     VENEZUELA(R.string.venezuela, "ve"),

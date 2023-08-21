@@ -51,7 +51,7 @@ class AllNewsAdapter(
                     listener.onArticleClick(articleUi.url)
                 }
 
-                if(articleUi.urlToImage == null) {
+                if (articleUi.urlToImage == null) {
                     articleImageView.setImageResource(articleUi.placeholder)
                 } else {
                     Glide.with(articleImageView.context)
