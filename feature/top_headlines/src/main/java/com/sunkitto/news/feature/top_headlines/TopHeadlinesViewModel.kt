@@ -44,7 +44,7 @@ class TopHeadlinesViewModel(
                 R.id.scienceChip -> TopHeadlinesCategory.SCIENCE
                 R.id.entertainmentChip -> TopHeadlinesCategory.ENTERTAINMENT
                 R.id.sportsChip -> TopHeadlinesCategory.SPORTS
-                else -> TopHeadlinesCategory.GENERAL
+                else -> throw IllegalStateException("Category doesn't handled for $chip")
             }
             category.emit(selectedCategory)
         }
