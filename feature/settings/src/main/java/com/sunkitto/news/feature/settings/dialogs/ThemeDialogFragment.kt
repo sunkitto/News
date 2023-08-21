@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.sunkitto.news.core.model.SharedConstants
 import com.sunkitto.news.core.model.settings.Theme
 import com.sunkitto.news.feature.settings.R
 
@@ -24,8 +23,8 @@ class ThemeDialogFragment : DialogFragment() {
                 val selectedTheme = themes[which]
                 requireActivity().supportFragmentManager
                     .setFragmentResult(
-                        SharedConstants.REFRESH_REQUEST_KEY,
-                        bundleOf(Pair(LanguageDialogFragment.SELECTED_LANGUAGE_KEY, selectedTheme)),
+                        THEME_DIALOG_REQUEST_KEY,
+                        bundleOf(Pair(SELECTED_THEME_KEY, selectedTheme)),
                     )
                 dialog.dismiss()
             }
