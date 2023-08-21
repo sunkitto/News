@@ -106,7 +106,7 @@ fun Article.asArticleUi(
         title = this.title,
         description = Visible(this.description),
         url = this.url,
-        urlToImage = this.urlToImage ?: "",
+        urlToImage = this.urlToImage,
         publishedAt = this.publishedAt.toLocalizedDateTimeString(),
         placeholder = placeholderResourceId,
     )
