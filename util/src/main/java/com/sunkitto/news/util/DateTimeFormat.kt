@@ -2,17 +2,21 @@ package com.sunkitto.news.util
 
 import kotlinx.datetime.Instant
 import kotlinx.datetime.toJavaInstant
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 /**
  * Returns localized time in short format like: 08.08.2023, 18:24
  */
 fun Instant.toLocalizedDateTimeString(): String {
-    val zonedTime = java.time.ZonedDateTime.ofInstant(
+    val zonedTime = ZonedDateTime.ofInstant(
         this.toJavaInstant(),
-        java.time.ZoneId.systemDefault(),
+        ZoneId.systemDefault(),
     )
-    val formatter = java.time.format.DateTimeFormatter.ofLocalizedDateTime(
-        java.time.format.FormatStyle.SHORT,
+    val formatter = DateTimeFormatter.ofLocalizedDateTime(
+        FormatStyle.SHORT,
     )
     return zonedTime.format(formatter)
 }
