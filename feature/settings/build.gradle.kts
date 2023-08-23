@@ -71,15 +71,4 @@ dependencies {
     // Dagger 2
     implementation(libs.dagger2.core)
     kapt(libs.dagger2.compiler)
-
-    // Android Tests
-    androidTestImplementation(libs.androidx.test.espresso)
-    androidTestImplementation(libs.androidx.test.espresso.contrib)
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.androidx.test.rules)
-    androidTestImplementation(libs.mockk.android)
-    androidTestImplementation(libs.junit5.api)
-    androidTestImplementation(libs.junit5.params)
-    testRuntimeOnly(libs.junit5.engine)
-    debugImplementation(libs.androidx.fragment.testing)
 }
