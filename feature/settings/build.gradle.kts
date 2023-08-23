@@ -19,7 +19,6 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kapt)
-    alias(libs.plugins.junit5)
 }
 
 android {
@@ -71,4 +70,10 @@ dependencies {
     // Dagger 2
     implementation(libs.dagger2.core)
     kapt(libs.dagger2.compiler)
+
+    // Unit Tests
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
 }
