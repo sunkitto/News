@@ -6,7 +6,6 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
 import com.sunkitto.news.core.data.remote_mediator.TopHeadlinesRemoteMediator
 import com.sunkitto.news.core.data.repository.SettingsRepositoryImpl
 import com.sunkitto.news.core.database.NewsDatabase
@@ -23,21 +22,26 @@ import com.sunkitto.news.core.network.model.SourceDto
 import com.sunkitto.news.core.network.retrofit.NewsService
 import io.mockk.coEvery
 import io.mockk.mockk
-import java.io.IOException
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
 import kotlinx.datetime.Instant
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
+import org.junit.After
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
+import java.io.IOException
 
 @OptIn(ExperimentalPagingApi::class)
+@RunWith(RobolectricTestRunner::class)
 class TopHeadlinesRemoteMediatorTest {
 
     private val newsDatabase = Room.inMemoryDatabaseBuilder(
-        context = ApplicationProvider.getApplicationContext(),
+        context = RuntimeEnvironment.getApplication().applicationContext,
         klass = NewsDatabase::class.java,
-    ).build()
+    ).allowMainThreadQueries().build()
 
     private val newsNetworkDataSource = mockk<NewsNetworkDataSourceImpl>(relaxed = true)
     private val settingsRepository = mockk<SettingsRepositoryImpl>(relaxed = true)
@@ -83,10 +87,10 @@ class TopHeadlinesRemoteMediatorTest {
         )
 
         var result = subject.load(LoadType.REFRESH, pagingState)
-        Assertions.assertTrue(result is RemoteMediator.MediatorResult.Success)
+        assertTrue(result is RemoteMediator.MediatorResult.Success)
 
         result = result as RemoteMediator.MediatorResult.Success
-        Assertions.assertFalse(result.endOfPaginationReached)
+        assertFalse(result.endOfPaginationReached)
     }
 
     @Test
@@ -107,10 +111,10 @@ class TopHeadlinesRemoteMediatorTest {
         )
 
         var result = subject.load(LoadType.PREPEND, pagingState)
-        Assertions.assertTrue(result is RemoteMediator.MediatorResult.Success)
+        assertTrue(result is RemoteMediator.MediatorResult.Success)
 
         result = result as RemoteMediator.MediatorResult.Success
-        Assertions.assertTrue(result.endOfPaginationReached)
+        assertTrue(result.endOfPaginationReached)
     }
 
     @Test
@@ -160,10 +164,10 @@ class TopHeadlinesRemoteMediatorTest {
         )
 
         var result = subject.load(LoadType.REFRESH, pagingState)
-        Assertions.assertTrue(result is RemoteMediator.MediatorResult.Success)
+        assertTrue(result is RemoteMediator.MediatorResult.Success)
 
         result = result as RemoteMediator.MediatorResult.Success
-        Assertions.assertTrue(result.endOfPaginationReached)
+        assertTrue(result.endOfPaginationReached)
     }
 
     @Test
@@ -194,10 +198,10 @@ class TopHeadlinesRemoteMediatorTest {
 
         val result = subject.load(LoadType.REFRESH, pagingState)
 
-        Assertions.assertTrue(result is RemoteMediator.MediatorResult.Error)
+        assertTrue(result is RemoteMediator.MediatorResult.Error)
     }
 
-    @AfterEach
+    @After
     fun tear_down() {
         newsDatabase.clearAllTables()
     }
