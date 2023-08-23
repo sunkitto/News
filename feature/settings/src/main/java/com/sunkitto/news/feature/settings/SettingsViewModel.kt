@@ -18,9 +18,9 @@ class SettingsViewModel(
 
     val settings = settingsRepository.settings
         .stateIn(
-            viewModelScope,
-            SharingStarted.Eagerly,
-            Settings(
+            scope = viewModelScope,
+            started = SharingStarted.Eagerly,
+            initialValue = Settings(
                 Language.FOLLOW_SYSTEM,
                 Theme.FOLLOW_SYSTEM,
                 TopHeadlinesCountry.USA,
