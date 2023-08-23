@@ -1,31 +1,33 @@
 package com.sunkitto.news.core.database
 
-import android.content.Context
 import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
 import com.sunkitto.news.core.database.dao.RecentSearchDao
 import com.sunkitto.news.core.database.model.RecentSearchEntity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import kotlinx.datetime.Instant
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import org.junit.After
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 
+@RunWith(RobolectricTestRunner::class)
 class RecentSearchDaoTest {
 
     private lateinit var database: NewsDatabase
     private lateinit var recentSearchDao: RecentSearchDao
 
-    @BeforeEach
+    @Before
     fun create_database() {
-        val context = ApplicationProvider.getApplicationContext<Context>()
+        val context = RuntimeEnvironment.getApplication().applicationContext
         database = Room.inMemoryDatabaseBuilder(
             context,
             NewsDatabase::class.java,
-        ).build()
+        ).allowMainThreadQueries().build()
         recentSearchDao = database.recentSearchDao()
     }
 
@@ -95,7 +97,7 @@ class RecentSearchDaoTest {
         assertTrue(recentSearches.first().isEmpty())
     }
 
-    @AfterEach
+    @After
     fun close_database() {
         database.close()
     }
