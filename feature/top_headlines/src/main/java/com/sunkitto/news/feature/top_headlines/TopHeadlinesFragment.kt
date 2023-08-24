@@ -29,7 +29,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
+open class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
 
     private var _binding: FragmentTopHeadlinesBinding? = null
     private val binding: FragmentTopHeadlinesBinding
@@ -45,10 +45,13 @@ class TopHeadlinesFragment : Fragment(), TopHeadlinesRecyclerViewClickListener {
         topHeadlinesViewModelFactory
     }
 
+    protected open fun injectMembers() =
+        topHeadlinesComponentViewModel.topHeadlinesComponent.inject(this)
+
     private var refreshLoadState: LoadState? = null
 
     override fun onAttach(context: Context) {
-        topHeadlinesComponentViewModel.topHeadlinesComponent.inject(this)
+        injectMembers()
         super.onAttach(context)
     }
 

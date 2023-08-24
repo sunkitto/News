@@ -21,7 +21,7 @@ class DialogFragmentTest {
     @Test
     fun testDismissLanguageDialogFragment() {
         with(launchFragment<LanguageDialogFragment>(
-            themeResId = R.style.AlertDialog_Test,
+            themeResId = com.sunkitto.news.core.design_system.R.style.AlertDialog_Test,
             fragmentArgs = bundleOf()
         )) {
             onFragment { fragment ->
@@ -38,7 +38,7 @@ class DialogFragmentTest {
     @Test
     fun testDismissTopHeadlinesCountryDialogFragment() {
         with(launchFragment<TopHeadlinesCountryDialogFragment>(
-            themeResId = R.style.AlertDialog_Test,
+            themeResId = com.sunkitto.news.core.design_system.R.style.AlertDialog_Test,
             fragmentArgs = bundleOf()
         )) {
             onFragment { fragment ->
@@ -55,7 +55,7 @@ class DialogFragmentTest {
     @Test
     fun testDismissThemeDialogFragment() {
         with(launchFragment<ThemeDialogFragment>(
-            themeResId = R.style.AlertDialog_Test,
+            themeResId = com.sunkitto.news.core.design_system.R.style.AlertDialog_Test,
             fragmentArgs = bundleOf()
         )) {
             onFragment { fragment ->

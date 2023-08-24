@@ -26,5 +26,9 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>
     </style>
+
+    <!-- Styles for using in tests -->
+    <style name="Fragment.Test" parent="Theme.MaterialComponents.DayNight" />
+    <style name="AlertDialog.Test" parent="Theme.MaterialComponents.DayNight.Dialog.Alert" />
     
 </resources>

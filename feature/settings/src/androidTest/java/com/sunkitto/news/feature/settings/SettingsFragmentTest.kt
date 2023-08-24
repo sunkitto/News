@@ -23,7 +23,9 @@ class SettingsFragmentTest {
     @Test
     fun settings_recycler_view_shows_with_settings() {
 
-        launchFragmentInContainer(themeResId = R.style.Fragment_Test,) {
+        launchFragmentInContainer(
+            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test
+        ) {
             TestSettingsFragment()
         }
 
@@ -52,7 +54,9 @@ class SettingsFragmentTest {
     @Test
     fun language_item_click_shows_language_dialog() {
 
-        launchFragmentInContainer(themeResId = R.style.Fragment_Test,) {
+        launchFragmentInContainer(
+            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test
+        ) {
             TestSettingsFragment()
         }
 
@@ -71,7 +75,9 @@ class SettingsFragmentTest {
     @Test
     fun top_headlines_country_item_click_shows_top_headlines_country_dialog() {
 
-        launchFragmentInContainer(themeResId = R.style.Fragment_Test,) {
+        launchFragmentInContainer(
+            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test
+        ) {
             TestSettingsFragment()
         }
 
@@ -90,7 +96,9 @@ class SettingsFragmentTest {
     @Test
     fun theme_item_click_shows_theme_dialog() {
 
-        launchFragmentInContainer(themeResId = R.style.Fragment_Test,) {
+        launchFragmentInContainer(
+            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test
+        ) {
             TestSettingsFragment()
         }
 
