@@ -19,21 +19,21 @@ class SettingsAdapter(
                 LanguageDialogFragment
                     .newInstance(viewModel.settings.value.language.ordinal)
                     .show(childFragmentManager, LanguageDialogFragment.TAG)
-            }
+            },
         )
         delegatesManager.addDelegate(
             topHeadlinesCountryAdapterDelegate {
                 TopHeadlinesCountryDialogFragment
                     .newInstance(viewModel.settings.value.topHeadlinesCountry.ordinal)
                     .show(childFragmentManager, TopHeadlinesCountryDialogFragment.TAG)
-            }
+            },
         )
         delegatesManager.addDelegate(
             themeAdapterDelegate {
                 ThemeDialogFragment
                     .newInstance(currentTheme = viewModel.settings.value.theme.ordinal)
                     .show(childFragmentManager, ThemeDialogFragment.TAG)
-            }
+            },
         )
     }
 
@@ -55,7 +55,7 @@ class SettingsAdapter(
 
             override fun getChangePayload(
                 oldItem: SettingsItem,
-                newItem: SettingsItem
+                newItem: SettingsItem,
             ): Any =
                 oldItem.payload(newItem)
         }

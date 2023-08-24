@@ -6,10 +6,10 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.Room
-import com.sunkitto.news.core.data.remote_mediator.TopHeadlinesRemoteMediator
+import com.sunkitto.news.core.data.remoteMediator.TopHeadlinesRemoteMediator
 import com.sunkitto.news.core.data.repository.SettingsRepositoryImpl
 import com.sunkitto.news.core.database.NewsDatabase
-import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesEntity
+import com.sunkitto.news.core.database.model.topHeadlines.TopHeadlinesEntity
 import com.sunkitto.news.core.model.TopHeadlinesCategory
 import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.core.model.settings.Settings
@@ -22,6 +22,7 @@ import com.sunkitto.news.core.network.model.SourceDto
 import com.sunkitto.news.core.network.retrofit.NewsService
 import io.mockk.coEvery
 import io.mockk.mockk
+import java.io.IOException
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
 import kotlinx.datetime.Instant
@@ -32,7 +33,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
-import java.io.IOException
 
 @OptIn(ExperimentalPagingApi::class)
 @RunWith(RobolectricTestRunner::class)

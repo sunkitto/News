@@ -9,7 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
 @Module
-object CoroutineScopesModule {
+object CoroutineScopeModule {
 
     @Provides
     fun providesCoroutineScope(

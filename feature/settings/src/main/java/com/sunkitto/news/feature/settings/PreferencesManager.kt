@@ -10,12 +10,12 @@ class PreferencesManager(private val context: Context) {
     fun switchLanguage(language: Language) =
         AppCompatDelegate.setApplicationLocales(
             LocaleListCompat.forLanguageTags(
-                if(language == Language.FOLLOW_SYSTEM) {
+                if (language == Language.FOLLOW_SYSTEM) {
                     context.resources.configuration.locales.get(0).isO3Language
                 } else {
                     language.isoCode
-                }
-            )
+                },
+            ),
         )
 
     fun switchTheme(theme: Theme) {

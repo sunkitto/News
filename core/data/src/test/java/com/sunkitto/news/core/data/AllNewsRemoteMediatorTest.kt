@@ -6,9 +6,9 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.Room
-import com.sunkitto.news.core.data.remote_mediator.AllNewsRemoteMediator
+import com.sunkitto.news.core.data.remoteMediator.AllNewsRemoteMediator
 import com.sunkitto.news.core.database.NewsDatabase
-import com.sunkitto.news.core.database.model.all_news.ArticleEntity
+import com.sunkitto.news.core.database.model.allNews.ArticleEntity
 import com.sunkitto.news.core.network.NewsNetworkDataSourceImpl
 import com.sunkitto.news.core.network.model.ArticleDto
 import com.sunkitto.news.core.network.model.NewsDto
@@ -16,6 +16,7 @@ import com.sunkitto.news.core.network.model.SourceDto
 import com.sunkitto.news.core.network.retrofit.NewsService
 import io.mockk.coEvery
 import io.mockk.mockk
+import java.io.IOException
 import kotlinx.coroutines.test.runTest
 import kotlinx.datetime.Instant
 import org.junit.After
@@ -25,7 +26,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
-import java.io.IOException
 
 @OptIn(ExperimentalPagingApi::class)
 @RunWith(RobolectricTestRunner::class)

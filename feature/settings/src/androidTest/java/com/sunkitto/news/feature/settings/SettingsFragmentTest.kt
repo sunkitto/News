@@ -22,9 +22,8 @@ class SettingsFragmentTest {
 
     @Test
     fun settings_recycler_view_shows_with_settings() {
-
         launchFragmentInContainer(
-            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test
+            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test,
         ) {
             TestSettingsFragment()
         }
@@ -53,9 +52,8 @@ class SettingsFragmentTest {
 
     @Test
     fun language_item_click_shows_language_dialog() {
-
         launchFragmentInContainer(
-            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test
+            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test,
         ) {
             TestSettingsFragment()
         }
@@ -65,8 +63,8 @@ class SettingsFragmentTest {
 
         onView(withText(R.string.interface_language)).inRoot(isDialog()).check(
             matches(
-                ViewMatchers.isDisplayed()
-            )
+                ViewMatchers.isDisplayed(),
+            ),
         )
         onView(withText(com.sunkitto.news.core.model.R.string.english))
             .perform(click())
@@ -74,9 +72,8 @@ class SettingsFragmentTest {
 
     @Test
     fun top_headlines_country_item_click_shows_top_headlines_country_dialog() {
-
         launchFragmentInContainer(
-            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test
+            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test,
         ) {
             TestSettingsFragment()
         }
@@ -86,8 +83,8 @@ class SettingsFragmentTest {
 
         onView(withText(R.string.top_headlines_country)).inRoot(isDialog()).check(
             matches(
-                ViewMatchers.isDisplayed()
-            )
+                ViewMatchers.isDisplayed(),
+            ),
         )
         onView(withText(com.sunkitto.news.core.model.R.string.united_kingdom))
             .perform(click())
@@ -95,9 +92,8 @@ class SettingsFragmentTest {
 
     @Test
     fun theme_item_click_shows_theme_dialog() {
-
         launchFragmentInContainer(
-            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test
+            themeResId = com.sunkitto.news.core.design_system.R.style.Fragment_Test,
         ) {
             TestSettingsFragment()
         }
@@ -107,8 +103,8 @@ class SettingsFragmentTest {
 
         onView(withText(R.string.theme)).inRoot(isDialog()).check(
             matches(
-                ViewMatchers.isDisplayed()
-            )
+                ViewMatchers.isDisplayed(),
+            ),
         )
         onView(withText(com.sunkitto.news.core.model.R.string.dark))
             .perform(click())

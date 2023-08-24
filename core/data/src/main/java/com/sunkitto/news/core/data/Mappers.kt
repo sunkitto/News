@@ -3,8 +3,8 @@ package com.sunkitto.news.core.data
 import androidx.annotation.DrawableRes
 import com.sunkitto.news.core.database.model.RecentSearchEntity
 import com.sunkitto.news.core.database.model.SourceEntity
-import com.sunkitto.news.core.database.model.all_news.ArticleEntity
-import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesEntity
+import com.sunkitto.news.core.database.model.allNews.ArticleEntity
+import com.sunkitto.news.core.database.model.topHeadlines.TopHeadlinesEntity
 import com.sunkitto.news.core.datastore.model.SettingsPreferences
 import com.sunkitto.news.core.model.Article
 import com.sunkitto.news.core.model.RecentSearch

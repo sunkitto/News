@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
-import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesEntity
+import com.sunkitto.news.core.database.model.topHeadlines.TopHeadlinesEntity
 
 @Dao
 interface TopHeadlinesDao {
