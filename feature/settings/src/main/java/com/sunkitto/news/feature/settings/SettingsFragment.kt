@@ -30,7 +30,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class SettingsFragment : Fragment() {
+open class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding: FragmentSettingsBinding
@@ -46,8 +46,11 @@ class SettingsFragment : Fragment() {
         settingsViewModelFactory
     }
 
-    override fun onAttach(context: Context) {
+    protected open fun injectMembers() =
         settingsComponentViewModel.settingsComponent.inject(this)
+
+    override fun onAttach(context: Context) {
+        injectMembers()
         super.onAttach(context)
     }
 
