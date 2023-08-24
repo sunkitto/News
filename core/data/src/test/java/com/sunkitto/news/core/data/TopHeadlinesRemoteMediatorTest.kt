@@ -10,11 +10,11 @@ import com.sunkitto.news.core.data.remote_mediator.TopHeadlinesRemoteMediator
 import com.sunkitto.news.core.data.repository.SettingsRepositoryImpl
 import com.sunkitto.news.core.database.NewsDatabase
 import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesEntity
+import com.sunkitto.news.core.model.TopHeadlinesCategory
 import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.core.model.settings.Settings
 import com.sunkitto.news.core.model.settings.Theme
 import com.sunkitto.news.core.model.settings.TopHeadlinesCountry
-import com.sunkitto.news.core.model.ui.TopHeadlinesCategory
 import com.sunkitto.news.core.network.NewsNetworkDataSourceImpl
 import com.sunkitto.news.core.network.model.ArticleDto
 import com.sunkitto.news.core.network.model.NewsDto

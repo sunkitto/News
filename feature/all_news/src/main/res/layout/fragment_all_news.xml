@@ -10,7 +10,7 @@
         android:id="@+id/allNewsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="@dimen/all_news_recyclerview_top_indent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:nestedScrollingEnabled="false"
@@ -41,8 +41,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_recent_search"
-            tools:scrollbars="vertical" />
+            tools:listitem="@layout/item_recent_search" />
 
     </com.google.android.material.search.SearchView>
 

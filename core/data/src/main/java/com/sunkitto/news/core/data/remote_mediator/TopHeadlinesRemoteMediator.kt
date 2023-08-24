@@ -10,7 +10,7 @@ import com.sunkitto.news.core.database.dao.TopHeadlinesRemoteKeyDao
 import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesEntity
 import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesRemoteKey
 import com.sunkitto.news.core.domain.repository.SettingsRepository
-import com.sunkitto.news.core.model.ui.TopHeadlinesCategory
+import com.sunkitto.news.core.model.TopHeadlinesCategory
 import com.sunkitto.news.core.network.NewsNetworkDataSource
 import kotlinx.coroutines.flow.first
 

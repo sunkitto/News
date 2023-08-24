@@ -15,12 +15,12 @@ import com.sunkitto.news.core.database.dao.TopHeadlinesRemoteKeyDao
 import com.sunkitto.news.core.domain.repository.NewsRepository
 import com.sunkitto.news.core.domain.repository.SettingsRepository
 import com.sunkitto.news.core.model.Article
-import com.sunkitto.news.core.model.ui.TopHeadlinesCategory
+import com.sunkitto.news.core.model.TopHeadlinesCategory
 import com.sunkitto.news.core.network.NewsNetworkDataSource
 import com.sunkitto.news.core.network.retrofit.NewsService
-import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
 @OptIn(ExperimentalPagingApi::class)
 class NewsRepositoryImpl @Inject constructor(

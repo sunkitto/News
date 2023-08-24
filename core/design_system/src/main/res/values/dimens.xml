@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="default_indent">15dp</dimen>
-    <dimen name="default_inner_indent">5dp</dimen>
-    <dimen name="icon_padding">12dp</dimen>
-    <dimen name="article_image_size">125dp</dimen>
 
+    <dimen name="top_bar_title_indent">15dp</dimen>
     <dimen name="card_corner_radius">30dp</dimen>
-
-    <dimen name="all_news_image_indent">10dp</dimen>
-    <dimen name="all_news_inner_indent">15dp</dimen>
-    <dimen name="all_news_label_indent">5dp</dimen>
+    <dimen name="article_image_size">125dp</dimen>
 
     <dimen name="top_headline_image_indent">20dp</dimen>
     <dimen name="top_headline_inner_indent">10dp</dimen>
     <dimen name="top_headline_label_indent">20dp</dimen>
+    <dimen name="top_headline_chips_indent">15dp</dimen>
+
+    <dimen name="all_news_recyclerview_top_indent">80dp</dimen>
+    <dimen name="all_news_image_indent">10dp</dimen>
+    <dimen name="all_news_inner_indent">15dp</dimen>
+    <dimen name="all_news_label_indent">5dp</dimen>
+
+    <dimen name="recent_search_icon_padding">12dp</dimen>
+    <dimen name="recent_search_query_margin">15dp</dimen>
+
+    <dimen name="settings_recyclerview_top_indent">30dp</dimen>
+    <dimen name="settings_preference_outer_indents">15dp</dimen>
+
 </resources>

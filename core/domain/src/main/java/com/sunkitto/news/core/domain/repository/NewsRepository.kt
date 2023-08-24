@@ -2,7 +2,7 @@ package com.sunkitto.news.core.domain.repository
 
 import androidx.paging.PagingData
 import com.sunkitto.news.core.model.Article
-import com.sunkitto.news.core.model.ui.TopHeadlinesCategory
+import com.sunkitto.news.core.model.TopHeadlinesCategory
 import kotlinx.coroutines.flow.Flow
 
 interface NewsRepository {

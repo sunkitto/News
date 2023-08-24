@@ -8,8 +8,8 @@ import androidx.paging.map
 import com.google.android.material.chip.Chip
 import com.sunkitto.news.core.data.asArticleUi
 import com.sunkitto.news.core.domain.GetTopHeadlinesUseCase
+import com.sunkitto.news.core.model.TopHeadlinesCategory
 import com.sunkitto.news.core.model.ui.ArticleUi
-import com.sunkitto.news.core.model.ui.TopHeadlinesCategory
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
