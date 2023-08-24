@@ -14,6 +14,6 @@ interface SettingsItem {
      * Simple marker interface for payloads
      */
     interface Payloadable {
-        object None: Payloadable
+        object None : Payloadable
     }
 }

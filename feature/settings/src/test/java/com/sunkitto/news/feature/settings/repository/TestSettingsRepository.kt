@@ -12,7 +12,7 @@ class TestSettingsRepository : SettingsRepository {
 
     override val settings: MutableSharedFlow<Settings> = MutableSharedFlow(
         replay = 1,
-        onBufferOverflow = BufferOverflow.DROP_LATEST
+        onBufferOverflow = BufferOverflow.DROP_LATEST,
     )
 
     override suspend fun setLanguage(language: Language) {
@@ -21,7 +21,7 @@ class TestSettingsRepository : SettingsRepository {
                 language = language,
                 theme = Theme.FOLLOW_SYSTEM,
                 topHeadlinesCountry = TopHeadlinesCountry.USA,
-            )
+            ),
         )
     }
 
@@ -31,7 +31,7 @@ class TestSettingsRepository : SettingsRepository {
                 language = Language.FOLLOW_SYSTEM,
                 theme = theme,
                 topHeadlinesCountry = TopHeadlinesCountry.USA,
-            )
+            ),
         )
     }
 
@@ -41,7 +41,7 @@ class TestSettingsRepository : SettingsRepository {
                 language = Language.FOLLOW_SYSTEM,
                 theme = Theme.FOLLOW_SYSTEM,
                 topHeadlinesCountry = topHeadlinesCountry,
-            )
+            ),
         )
     }
 }

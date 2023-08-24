@@ -12,13 +12,13 @@ data class LanguageUi(
     override val id: Int = description.hashCode()
 
     override fun payload(other: Any): SettingsItem.Payloadable {
-        if(other is LanguageUi) {
+        if (other is LanguageUi) {
             return ChangePayload.DescriptionChanged(description = other.description)
         }
         return SettingsItem.Payloadable.None
     }
 
-    sealed class ChangePayload: SettingsItem.Payloadable {
-        data class DescriptionChanged(val description: String): ChangePayload()
+    sealed class ChangePayload : SettingsItem.Payloadable {
+        data class DescriptionChanged(val description: String) : ChangePayload()
     }
 }

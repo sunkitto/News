@@ -1,11 +1,11 @@
 package com.sunkitto.news.util
 
-import kotlinx.datetime.Instant
-import kotlinx.datetime.toJavaInstant
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import kotlinx.datetime.Instant
+import kotlinx.datetime.toJavaInstant
 
 /**
  * Returns localized time in short format like: 08.08.2023, 18:24

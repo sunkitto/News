@@ -14,7 +14,6 @@ class TestSettingsFragment : SettingsFragment() {
     private val preferencesManager: PreferencesManager = mockk(relaxed = true)
 
     override fun injectMembers() {
-
         this.settingsViewModelFactory = viewModelFactory {
             initializer {
                 SettingsViewModel(

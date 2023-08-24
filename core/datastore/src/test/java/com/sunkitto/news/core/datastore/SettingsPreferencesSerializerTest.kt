@@ -5,17 +5,16 @@ import com.sunkitto.news.core.datastore.serializers.SettingsPreferencesSerialize
 import com.sunkitto.news.core.model.settings.Language
 import com.sunkitto.news.core.model.settings.Theme
 import com.sunkitto.news.core.model.settings.TopHeadlinesCountry
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import java.io.ByteArrayInputStream
-import java.io.ByteArrayOutputStream
 
 class SettingsPreferencesSerializerTest {
 
     @Test
     fun settings_preferences_serialize_and_deserialize() = runTest {
-
         val serializer = SettingsPreferencesSerializer
         val output = ByteArrayOutputStream()
 

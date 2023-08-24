@@ -26,9 +26,9 @@ import com.sunkitto.news.feature.settings.dialogs.TopHeadlinesCountryDialogFragm
 import com.sunkitto.news.feature.settings.model.LanguageUi
 import com.sunkitto.news.feature.settings.model.ThemeUi
 import com.sunkitto.news.feature.settings.model.TopHeadlinesCountryUi
+import javax.inject.Inject
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 open class SettingsFragment : Fragment() {
 
@@ -84,13 +84,13 @@ open class SettingsFragment : Fragment() {
                         TopHeadlinesCountryUi(
                             topHeadlinesCountry = settings.topHeadlinesCountry,
                             title = getString(R.string.top_headlines_country),
-                            description = getString(settings.topHeadlinesCountry.nameId)
+                            description = getString(settings.topHeadlinesCountry.nameId),
                         ),
                         ThemeUi(
                             theme = settings.theme,
                             title = getString(R.string.theme),
-                            description = getString(settings.theme.nameId)
-                        )
+                            description = getString(settings.theme.nameId),
+                        ),
                     )
                 }
             }
@@ -103,7 +103,7 @@ open class SettingsFragment : Fragment() {
                 viewLifecycleOwner,
             ) { _, bundle ->
                 viewModel.setLanguage(
-                    bundle.getParcelable(SELECTED_LANGUAGE_KEY)!!
+                    bundle.getParcelable(SELECTED_LANGUAGE_KEY)!!,
                 )
             }
             setFragmentResultListener(
@@ -111,7 +111,7 @@ open class SettingsFragment : Fragment() {
                 viewLifecycleOwner,
             ) { _, bundle ->
                 viewModel.setTopHeadlinesCountry(
-                    bundle.getParcelable(SELECTED_TOP_HEADLINE_KEY)!!
+                    bundle.getParcelable(SELECTED_TOP_HEADLINE_KEY)!!,
                 )
                 requireActivity().supportFragmentManager
                     .setFragmentResult(REFRESH_REQUEST_KEY, bundleOf())
@@ -121,7 +121,7 @@ open class SettingsFragment : Fragment() {
                 viewLifecycleOwner,
             ) { _, bundle ->
                 viewModel.setTheme(
-                    bundle.getParcelable(SELECTED_THEME_KEY)!!
+                    bundle.getParcelable(SELECTED_THEME_KEY)!!,
                 )
             }
         }

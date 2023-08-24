@@ -8,7 +8,7 @@ import com.sunkitto.news.feature.settings.model.TopHeadlinesCountryUi
 
 fun languageAdapterDelegate(onLanguageClick: () -> Unit) =
     adapterDelegateViewBinding<LanguageUi, SettingsItem, ItemSettingsBinding>(
-        { layoutInflater, parent -> ItemSettingsBinding.inflate(layoutInflater, parent, false) }
+        { layoutInflater, parent -> ItemSettingsBinding.inflate(layoutInflater, parent, false) },
     ) {
         bind {
             binding.root.setOnClickListener {
@@ -21,7 +21,7 @@ fun languageAdapterDelegate(onLanguageClick: () -> Unit) =
 
 fun topHeadlinesCountryAdapterDelegate(onTopHeadlinesCountryClick: () -> Unit) =
     adapterDelegateViewBinding<TopHeadlinesCountryUi, SettingsItem, ItemSettingsBinding>(
-        { layoutInflater, parent -> ItemSettingsBinding.inflate(layoutInflater, parent, false) }
+        { layoutInflater, parent -> ItemSettingsBinding.inflate(layoutInflater, parent, false) },
     ) {
         bind {
             binding.root.setOnClickListener {
@@ -34,7 +34,7 @@ fun topHeadlinesCountryAdapterDelegate(onTopHeadlinesCountryClick: () -> Unit) =
 
 fun themeAdapterDelegate(onThemeClick: () -> Unit) =
     adapterDelegateViewBinding<ThemeUi, SettingsItem, ItemSettingsBinding>(
-        { layoutInflater, parent -> ItemSettingsBinding.inflate(layoutInflater, parent, false) }
+        { layoutInflater, parent -> ItemSettingsBinding.inflate(layoutInflater, parent, false) },
     ) {
         bind {
             binding.root.setOnClickListener {

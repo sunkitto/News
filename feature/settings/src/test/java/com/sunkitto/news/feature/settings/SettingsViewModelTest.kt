@@ -37,7 +37,7 @@ class SettingsViewModelTest {
         settingsViewModel.setLanguage(Language.POLISH)
         assertEquals(
             Language.POLISH,
-            settingsViewModel.settings.value.language
+            settingsViewModel.settings.value.language,
         )
     }
 
@@ -46,7 +46,7 @@ class SettingsViewModelTest {
         settingsViewModel.setTopHeadlinesCountry(TopHeadlinesCountry.ARGENTINA)
         assertEquals(
             TopHeadlinesCountry.ARGENTINA,
-            settingsViewModel.settings.value.topHeadlinesCountry
+            settingsViewModel.settings.value.topHeadlinesCountry,
         )
     }
 
@@ -55,7 +55,7 @@ class SettingsViewModelTest {
         settingsViewModel.setTheme(Theme.DARK)
         assertEquals(
             Theme.DARK,
-            settingsViewModel.settings.value.theme
+            settingsViewModel.settings.value.theme,
         )
     }
 

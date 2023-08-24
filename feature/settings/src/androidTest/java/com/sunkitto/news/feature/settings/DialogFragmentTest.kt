@@ -20,10 +20,12 @@ class DialogFragmentTest {
 
     @Test
     fun testDismissLanguageDialogFragment() {
-        with(launchFragment<LanguageDialogFragment>(
-            themeResId = com.sunkitto.news.core.design_system.R.style.AlertDialog_Test,
-            fragmentArgs = bundleOf()
-        )) {
+        with(
+            launchFragment<LanguageDialogFragment>(
+                themeResId = com.sunkitto.news.core.design_system.R.style.AlertDialog_Test,
+                fragmentArgs = bundleOf(),
+            ),
+        ) {
             onFragment { fragment ->
                 assertNotNull(fragment.dialog)
                 assertTrue(fragment.requireDialog().isShowing)
@@ -37,10 +39,12 @@ class DialogFragmentTest {
 
     @Test
     fun testDismissTopHeadlinesCountryDialogFragment() {
-        with(launchFragment<TopHeadlinesCountryDialogFragment>(
-            themeResId = com.sunkitto.news.core.design_system.R.style.AlertDialog_Test,
-            fragmentArgs = bundleOf()
-        )) {
+        with(
+            launchFragment<TopHeadlinesCountryDialogFragment>(
+                themeResId = com.sunkitto.news.core.design_system.R.style.AlertDialog_Test,
+                fragmentArgs = bundleOf(),
+            ),
+        ) {
             onFragment { fragment ->
                 assertNotNull(fragment.dialog)
                 assertTrue(fragment.requireDialog().isShowing)
@@ -54,10 +58,12 @@ class DialogFragmentTest {
 
     @Test
     fun testDismissThemeDialogFragment() {
-        with(launchFragment<ThemeDialogFragment>(
-            themeResId = com.sunkitto.news.core.design_system.R.style.AlertDialog_Test,
-            fragmentArgs = bundleOf()
-        )) {
+        with(
+            launchFragment<ThemeDialogFragment>(
+                themeResId = com.sunkitto.news.core.design_system.R.style.AlertDialog_Test,
+                fragmentArgs = bundleOf(),
+            ),
+        ) {
             onFragment { fragment ->
                 assertNotNull(fragment.dialog)
                 assertTrue(fragment.requireDialog().isShowing)
