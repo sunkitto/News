@@ -60,6 +60,7 @@ androidx-room-runtime = { group = "androidx.room", name = "room-runtime", versio
 androidx-swiperefresh = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "androidx_swiperefresh" }
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx_test_core" }
 androidx-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx_test_espresso" }
+androidx-test-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "androidx_test_espresso" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx_test_ext_junit" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx_test_runner" }
 dagger2-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
