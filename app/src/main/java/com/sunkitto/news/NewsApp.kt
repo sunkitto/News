@@ -49,7 +49,6 @@ class NewsApp : Application() {
                     .detectLeakedSqlLiteObjects()
                     .detectLeakedClosableObjects()
                     .penaltyLog()
-                    .penaltyDeath()
                     .build(),
             )
         }
