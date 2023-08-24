@@ -18,13 +18,13 @@ class ThemeDialogFragment : DialogFragment() {
             .setTitle(R.string.theme)
             .setSingleChoiceItems(
                 themeNames,
-                requireArguments().getInt(THEME_CHECKED_ITEM_INDEX_KEY),
+                requireArguments().getInt(CURRENT_THEME_KEY),
             ) { dialog, which ->
-                val selectedTheme = themes[which]
+
                 requireActivity().supportFragmentManager
                     .setFragmentResult(
                         THEME_DIALOG_REQUEST_KEY,
-                        bundleOf(Pair(SELECTED_THEME_KEY, selectedTheme)),
+                        bundleOf(Pair(SELECTED_THEME_KEY, themes[which])),
                     )
                 dialog.dismiss()
             }
@@ -36,13 +36,13 @@ class ThemeDialogFragment : DialogFragment() {
         const val TAG = "ThemeDialog"
         const val THEME_DIALOG_REQUEST_KEY = "THEME_DIALOG_REQUEST_KEY"
         const val SELECTED_THEME_KEY = "SELECTED_THEME_KEY"
-        const val THEME_CHECKED_ITEM_INDEX_KEY = "THEME_CHECKED_ITEM_INDEX_KEY"
+        const val CURRENT_THEME_KEY = "CURRENT_THEME_KEY"
 
         @JvmStatic
-        fun newInstance(checkedItemIndex: Int): ThemeDialogFragment {
+        fun newInstance(currentTheme: Int): ThemeDialogFragment {
             val fragment = ThemeDialogFragment()
             val bundle = Bundle()
-            bundle.putInt(THEME_CHECKED_ITEM_INDEX_KEY, checkedItemIndex)
+            bundle.putInt(CURRENT_THEME_KEY, currentTheme)
             fragment.arguments = bundle
             return fragment
         }

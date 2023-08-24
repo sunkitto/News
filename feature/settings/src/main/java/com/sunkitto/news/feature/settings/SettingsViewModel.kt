@@ -27,16 +27,16 @@ class SettingsViewModel(
             ),
         )
 
-    fun setTopHeadlinesCountry(topHeadlinesCountry: TopHeadlinesCountry) {
-        viewModelScope.launch {
-            settingsRepository.setTopHeadlinesCountry(topHeadlinesCountry)
-        }
-    }
-
     fun setLanguage(language: Language) {
         viewModelScope.launch {
             settingsRepository.setLanguage(language)
             preferencesManager.switchLanguage(language)
+        }
+    }
+
+    fun setTopHeadlinesCountry(topHeadlinesCountry: TopHeadlinesCountry) {
+        viewModelScope.launch {
+            settingsRepository.setTopHeadlinesCountry(topHeadlinesCountry)
         }
     }
 

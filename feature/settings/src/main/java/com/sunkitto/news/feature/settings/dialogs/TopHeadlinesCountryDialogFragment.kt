@@ -19,7 +19,7 @@ class TopHeadlinesCountryDialogFragment : DialogFragment() {
             .setTitle(R.string.top_headlines_country)
             .setSingleChoiceItems(
                 topHeadlinesCountryNames,
-                requireArguments().getInt(TOP_HEADLINES_CHECKED_ITEM_INDEX_KEY),
+                requireArguments().getInt(CURRENT_TOP_HEADLINES_COUNTRY_KEY),
             ) { dialog, which ->
                 val selectedTopHeadlinesCountry = topHeadlinesCountries[which]
                 requireActivity().supportFragmentManager
@@ -42,13 +42,13 @@ class TopHeadlinesCountryDialogFragment : DialogFragment() {
         const val TAG = "TopHeadlinesCountryDialog"
         const val TOP_HEADLINES_DIALOG_REQUEST_KEY = "TOP_HEADLINES_DIALOG_REQUEST_KEY"
         const val SELECTED_TOP_HEADLINE_KEY = "SELECTED_TOP_HEADLINE_KEY"
-        const val TOP_HEADLINES_CHECKED_ITEM_INDEX_KEY = "TOP_HEADLINES_CHECKED_ITEM_INDEX_KEY"
+        const val CURRENT_TOP_HEADLINES_COUNTRY_KEY = "CURRENT_TOP_HEADLINES_COUNTRY_KEY"
 
         @JvmStatic
-        fun newInstance(checkedItemIndex: Int): TopHeadlinesCountryDialogFragment {
+        fun newInstance(currentTopHeadlinesCountry: Int): TopHeadlinesCountryDialogFragment {
             val fragment = TopHeadlinesCountryDialogFragment()
             val bundle = Bundle()
-            bundle.putInt(TOP_HEADLINES_CHECKED_ITEM_INDEX_KEY, checkedItemIndex)
+            bundle.putInt(CURRENT_TOP_HEADLINES_COUNTRY_KEY, currentTopHeadlinesCountry)
             fragment.arguments = bundle
             return fragment
         }
