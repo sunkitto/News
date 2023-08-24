@@ -28,4 +28,6 @@
         <item name="cornerSize">12dp</item>
     </style>
 
+    <style name="AlertDialog.Test" parent="Theme.MaterialComponents.DayNight.Dialog.Alert" />
+
 </resources>

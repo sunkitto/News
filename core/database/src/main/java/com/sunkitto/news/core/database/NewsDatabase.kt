@@ -24,6 +24,7 @@ import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesRemoteKey
         AllNewsRemoteKey::class,
     ],
     version = 1,
+    exportSchema = false,
 )
 @TypeConverters(
     InstantConverter::class,
