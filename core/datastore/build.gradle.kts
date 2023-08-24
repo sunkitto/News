@@ -61,6 +61,10 @@ dependencies {
     implementation(libs.dagger2.core)
     implementation(libs.dagger2.compiler)
 
+    // Unit Tests
+    testImplementation(libs.junit5.api)
+    testImplementation(libs.kotlinx.coroutines.test)
+
     // Android Tests
     androidTestImplementation(libs.androidx.test.core)
     androidTestImplementation(libs.androidx.test.runner)

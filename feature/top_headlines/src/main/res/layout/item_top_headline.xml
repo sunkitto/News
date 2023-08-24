@@ -56,7 +56,7 @@
 
         <TextView
             android:id="@+id/dateTextView"
-            style="@style/TextAppearance.News.Label"
+            style="@style/TextAppearance.News.ArticleLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/top_headline_label_indent"
@@ -71,7 +71,7 @@
 
         <TextView
             android:id="@+id/sourceTextView"
-            style="@style/TextAppearance.News.Label"
+            style="@style/TextAppearance.News.ArticleLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/top_headline_label_indent"

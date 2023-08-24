@@ -31,7 +31,7 @@
             style="@style/TextAppearance.News.ArticleTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/default_indent"
+            android:layout_marginHorizontal="@dimen/all_news_inner_indent"
             android:layout_marginTop="@dimen/all_news_image_indent"
             android:layout_marginBottom="@dimen/all_news_inner_indent"
             android:ellipsize="end"
@@ -46,7 +46,7 @@
 
         <TextView
             android:id="@+id/sourceTextView"
-            style="@style/TextAppearance.News.Label"
+            style="@style/TextAppearance.News.ArticleLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/all_news_label_indent"
@@ -59,7 +59,7 @@
 
         <TextView
             android:id="@+id/dateTextView"
-            style="@style/TextAppearance.News.Label"
+            style="@style/TextAppearance.News.ArticleLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/all_news_image_indent"

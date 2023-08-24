@@ -4,11 +4,11 @@ import android.app.Application
 import android.content.Context
 import android.os.StrictMode
 import androidx.fragment.app.strictmode.FragmentStrictMode
-import com.sunkitto.news.all_news.di.AllNewsDependencyStore
+import com.sunkitto.news.allNews.di.AllNewsDependencyStore
 import com.sunkitto.news.di.AppComponent
 import com.sunkitto.news.di.DaggerAppComponent
 import com.sunkitto.news.feature.settings.di.SettingsDependencyStore
-import com.sunkitto.news.feature.top_headlines.di.TopHeadlinesDependencyStore
+import com.sunkitto.news.feature.topHeadlines.di.TopHeadlinesDependencyStore
 
 class NewsApp : Application() {
 
@@ -49,7 +49,6 @@ class NewsApp : Application() {
                     .detectLeakedSqlLiteObjects()
                     .detectLeakedClosableObjects()
                     .penaltyLog()
-                    .penaltyDeath()
                     .build(),
             )
         }

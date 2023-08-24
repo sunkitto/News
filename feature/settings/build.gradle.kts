@@ -19,7 +19,6 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kapt)
-    alias(libs.plugins.junit5)
 }
 
 android {
@@ -45,6 +44,12 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    packaging {
+        resources {
+            excludes += "META-INF/LICENSE.md"
+            excludes += "META-INF/LICENSE-notice.md"
+        }
     }
 }
 
@@ -72,14 +77,21 @@ dependencies {
     implementation(libs.dagger2.core)
     kapt(libs.dagger2.compiler)
 
+    // Adapters Delegate
+    implementation(libs.adapter.delegates)
+
+    // Unit Tests
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+
     // Android Tests
+    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.espresso)
     androidTestImplementation(libs.androidx.test.espresso.contrib)
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.androidx.test.rules)
     androidTestImplementation(libs.mockk.android)
-    androidTestImplementation(libs.junit5.api)
-    androidTestImplementation(libs.junit5.params)
-    testRuntimeOnly(libs.junit5.engine)
-    debugImplementation(libs.androidx.fragment.testing)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.androidx.fragment.test)
 }

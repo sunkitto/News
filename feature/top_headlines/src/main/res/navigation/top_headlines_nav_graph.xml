@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/topHeadlinesFragment"
-        android:name="com.sunkitto.news.feature.top_headlines.TopHeadlinesFragment"
+        android:name="com.sunkitto.news.feature.topHeadlines.TopHeadlinesFragment"
         android:label="fragment_top_headlines"
         tools:layout="@layout/fragment_top_headlines" />
 </navigation>

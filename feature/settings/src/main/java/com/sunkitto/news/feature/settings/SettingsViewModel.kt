@@ -18,25 +18,25 @@ class SettingsViewModel(
 
     val settings = settingsRepository.settings
         .stateIn(
-            viewModelScope,
-            SharingStarted.Eagerly,
-            Settings(
+            scope = viewModelScope,
+            started = SharingStarted.Eagerly,
+            initialValue = Settings(
                 Language.FOLLOW_SYSTEM,
                 Theme.FOLLOW_SYSTEM,
                 TopHeadlinesCountry.USA,
             ),
         )
 
-    fun setTopHeadlinesCountry(topHeadlinesCountry: TopHeadlinesCountry) {
-        viewModelScope.launch {
-            settingsRepository.setTopHeadlinesCountry(topHeadlinesCountry)
-        }
-    }
-
     fun setLanguage(language: Language) {
         viewModelScope.launch {
             settingsRepository.setLanguage(language)
             preferencesManager.switchLanguage(language)
+        }
+    }
+
+    fun setTopHeadlinesCountry(topHeadlinesCountry: TopHeadlinesCountry) {
+        viewModelScope.launch {
+            settingsRepository.setTopHeadlinesCountry(topHeadlinesCountry)
         }
     }
 

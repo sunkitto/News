@@ -18,7 +18,6 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.junit5)
     alias(libs.plugins.kapt)
     alias(libs.plugins.ksp)
 }
@@ -63,10 +62,8 @@ dependencies {
     // Paging
     implementation(libs.androidx.paging.runtime)
 
-    // Android Tests
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.kotlinx.coroutines.test)
-    androidTestImplementation(libs.junit5.api)
-    androidTestImplementation(libs.androidx.test.core)
-    testRuntimeOnly(libs.junit5.engine)
+    // Unit Tests
+    testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

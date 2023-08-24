@@ -6,8 +6,8 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
 import com.sunkitto.news.core.data.asArticle
-import com.sunkitto.news.core.data.remote_mediator.AllNewsRemoteMediator
-import com.sunkitto.news.core.data.remote_mediator.TopHeadlinesRemoteMediator
+import com.sunkitto.news.core.data.remoteMediator.AllNewsRemoteMediator
+import com.sunkitto.news.core.data.remoteMediator.TopHeadlinesRemoteMediator
 import com.sunkitto.news.core.database.dao.AllNewsRemoteKeyDao
 import com.sunkitto.news.core.database.dao.ArticlesDao
 import com.sunkitto.news.core.database.dao.TopHeadlinesDao
@@ -15,7 +15,7 @@ import com.sunkitto.news.core.database.dao.TopHeadlinesRemoteKeyDao
 import com.sunkitto.news.core.domain.repository.NewsRepository
 import com.sunkitto.news.core.domain.repository.SettingsRepository
 import com.sunkitto.news.core.model.Article
-import com.sunkitto.news.core.model.ui.TopHeadlinesCategory
+import com.sunkitto.news.core.model.TopHeadlinesCategory
 import com.sunkitto.news.core.network.NewsNetworkDataSource
 import com.sunkitto.news.core.network.retrofit.NewsService
 import javax.inject.Inject

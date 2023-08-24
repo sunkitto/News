@@ -18,7 +18,6 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.junit5)
     alias(libs.plugins.kapt)
 }
 
@@ -69,13 +68,8 @@ dependencies {
     kapt(libs.dagger2.compiler)
 
     // Unit Tests
-    testImplementation(libs.junit5.api)
-
-    // Android Tests
-    androidTestImplementation(libs.mockk.android)
-    androidTestImplementation(libs.androidx.test.core)
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.kotlinx.coroutines.test)
-    androidTestImplementation(libs.junit5.api)
-    testRuntimeOnly(libs.junit5.engine)
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

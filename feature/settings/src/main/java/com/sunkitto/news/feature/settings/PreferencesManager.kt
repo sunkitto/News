@@ -9,31 +9,16 @@ import com.sunkitto.news.core.model.settings.Theme
 class PreferencesManager(private val context: Context) {
     fun switchLanguage(language: Language) =
         AppCompatDelegate.setApplicationLocales(
-            when (language) {
-                Language.FOLLOW_SYSTEM -> LocaleListCompat.forLanguageTags(
-                    context.resources.configuration.locales.get(0).isO3Language,
-                )
-                else -> LocaleListCompat.forLanguageTags(language.isoCode)
-            },
+            LocaleListCompat.forLanguageTags(
+                if (language == Language.FOLLOW_SYSTEM) {
+                    context.resources.configuration.locales.get(0).isO3Language
+                } else {
+                    language.isoCode
+                },
+            ),
         )
 
     fun switchTheme(theme: Theme) {
-        when (theme) {
-            Theme.FOLLOW_SYSTEM -> {
-                AppCompatDelegate.setDefaultNightMode(
-                    AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM,
-                )
-            }
-            Theme.LIGHT -> {
-                AppCompatDelegate.setDefaultNightMode(
-                    AppCompatDelegate.MODE_NIGHT_NO,
-                )
-            }
-            Theme.DARK -> {
-                AppCompatDelegate.setDefaultNightMode(
-                    AppCompatDelegate.MODE_NIGHT_YES,
-                )
-            }
-        }
+        AppCompatDelegate.setDefaultNightMode(theme.value)
     }
 }

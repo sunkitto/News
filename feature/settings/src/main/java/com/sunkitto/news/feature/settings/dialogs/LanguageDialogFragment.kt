@@ -18,13 +18,12 @@ class LanguageDialogFragment : DialogFragment() {
             .setTitle(R.string.interface_language)
             .setSingleChoiceItems(
                 languageNames,
-                requireArguments().getInt(LANGUAGE_CHECKED_ITEM_INDEX_KEY),
+                requireArguments().getInt(CURRENT_LANGUAGE_KEY),
             ) { dialog, which ->
-                val selectedLanguage = languages[which]
                 requireActivity().supportFragmentManager
                     .setFragmentResult(
                         LANGUAGE_DIALOG_REQUEST_KEY,
-                        bundleOf(Pair(SELECTED_LANGUAGE_KEY, selectedLanguage)),
+                        bundleOf(Pair(SELECTED_LANGUAGE_KEY, languages[which])),
                     )
                 dialog.dismiss()
             }
@@ -36,13 +35,13 @@ class LanguageDialogFragment : DialogFragment() {
         const val TAG = "LanguageDialog"
         const val LANGUAGE_DIALOG_REQUEST_KEY = "LANGUAGE_DIALOG_REQUEST_KEY"
         const val SELECTED_LANGUAGE_KEY = "SELECTED_LANGUAGE_KEY"
-        const val LANGUAGE_CHECKED_ITEM_INDEX_KEY = "LANGUAGE_CHECKED_ITEM_INDEX_KEY"
+        const val CURRENT_LANGUAGE_KEY = "CURRENT_LANGUAGE_KEY"
 
         @JvmStatic
-        fun newInstance(checkedItemIndex: Int): LanguageDialogFragment {
+        fun newInstance(currentLanguage: Int): LanguageDialogFragment {
             val fragment = LanguageDialogFragment()
             val bundle = Bundle()
-            bundle.putInt(LANGUAGE_CHECKED_ITEM_INDEX_KEY, checkedItemIndex)
+            bundle.putInt(CURRENT_LANGUAGE_KEY, currentLanguage)
             fragment.arguments = bundle
             return fragment
         }

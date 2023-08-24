@@ -3,7 +3,7 @@ package com.sunkitto.news.core.database.dao
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
-import com.sunkitto.news.core.database.model.all_news.AllNewsRemoteKey
+import com.sunkitto.news.core.database.model.allNews.AllNewsRemoteKey
 
 @Dao
 interface AllNewsRemoteKeyDao {

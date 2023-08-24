@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/allNewsFragment"
-        android:name="com.sunkitto.news.all_news.AllNewsFragment"
+        android:name="com.sunkitto.news.allNews.AllNewsFragment"
         android:label="fragment_all_news"
         tools:layout="@layout/fragment_all_news" />
 </navigation>

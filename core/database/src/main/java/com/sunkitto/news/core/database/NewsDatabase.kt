@@ -10,10 +10,10 @@ import com.sunkitto.news.core.database.dao.RecentSearchDao
 import com.sunkitto.news.core.database.dao.TopHeadlinesDao
 import com.sunkitto.news.core.database.dao.TopHeadlinesRemoteKeyDao
 import com.sunkitto.news.core.database.model.RecentSearchEntity
-import com.sunkitto.news.core.database.model.all_news.AllNewsRemoteKey
-import com.sunkitto.news.core.database.model.all_news.ArticleEntity
-import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesEntity
-import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesRemoteKey
+import com.sunkitto.news.core.database.model.allNews.AllNewsRemoteKey
+import com.sunkitto.news.core.database.model.allNews.ArticleEntity
+import com.sunkitto.news.core.database.model.topHeadlines.TopHeadlinesEntity
+import com.sunkitto.news.core.database.model.topHeadlines.TopHeadlinesRemoteKey
 
 @Database(
     entities = [
@@ -24,6 +24,7 @@ import com.sunkitto.news.core.database.model.top_headlines.TopHeadlinesRemoteKey
         AllNewsRemoteKey::class,
     ],
     version = 1,
+    exportSchema = false,
 )
 @TypeConverters(
     InstantConverter::class,

@@ -26,4 +26,21 @@ plugins {
     alias(libs.plugins.junit5) apply false
     alias(libs.plugins.ksp) apply false
 }
+
+subprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint") // Version should be inherited from parent
+
+    repositories {
+        mavenCentral()
+    }
+
+    configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+        android.set(true)
+        verbose.set(true)
+        ignoreFailures.set(false)
+        reporters {
+            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
+        }
+    }
+}
 true // Needed to make the Suppress annotation work for the plugins block
