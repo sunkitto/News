@@ -32,8 +32,8 @@ android {
         applicationId = "com.sunkitto.news"
         minSdk = 26
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -41,10 +41,20 @@ android {
         buildConfigField("String", "API_KEY", apiKey)
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("C:\\Users\\Sunkeeto\\StudioProjects\\news_key.jks")
+            keyAlias = "public"
+            storePassword = "public12"
+            keyPassword = "public12"
+        }
+    }
+
     buildTypes {
         debug {
             isDebuggable = true
             buildConfigField("Boolean", "DEVELOPER_MODE", "true")
+            signingConfig = signingConfigs.getByName("debug")
         }
         release {
             isDebuggable = false
@@ -56,6 +66,7 @@ android {
                 "proguard-rules.pro",
             )
             buildConfigField("Boolean", "DEVELOPER_MODE", "false")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
