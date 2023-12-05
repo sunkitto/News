@@ -16,7 +16,6 @@
 
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
@@ -43,7 +42,7 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("C:\\Users\\Sunkeeto\\StudioProjects\\news_key.jks")
+            storeFile = file("C:\\Users\\Sunkitto\\AndroidStudioProjects\\news_key.jks")
             keyAlias = "public"
             storePassword = "public12"
             keyPassword = "public12"
